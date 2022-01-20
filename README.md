@@ -1,2 +1,0 @@
-# aniZeroTwo
-AnimeCMS.
