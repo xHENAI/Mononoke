@@ -1,0 +1,226 @@
+@font-face {
+    font-weight: 300;
+    font-style: normal;
+    font-family: 'Ubuntu';
+    src: url(/bootstrap/fonts/Ubuntu-L.ttf);
+}
+
+@font-face {
+    font-weight: 400;
+    font-style: normal;
+    font-family: 'Ubuntu';
+    src: url(/bootstrap/fonts/Ubuntu-R.ttf);
+}
+
+@font-face {
+    font-weight: 600;
+    font-style: normal;
+    font-family: 'Ubuntu';
+    src: url(/bootstrap/fonts/Ubuntu-M.ttf);
+}
+
+@font-face {
+    font-weight: 700;
+    font-style: bold;
+    font-family: 'Ubuntu';
+    src: url(/bootstrap/fonts/Ubuntu-B.ttf);
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 40px;
+    padding-top: 70px;
+    padding-bottom: 30px;
+    font-family: "Ubuntu", sans-serif;
+}
+
+.theme-dropdown .dropdown-menu {
+    position: static;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.footer {
+    position: absolute;
+    padding: 10px 0;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 40px;
+}
+
+.display-none {
+    display: none;
+}
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    background: red;
+    cursor: inherit;
+    display: block;
+}
+
+input[readonly] {
+    cursor: text !important;
+}
+
+#message_container {
+    position: fixed;
+    top: 70px;
+    z-index: 100;
+    height: 100px;
+    left: 50%;
+    width: 50%;
+    margin-left: -25%;
+    pointer-events: none;
+}
+
+img.captcha {
+    margin: 0 auto 15px auto;
+    display: block;
+}
+
+.td-768,
+.td-992,
+.td-1440,
+.span-992,
+.span-1440,
+.li-992 {
+    display: none;
+}
+
+#quick_search_input {
+    border-radius: 4px 0 0 4px;
+}
+
+#quick_search_form {
+    display: 100px;
+}
+
+@media (min-width: 768px) {
+
+    .nav-label-992,
+    .nav-label-1440 {
+        display: none;
+    }
+
+    .td-768 {
+        display: table-cell;
+    }
+
+    #quick_search_input {
+        width: 50px;
+    }
+
+    #quick_search_form {
+        display: inline;
+    }
+}
+
+@media (min-width: 992px) {
+
+    .td-992 {
+        display: table-cell;
+    }
+
+    .nav-label-992,
+    .span-992 {
+        display: inline;
+    }
+
+    #quick_search_input {
+        width: 170px;
+    }
+
+    #quick_search_form {
+        display: inline;
+    }
+}
+
+@media (min-width: 1440px) {
+
+    .nav-label-1440,
+    .span-1440 {
+        display: inline;
+    }
+
+    .span-not-1440,
+    .td-not-1440 {
+        display: none;
+    }
+
+    #quick_search_input {
+        width: 200px;
+    }
+
+    #quick_search_form {
+        display: inline;
+    }
+}
+
+img.reader {
+    cursor: pointer;
+    max-width: 100%;
+    margin: 0 auto;
+    display: block;
+}
+
+img.avatar {
+    max-width: 100px;
+    max-height: 100px;
+}
+
+img.click {
+    cursor: pointer;
+}
+
+img.webtoon,
+img.long-strip {
+    max-width: 100%;
+    display: block;
+}
+
+img.webtoon {
+    margin: 0 auto;
+}
+
+img.long-strip {
+    margin: 0 auto 10px auto;
+}
+
+a.genre,
+a.genre:hover,
+a.genre:focus {
+    color: #fff;
+}
+
+a.manga_title,
+a.manga_title:hover,
+a.manga_title:focus {
+    font-weight: bold;
+}
+
+tr.comment {
+    word-break: normal;
+}
+
+textarea.comment-box {
+    resize: vertical;
+}
