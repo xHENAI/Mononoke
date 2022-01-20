@@ -1,0 +1,21 @@
+Options +FollowSymLinks
+RewriteEngine On
+Options -Indexes
+
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f
+
+php_value upload_max_filesize 5000M
+php_value post_max_size 500M
+php_value max_execution_time 300
+php_value max_input_time 300
+
+# Main Pages
+RewriteRule ^home/?$ ./?page=home
+RewriteRule ^newest/?(.*)/?$ ./?page=newest&pagination=$1
+RewriteRule ^browse/?(.*)/?$ ./?page=browse&pagination=$1
+RewriteRule ^schedule/?(.*)/?$ ./?page=schedule
+
+# Account Pages
+RewriteRule ^signin/?$ ./?page=signin
+RewriteRule ^signup/?$ ./?page=signup
