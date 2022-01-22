@@ -1,3 +1,4 @@
+<?php // parts/menu.part.php - aniZero2 ?>
 <nav id="top_nav" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
@@ -17,8 +18,16 @@
                 <li class="<?php if($page=="browse") { echo "active"; } ?>" id="titles">
                     <a href="<?= $config["url"]; ?>browse"><?= glyph("th-list","Browse") ?> Browse</a>
                 </li>
-                <li class="<?php if($page=="schedule") { echo "active"; } ?>" id="titles">
-                    <a href="<?= $config["url"]; ?>schedule"><?= glyph("calendar","Schedule") ?> <span class="nav-label-1440">Schedule</span></a>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?= glyph("info-sign","More") ?> <span class="nav-label-1440">More</span> <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li class="<?php if($page=="schedule") { echo "active"; } ?>" id="titles">
+                            <a href="<?= $config["url"]; ?>schedule"><?= glyph("calendar","Schedule") ?> Schedule</a>
+                        </li>
+                        <li <?php if($page=="forum") { echo "class=\"active\""; } ?>>
+                            <a href="<?= $config["url"] ?>forum"><?= glyph("education","Forum") ?> Forum</a>
+                        </li>
+                    </ul>
                 </li>
             </ul>
 
@@ -35,7 +44,24 @@
                         </li>
                     </ul>
                     <?php } else { ?>
-
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?= glyph("user","Account") ?> <span class="nav-label-1440"><?= $user["username"] ?></span> <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="<?= $config["url"] ?>user/<?= $user["id"] ?>"><?= glyph("user","My Profile") ?> My Profile</a>
+                        </li>
+                        <li>
+                            <a href="<?= $config["url"] ?>watchlist/<?= $user["id"] ?>"><?= glyph("bookmark","My Watchlist") ?> My Watchlist</a>
+                        </li>
+                        <li>
+                            <a href="<?= $config["url"] ?>follows"><?= glyph("bookmark","My Follows") ?> My Follows</a>
+                        </li>
+                        <li>
+                            <a href="<?= $config["url"] ?>settings"><?= glyph("cog","Settings") ?> Settings</a>
+                        </li>
+                        <li>
+                            <a href="<?= $config["url"] ?>signout" style="color:red"><?= glyph("log-out","Signout") ?>Signout</a>
+                        </li>
+                    </ul>
                     <?php } ?>
                 </li>
             </ul>

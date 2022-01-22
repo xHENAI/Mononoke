@@ -19,3 +19,9 @@ RewriteRule ^schedule/?(.*)/?$ ./?page=schedule
 # Account Pages
 RewriteRule ^signin/?$ ./?page=signin
 RewriteRule ^signup/?$ ./?page=signup
+RewriteRule ^confirm/(.+)/?$ ./?page=confirm&token=$1
+RewriteRule ^forgot/?$ ./?page=forgot
+RewriteRule ^reset/(.+)/?$ ./?page=reset&token=$1
+RewriteRule ^signout/?$ ./?page=signout
+RewriteRule ^user/(.+)/?$ ./?page=user&id=$1
+RewriteRule ^settings/?$ ./?page=settings
