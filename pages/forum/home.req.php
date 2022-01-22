@@ -1,8 +1,11 @@
 <title>Home (Forums) | <?= $config["name"] ?></title>
 
 <?php
-
-$forums = $conn->query("SELECT * FROM `forum` WHERE `public`='1' ORDER BY `sort` ASC");
+if($user["level"]==10 || $user["level"]==0) {
+    $forums = $conn->query("SELECT * FROM `forum` ORDER BY `sort` ASC");
+} else {
+    $forums = $conn->query("SELECT * FROM `forum` WHERE `public`='1' ORDER BY `sort` ASC");
+}
 
 ?>
 
