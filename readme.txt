@@ -1,6 +1,6 @@
 /**********************************************************************\
-|    _____   H33Tx & xHENAI                     __           21.01.2022|
-|   /     \   ____   ___Presents:  ____   ____ |  | __ ____      v0.0.2|
+|    _____   H33Tx & xHENAI                     __           22.01.2022|
+|   /     \   ____   ___Presents:  ____   ____ |  | __ ____      v0.0.3|
 |  /  \ /  \ /  _ \ /    \ /  _ \ /    \ /  _ \|  |/ // __ \           |
 | /    Y    (  <_> )   |  (  <_> )   |  (  <_> )    <\  ___/           |
 | \____|__  /\____/|___|  /\____/|___|  /\____/|__|_ \\___  >          |
@@ -8,10 +8,11 @@
 \**********************************************************************/
 
 /============== About ==================\ /========== Team ============\
-| Worlds (soon to be) most advanced     | | -- HENAI.eu -------------- |
-| Anime site! Featuring Administration  | | | fragile - Security       |
-| features and everything you need for  | | -- H33T.moe -------------- |
-| users, moderators and yourself.       | | | $aintly2k - Programming  |
+| Worlds (soon to be) most advanced     | | | Auvrandil - Security     |
+| Anime site! Featuring Administration  | | -- HENAI.eu -------------- |
+| features and everything you need for  | | | fragile - Security       |
+| users, moderators and yourself.       | | -- H33T.moe -------------- |
+| The successor of aniZero.             | | | $aintly2k - Programming  |
 \=======================================/ | | Kleineick - Programming  |
                                           \============================/
 /========== Installation ===============\
@@ -59,8 +60,8 @@
 
 /=== User-Levels ===\ /=================== Version ====================\
 | 0 = Administrator | |                                                |
-| 10 = Moderator    | |              Current: v0.0.2                   |
-| 20 = Valid User   | |           Last Updated: 21.01.2022             |
+| 10 = Moderator    | |              Current: v0.0.3                   |
+| 20 = Valid User   | |           Last Updated: 22.01.2022             |
 | 30 = Invalid User | |         Notes: Complete rewrite yay!           |
 | 50 = Guest        | |                                                |
 \===================/ \================================================/

@@ -26,6 +26,28 @@ if((isset($_COOKIE[$config["cookie"]."session"]) && !empty($_COOKIE[$config["coo
     $user = array("theme" => $config["theme"], "level" => "50");
 }
 
+// Login function because I need to set cookies
+
+if(isset($_POST["login_user"])) {
+    $error = false;
+    $error_msg = "";
+    $username = mysqli_real_escape_string($conn, $_POST["username"]);
+    $password = mysqli_real_escape_string($conn, $_POST["password"]);
+    $password = hash("sha512",$password);
+    $usercheck = $conn->query("SELECT * FROM `user` WHERE `username`='$username' AND `password`='$password'");
+    if(mysqli_num_rows($usercheck)==1) {
+        $token = rand();
+        $token = md5($token);
+        setcookie("".$config["cookie"]."session", $token, time()+(86400*30), "/", $config["domain"]);
+        $_SESSION[$config["cookie"]."session"] = $token;
+        $conn->query("INSERT INTO `user_tokens`(`user`,`token`) VALUES('$username','$token')");
+        redirect("home");
+    } else {
+        $error = true;
+        $error_msg = "Username/Password is wrong!";
+    }
+}
+
 /* Functions */
 
 function glyph($glyph, $title) {
@@ -33,7 +55,7 @@ function glyph($glyph, $title) {
 }
 
 function redirect($destination) {
-    echo "<script type=\"text/javascript\"> document.location = \"../".$destination."\"; </script>";
+    echo "<script type=\"text/javascript\"> document.location = \"".$config["url"].$destination."\"; </script>";
 }
 
 function convert_level($level) {
