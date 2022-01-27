@@ -9,5 +9,7 @@ $scheduleNav = array("schedule");
 $watchNav = array("watch");
 $followNav = array("anime");
 $requireLogin = array("settings","follows","forum");
+$requireMode = array("new_forum","edit_forum");
+$requireAdmin = array("new_forum","edit_forum");
 
 ?>

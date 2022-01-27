@@ -23,12 +23,22 @@ if(in_array($page,$requireLogin) && $loggedin==false) {
     $page = "signin";
 }
 
+if(in_array($page,$requireMod) && ($user["level"]!==10 || $user["level"]!==0)) {
+    $page = "home";
+}
+
 if($page=="signout") {
     // Removing token from Database and destroy entire session and so on
     $conn->query("DELETE FROM `user_tokens` WHERE `user`='".$user["username"]."'");
+    setcookie($config["cookie"]."session", "", time() - 3600, "/", $config["domain"]);
     session_destroy();
     session_unset();
-    setcookie($config["cookie"]."token", "", time() - 3600);
+    redirect("home");
+}
+
+if(isset($_POST["read_announce"])) {
+    $user_announce = $user["id"];
+    $conn->query("UPDATE `user` SET `read_announce`='1' WHERE `id`='$user_announce'");
     redirect("home");
 }
 
@@ -75,6 +85,20 @@ ___________    .__                           ____  __.__         .__            
     <?php include("parts/menu.part.php"); ?>
 
     <div class="container">
+
+        <?php if($user["read_announce"]==0) { // Shows notice that this software is still trash :^) ?>
+        <div class="alert alert-danger text-center" role="alert">
+            <?php if($loggedin==true) { // Only display close button if user is logged in ?>
+            <form name="read_announce" method="post" action=""><button type="submit" name="read_announce" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button></form>
+            <?php } ?>
+            <b>Hello!</b> Please keep in mind that the software that is powering <?= $config["name"] ?> is still in Alpha. Make sure to check out the <a href="https://github.com/xHENAI/Mononoke" target="_blank">GitHub</a>!
+        </div>
+        <?php } ?>
+
+
+        <?php if($user["level"]==30) { // Show if user is still level 30 and not 20 (see readme.txt#devnotes) ?>
+        <div class="alert alert-info text-center" role="alert"><b>Alert:</b> You haven't verified your eMail yet! To use all features of <?= $config["name"] ?>, you need to do that first.</div>
+        <?php } ?>
 
         <?php include("pages/$page.req.php"); ?>
 

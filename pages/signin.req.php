@@ -2,28 +2,6 @@
 
 // pages/signin.req.php - Mononoke
 
-if(isset($_POST["login_user"])) {
-    $error = false;
-    $error_msg = "";
-    $username = mysqli_real_escape_string($conn, $_POST["username"]);
-    $password = mysqli_real_escape_string($conn, $_POST["password"]);
-    $password = hash("sha512",$password);
-    $usercheck = $conn->query("SELECT * FROM `user` WHERE `username`='$username' AND `password`='$password'");
-    if(mysqli_num_rows($usercheck)==1) {
-        $token = rand();
-        $token = md5($token);
-        if(isset($_POST["remember_me"])) {
-            setcookie($config["cookie"]."session", $token, time()+(86400*30), "/");
-        }
-        $_SESSION[$config["cookie"]."session"] = $token;
-        $conn->query("INSERT INTO `user_tokens`(`user`,`token`) VALUES('$username','$token')");
-        redirect("home");
-    } else {
-        $error = true;
-        $error_msg = "Username/Password is wrong!";
-    }
-}
-
 ?>
 
 <title>Signin | <?= $config["name"] ?></title>
@@ -55,7 +33,7 @@ if(isset($_POST["login_user"])) {
         <?php } ?>
         <a href="<?= $config["url"] ?>forgot" class="btn btn-lg btn-warning btn-block" id="forgot_button"><?= glyph("refresh","Reset Password") ?> Reset Password</a>
         <hr>
-        <p>Don't have an account? <a href="/signup">Signup!</a></p>
+        <p>Don't have an account? <a href="<?= $config["url"] ?>signup">Signup!</a></p>
     </form>
 </div>
 <?php } else {

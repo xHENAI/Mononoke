@@ -25,3 +25,12 @@ RewriteRule ^reset/(.+)/?$ ./?page=reset&token=$1
 RewriteRule ^signout/?$ ./?page=signout
 RewriteRule ^user/(.+)/?$ ./?page=user&id=$1
 RewriteRule ^settings/?$ ./?page=settings
+RewriteRule ^follows/?$ ./?page=follows
+RewriteRule ^watchlist/(.+)?$ ./?page=follows&id=$1
+
+# Forum Pages
+RewriteRule ^forum/?$ ./?page=forum
+RewriteRule ^forum/home/?$ ./?page=forum&action=home
+RewriteRule ^forum/new/?$ ./?page=forum&action=new
+RewriteRule ^forum/viewforum/(.+)/?$ ./?page=forum&action=viewforum&id=$1
+RewriteRule ^forum/editforum/(.+)/?$ ./?page=forum&action=editforum&id=$1
