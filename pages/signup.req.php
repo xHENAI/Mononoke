@@ -29,7 +29,7 @@ if($config["registration"]==true) {
             if($error==false) {
                 //$password = password_hash($password1, PASSWORD_DEFAULT);
                 $password = hash("sha512",$password1);
-                $conn->query("INSERT INTO `user`(`level`,`username`,`password`,`email`,`image`,`theme`,`public_profile`,`public_watchlist`,`read_announce`) VALUES('30','$username','$password','$email','".$config["url"]."assets/img/default.jpeg','1','1','0','0')");
+                $conn->query("INSERT INTO `user`(`level`,`username`,`password`,`email`,`image`,`theme`,`public_profile`,`public_watchlist`,`read_announce`,`forum_signature`) VALUES('30','$username','$password','$email','".$config["url"]."assets/img/default.jpeg','1','1','0','0',NULL)");
                 $namecheck = $conn->query("SELECT * FROM `user` WHERE `username`='$username' AND `password`='$password' LIMIT 1");
                 $namecheck = mysqli_fetch_assoc($namecheck);
                 $tokenuser = $email;

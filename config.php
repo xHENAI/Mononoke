@@ -6,7 +6,7 @@
 
 $config["name"] = "Mononoke"; // Name that will be shown in Title and menu (if no picture)
 $config["picture"] = ""; // Picure that will be shown in menu (leave empty for name only)
-$config["url"] = "http://localhost/aniZeroTwo/"; // Full URL to page, needs to end with a slash!
+$config["url"] = "http://localhost/"; // Full URL to page, needs to end with a slash!
 $config["theme"] = "1"; // Default Theme - Located in /scripts/bootstrap/css/bootstrap.[theme].css
 $config["registration"] = true; // true = people can signup, false = people can't
 $config["email"] = "anizero@henai.eu"; // Contact eMail (leave blank for none)
@@ -29,7 +29,7 @@ $seo["slogan"] = "Your place to watch Anime online in High-Quality in english wi
 
 $slave["host"] = "localhost"; // MySQL Host
 $slave["user"] = "root"; // Username for MySQL
-$slave["pass"] = ""; // Password for User
+$slave["pass"] = "root"; // Password for User
 $slave["tale"] = "mononoke"; // MySQL Table
 
 ?>
