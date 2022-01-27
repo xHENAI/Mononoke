@@ -146,7 +146,7 @@ if(isset($_POST["update_forum"])) {
             <form class="form-horizontal" method="post" action="" name="update_forum">
                 <br>
                 <div class="form-group">
-                    <label class="control-label col-sm-3" for="signature">Signature (Supports HTML)</label>
+                    <label class="control-label col-sm-3" for="signature">Signature (Supports BBCode)</label>
                     <div class="col-sm-9">
                         <textarea class="form-control" id="signature" style="max-width:100%;min-width:100%;" name="signature" placeholder="Forum Signature (Shows below a post/comment of you). Maximal 500 Characters." maxlength="500"><?= $user["forum_signature"] ?></textarea>
                     </div>

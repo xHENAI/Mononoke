@@ -8,7 +8,7 @@ if(isset($_POST["confirm_account"])) {
     $error = false;
     $error_msg = "";
     $confirm = $conn->query("SELECT * FROM `user_verification` WHERE `token`='$token'");
-    if(mysqli_num_rows($confirm)==1) {
+    if(mysqli_num_rows($confirm)>=1) {
         $confirm = mysqli_fetch_assoc($confirm);
     } else {
         $error = true;

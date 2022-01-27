@@ -33,13 +33,13 @@ if($page=="signout") {
     setcookie($config["cookie"]."session", "", time() - 3600, "/", $config["domain"]);
     session_destroy();
     session_unset();
-    redirect("home");
+    redirect("");
 }
 
 if(isset($_POST["read_announce"])) {
     $user_announce = $user["id"];
     $conn->query("UPDATE `user` SET `read_announce`='1' WHERE `id`='$user_announce'");
-    redirect("home");
+    redirect("");
 }
 
 ?>
