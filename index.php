@@ -6,12 +6,12 @@ session_start();
 
 require("requires.php");
 
-if(!empty($_GET["page"])) {
-    $page = $_GET["page"];
-} else {
+if(empty($_GET["page"])) {
     $page = "home";
     header("location: ".$config["url"]."home");
 }
+
+$page = $_GET["page"];
 
 if($config["private"]==true && ($page!=="signin" && $page!=="signup" && $page!=="confirm" && $page!=="forgot" && $page!=="reset") && $loggedin==false) {
     // Checking if site is private. if yes and page is none of those you need to login etc. forces you to login
