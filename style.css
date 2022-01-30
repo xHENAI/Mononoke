@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Vidaloka&display=swap');
+
+body {
+    font-family: 'Vidaloka', serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.title {
+    background: url("img/image-w1280.png");
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 300px;
+    padding: 10px;
+}
+
+.title h1 {
+    padding-top: 215px;
+    color: aqua;
+    text-shadow: 1px 1px 3px blue;
+}
+
+.title h3 {
+    color: cornflowerblue;
+    margin-top: -20px;
+    text-shadow: 1px 1px 3px blue;
+}
+
+.right {
+    float: right;
+}
+
+.title a {
+    color: blueviolet;
+    transition: .2s;
+}
+
+.title a:hover {
+    color: cornflowerblue;
+    text-shadow: 2px 0px 5px blue;
+    transition: .2s;
+}
+
+.content-bg {
+    padding: 5px;
+    border-radius: 2px;
+}
+
+.content {
+    opacity: 1.0;
+    color: currentColor;
+    text-shadow: 0px 0px 3px white;
+    margin-bottom: 70px;
+}
+
+.border {
+    margin-top: 15px;
+    border: 1px solid black;
+    padding: 5px;
+}
+
+.border h3 {
+    margin-top: -17px;
+    background-color: white;
+    width: min-content;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.footer {
+    background-color: aqua;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    margin-top: 5px;
+    height: 50px;
+    padding: 10px;
+    margin-bottom: -5px;
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    width: 100%;
+}
