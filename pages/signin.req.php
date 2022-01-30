@@ -2,6 +2,10 @@
 
 // pages/signin.req.php - Mononoke
 
+if(!isset($error)) {
+    $error = "";
+}
+
 ?>
 
 <title>Signin | <?= $config["name"] ?></title>
@@ -22,7 +26,7 @@
 
         <div class="checkbox">
             <label>
-                <input type="checkbox" name="remember_me" value="1"> Remember me (1 Month, requires Cookies)
+                <input type="checkbox" name="remember_me" value="1"> <span class="image-shadow">Remember me (1 Month, requires Cookies)</span>
             </label>
         </div>
 
@@ -33,7 +37,7 @@
         <?php } ?>
         <a href="<?= $config["url"] ?>forgot" class="btn btn-lg btn-warning btn-block" id="forgot_button"><?= glyph("refresh","Reset Password") ?> Reset Password</a>
         <hr>
-        <p>Don't have an account? <a href="<?= $config["url"] ?>signup">Signup!</a></p>
+        <p class="image-shadow">Don't have an account? <a href="<?= $config["url"] ?>signup">Signup!</a></p>
     </form>
 </div>
 <?php } else {

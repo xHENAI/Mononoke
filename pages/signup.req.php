@@ -50,12 +50,12 @@ if($config["registration"]==true) {
         <hr>
         <div class="form-group">
             <label for="reg_username" class="sr-only">Username</label>
-            <input data-toggle="popover" data-content="Alphanumeric characters only." type="text" name="username" id="reg_username" class="form-control" placeholder="Username" required>
+            <input data-toggle="popover" minlength="3" data-content="Alphanumeric characters only." type="text" name="username" id="reg_username" class="form-control" placeholder="Username" required>
         </div>
 
         <div class="form-group">
             <label for="reg_pass1" class="sr-only">Password</label>
-            <input data-toggle="popover" data-content="Minimum length: 8 characters." type="password" name="password_1" id="reg_pass1" class="form-control" placeholder="Password" required>
+            <input data-toggle="popover" minlenth="8" data-content="Minimum length: 8 characters." type="password" name="password_1" id="reg_pass1" class="form-control" placeholder="Password" required>
         </div>
 
         <div class="form-group">
@@ -66,7 +66,7 @@ if($config["registration"]==true) {
         <div class="form-group">
             <label for="reg_email1" class="sr-only">eMail Address</label>
             <input data-toggle="popover" data-content="Valid email required for activation." type="email" name="email" id="reg_email1" class="form-control" placeholder="eMail Address" required>
-            <small>You will need to confirm your eMail!</small>
+            <small class="image-shadow">You will need to confirm your eMail!</small>
         </div>
 
         <button class="btn btn-lg btn-success btn-block" type="submit" name="reg_user" id="signup_button"><?= glyph("log-in","Signup") ?> Signup</button>
@@ -75,7 +75,7 @@ if($config["registration"]==true) {
         <p style="color:red"><?= $error_msg ?></p>
         <?php } ?>
         <hr>
-        <p>Already have an account? <a href="<?= $config["url"] ?>signin">Signin!</a></p>
+        <p class="image-shadow">Already have an account? <a href="<?= $config["url"] ?>signin">Signin!</a></p>
     </form>
 </div>
 

@@ -2,14 +2,13 @@
 
 // core/arrays.req.php - Mononoke
 
-$noNav = array("signin","signup","changelog","news");
-$mainNav = array("home");
+$noNav = array("signin","signup","confirm","forgot","changelog","news","forum","settings","add_anime");
 $controlNav = array("watchlist","follows");
 $scheduleNav = array("schedule");
 $watchNav = array("watch");
 $followNav = array("anime");
 $requireLogin = array("settings","follows","forum");
-$requireMode = array("new_forum","edit_forum");
-$requireAdmin = array("new_forum","edit_forum");
+$requireMod = array("new_forum","edit_forum","add_anime");
+$requireAdmin = array("new_forum","edit_forum","add_anime");
 
 ?>

@@ -12,6 +12,7 @@ if(isset($_POST["confirm_account"])) {
         $confirm = mysqli_fetch_assoc($confirm);
     } else {
         $error = true;
+        $success = false;
         $error_msg = "The Token is invalid!";
     }
     if($error==false) {
@@ -20,6 +21,11 @@ if(isset($_POST["confirm_account"])) {
         $conn->query("DELETE FROM `user_verification` WHERE `user`='$usermail'");
         $success = true;
     }
+}
+
+if(!isset($error_msg)) {
+    $error_msg = "";
+    $success = false;
 }
 
 ?>
