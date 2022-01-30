@@ -36,3 +36,6 @@ RewriteRule ^forum/new/?$ ./?page=forum&action=new
 RewriteRule ^forum/viewforum/(.+)/?$ ./?page=forum&action=viewforum&id=$1
 RewriteRule ^forum/editforum/(.+)/?$ ./?page=forum&action=editforum&id=$1
 RewriteRule ^forum/viewthread/(.+)/?$ ./?page=forum&action=viewthread&id=$1
+
+# Anime Pages
+RewriteRule ^add_anime/?$ ./?page=add_anime

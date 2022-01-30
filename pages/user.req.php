@@ -8,6 +8,7 @@ if(!empty($user["id"])) {
     $comments1 = $conn->query("SELECT COUNT(*) AS total FROM `anime_comments` WHERE `user`='$id'");
     $comments2 = $conn->query("SELECT COUNT(*) AS total FROM `episode_comments` WHERE `user`='$id'");
     $comments3 = $comments1["total"]+$comments2["total"];
+    
     //errors for literally no reason :( $forumposts1 = $conn->query("SELECT COUNT(*) AS total FROM `forum_posts` WHERE `user`='$id'");
     //$forumposts2 = $conn->query("SELECT COUNT(*) AS total FROM `forum_threads` WHERE `user`='$id'");
     //$forumposts3 = $forumposts1["total"]+$forumposts2["total"];

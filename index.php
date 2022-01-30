@@ -23,17 +23,21 @@ if(in_array($page,$requireLogin) && $loggedin==false) {
     $page = "signin";
 }
 
-if(in_array($page,$requireMod) && ($user["level"]!==10 || $user["level"]!==0)) {
-    $page = "home";
+if(in_array($page,$requireMod) || in_array($page, $requireAdmin)) {
+    if((in_array($page, $requireMod) && ($user["level"]==10 || $user["level"]==0)) || (in_array($page,$requireAdmin) && $user["level"]==0)) {
+        $page = $page;
+    } else {
+        $page = "home";
+    }
 }
 
 if($page=="signout") {
     // Removing token from Database and destroy entire session and so on
     $conn->query("DELETE FROM `user_tokens` WHERE `user`='".$user["username"]."'");
-    setcookie($config["cookie"]."session", "", time() - 3600, "/", $config["domain"]);
+    setcookie($config["cookie"]."session", "", time() - 3600, "/", "");
     session_destroy();
     session_unset();
-    redirect("");
+    redirect("home");
 }
 
 if(isset($_POST["read_announce"])) {
@@ -100,7 +104,47 @@ ___________    .__                           ____  __.__         .__            
         <div class="alert alert-info text-center" role="alert"><b>Alert:</b> You haven't verified your eMail yet! To use all features of <?= $config["name"] ?>, you need to do that first.</div>
         <?php } ?>
 
-        <?php include("pages/$page.req.php"); ?>
+        <div class="row">
+
+            <?php if(in_array($page, $noNav)) { ?>
+
+            <div class="col-md-12">
+
+                <?php include("pages/$page.req.php"); ?>
+
+            </div>
+
+            <?php } else { ?>
+
+            <div class="col-md-9">
+
+                <?php include("pages/$page.req.php"); ?>
+
+            </div>
+
+            <div class="col-md-3">
+
+                <?php
+                        if(in_array($page, $controlNav)) {
+                            include("navs/control.bar.php");
+                        }
+                        if(in_array($page, $scheduleNav)) {
+                            include("navs/schedule.bar.php");
+                        }
+                        if(in_array($page, $watchNav)) {
+                            include("navs/watch.bar.php");
+                        }
+                        if(in_array($page, $followNav)) {
+                            include("navs/follow.bar.php");
+                        }
+                        include("navs/main.bar.php");
+                          ?>
+
+            </div>
+
+            <?php } ?>
+
+        </div>
 
     </div>
 

@@ -1,6 +1,6 @@
 /**********************************************************************\
-|    _____   H33Tx & xHENAI                     __           28.01.2022|
-|   /     \   ____   ___Presents:  ____   ____ |  | __ ____      v0.0.4|
+|    _____   H33Tx & xHENAI                     __           30.01.2022|
+|   /     \   ____   ___Presents:  ____   ____ |  | __ ____  v0.0.5-dev|
 |  /  \ /  \ /  _ \ /    \ /  _ \ /    \ /  _ \|  |/ // __ \           |
 | /    Y    (  <_> )   |  (  <_> )   |  (  <_> )    <\  ___/           |
 | \____|__  /\____/|___|  /\____/|___|  /\____/|__|_ \\___  >          |
@@ -15,8 +15,43 @@
 | The successor of aniZero.             | | | $aintly2k - Programming  |
 \=======================================/ | | Kleineick - Programming  |
                                           \============================/
-/========== Installation ===============\
-|   ONLY DOWNLOAD @ github.com/xHENAI   \==============================\
+/============== Features ===============\
+| Existing and planned ones.            \==============================\
+| [x] Account System                                                   |
+|     [x] Signin & Signup                                              |
+|     [x] Confirm Account via eMail                                    |
+|     [x] Edit Account & Preferences                                   |
+|     [x] Viewing Profile of other User                                |
+| [x] Forum System                                                     |
+|     [x] Create and Edit Forum                                        |
+|     [x] Make Forum private, public, open & closed                    |
+|     [x] Create new Threads and Post Replies                          |
+| [ ] Anime System                                                     |
+|     [ ] Add and Edit Animes (WIP)                                    |
+|     [ ] View Animes on seperate Page                                 |
+|     [ ] See "New Episode" Button on Anime Page                       |
+| [ ] Episode System                                                   |
+|     [ ] Add New Episode                                              |
+|     [ ] Multiple Streamhosters                                       |
+|         [ ] Local Storage (Upload)                                   |
+|         [ ] Animixplay                                               |
+|         [x] GogoAnime                                                |
+|         [ ] 9anime                                                   |
+|         [x] YouTube                                                  |
+|         [x] mp4upload                                                |
+|         [x] StreamTape                                               |
+|     [ ] Edit Episode                                                 |
+| [ ] Comment System                                                   |
+|     [ ] Comment on Anime page                                        |
+|     [ ] Comment on Episode page                                      |
+|     [ ] Report Comments                                              |
+|     [ ] Manage Comments (As Mod, Admin or Comment Author)            |
+|                                                                      |
+| More to come...                                                      |
+\======================================================================/
+                                          
+/============================ Installation ============================\
+|   ONLY DOWNLOAD @ github.com/xHENAI                                  |
 | - General Setup ---------------------------------------------------- |
 | 1. Download the latest stable Release                                |
 | 2. Move all stuff to your webroot and open config.php                |
@@ -60,8 +95,8 @@
 
 /=== User-Levels ===\ /=================== Version ====================\
 | 0 = Administrator | |                                                |
-| 10 = Moderator    | |              Current: v0.0.4                   |
-| 20 = Valid User   | |           Last Updated: 28.01.2022             |
+| 10 = Moderator    | |             Current: v0.0.5-dev                |
+| 20 = Valid User   | |           Last Updated: 30.01.2022             |
 | 30 = Invalid User | |         Notes: Complete rewrite yay!           |
 | 50 = Guest        | |                                                |
 \===================/ \================================================/

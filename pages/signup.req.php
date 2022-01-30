@@ -50,12 +50,12 @@ if($config["registration"]==true) {
         <hr>
         <div class="form-group">
             <label for="reg_username" class="sr-only">Username</label>
-            <input data-toggle="popover" data-content="Alphanumeric characters only." type="text" name="username" id="reg_username" class="form-control" placeholder="Username" required>
+            <input data-toggle="popover" minlength="3" data-content="Alphanumeric characters only." type="text" name="username" id="reg_username" class="form-control" placeholder="Username" required>
         </div>
 
         <div class="form-group">
             <label for="reg_pass1" class="sr-only">Password</label>
-            <input data-toggle="popover" data-content="Minimum length: 8 characters." type="password" name="password_1" id="reg_pass1" class="form-control" placeholder="Password" required>
+            <input data-toggle="popover" minlenth="8" data-content="Minimum length: 8 characters." type="password" name="password_1" id="reg_pass1" class="form-control" placeholder="Password" required>
         </div>
 
         <div class="form-group">

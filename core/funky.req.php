@@ -23,7 +23,7 @@ if((isset($_COOKIE[$config["cookie"]."session"]) && !empty($_COOKIE[$config["coo
     }
 } else {
     $loggedin = false;
-    $user = array("theme" => $config["theme"], "level" => "50");
+    $user = array("theme" => $config["theme"], "level" => "50", "read_announce" => "0");
 }
 
 // Login function because I need to set cookies
@@ -89,7 +89,7 @@ function convert_theme($theme) {
 function bbconvert($text) {
 	
 	// Always ensure that user inputs are scanned and filtered properly.
-	$text  = htmlspecialchars($text, ENT_QUOTES, $charset);
+	$text  = htmlspecialchars($text, ENT_QUOTES);
 
 	// BBcode array
 	$find = array(

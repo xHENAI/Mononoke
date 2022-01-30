@@ -7,7 +7,7 @@ $forum = mysqli_fetch_assoc($forum);
 if(!empty($forum["id"])) {
     
     if(($forum["public"]==1) || ($forum["public"]==0 && ($user["level"]==0 || $user["level"]==10))) {
-        if($user["leve"]==10 || $user["level"]==0) {
+        if($user["level"]==10 || $user["level"]==0) {
             $stickythreads = $conn->query("SELECT * FROM `forum_threads` WHERE `forum`='".$forum["id"]."' AND `sticky`='1' ORDER BY `posted` DESC");
             $threads = $conn->query("SELECT * FROM `forum_threads` WHERE `forum`='".$forum["id"]."' AND `sticky`='0' ORDER BY `posted` DESC");
         } else {

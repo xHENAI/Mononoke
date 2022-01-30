@@ -26,7 +26,11 @@ if($user["level"]==10 || $user["level"]==0) {
             redirect("home");
         }
     }
-                                             
+    
+    if(!isset($error)) {
+        $error = "";
+    }
+    
 ?>
 
 <ol class="breadcrumb">

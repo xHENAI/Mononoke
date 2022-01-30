@@ -2,6 +2,10 @@
 
 // pages/signin.req.php - Mononoke
 
+if(!isset($error)) {
+    $error = "";
+}
+
 ?>
 
 <title>Signin | <?= $config["name"] ?></title>
