@@ -31,6 +31,16 @@ if(in_array($page,$requireMod) || in_array($page, $requireAdmin)) {
     }
 }
 
+$class = "";
+
+if($page=="signin") {
+    $class = "signin-div";
+}
+
+if($page=="signup") {
+    $class = "signup-div";
+}
+
 if($page=="signout") {
     // Removing token from Database and destroy entire session and so on
     $conn->query("DELETE FROM `user_tokens` WHERE `user`='".$user["username"]."'");
@@ -84,7 +94,7 @@ ___________    .__                           ____  __.__         .__            
 
 </head>
 
-<body>
+<body class="<?= $class ?>">
 
     <?php include("parts/menu.part.php"); ?>
 
