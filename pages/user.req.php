@@ -1,5 +1,7 @@
 <?php
 
+// pages/user.req.php - Mononoke
+
 $id = $_GET["id"];
 $vuser = $conn->query("SELECT * FROM `user` WHERE `id`='$id' LIMIT 1");
 $vuser = mysqli_fetch_assoc($vuser);

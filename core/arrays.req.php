@@ -4,7 +4,7 @@
 
 $noNav = array("signin","signup","confirm","forgot","changelog","news","forum","settings","add_anime");
 $controlNav = array("watchlist","follows");
-$scheduleNav = array("schedule");
+$scheduleNav = array("schedule","mod");
 $watchNav = array("watch");
 $followNav = array("anime");
 $requireLogin = array("settings","follows","forum");

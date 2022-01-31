@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.6deb5ubuntu0.5
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Jan 28, 2022 at 12:20 AM
--- Server version: 5.7.36-0ubuntu0.18.04.1
--- PHP Version: 7.3.33-1+ubuntu18.04.1+deb.sury.org+1
+-- Host: 127.0.0.1
+-- Erstellungszeit: 31. Jan 2022 um 18:32
+-- Server-Version: 10.4.22-MariaDB
+-- PHP-Version: 7.4.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -17,16 +18,16 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `mononoke`
+-- Datenbank: `mononoke`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `animes`
+-- Tabellenstruktur für Tabelle `anime`
 --
 
-CREATE TABLE `animes` (
+CREATE TABLE `anime` (
   `id` int(11) NOT NULL,
   `name` varchar(250) NOT NULL,
   `image` varchar(4) NOT NULL,
@@ -36,7 +37,7 @@ CREATE TABLE `animes` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `forum`
+-- Tabellenstruktur für Tabelle `forum`
 --
 
 CREATE TABLE `forum` (
@@ -51,7 +52,7 @@ CREATE TABLE `forum` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `forum_posts`
+-- Tabellenstruktur für Tabelle `forum_posts`
 --
 
 CREATE TABLE `forum_posts` (
@@ -60,14 +61,14 @@ CREATE TABLE `forum_posts` (
   `forum` int(11) NOT NULL,
   `thread` int(11) NOT NULL,
   `content` text NOT NULL,
-  `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `date` datetime NOT NULL DEFAULT current_timestamp(),
   `deleted` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `forum_threads`
+-- Tabellenstruktur für Tabelle `forum_threads`
 --
 
 CREATE TABLE `forum_threads` (
@@ -78,14 +79,29 @@ CREATE TABLE `forum_threads` (
   `closed` int(11) NOT NULL,
   `sticky` int(11) NOT NULL,
   `deleted` int(11) NOT NULL,
-  `posted` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `posted` datetime NOT NULL DEFAULT current_timestamp(),
   `user` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Tabellenstruktur für Tabelle `schedule`
+--
+
+CREATE TABLE `schedule` (
+  `id` int(11) NOT NULL,
+  `anime` int(11) NOT NULL,
+  `release` time NOT NULL,
+  `tleft` datetime DEFAULT NULL,
+  `added` datetime NOT NULL DEFAULT current_timestamp(),
+  `day` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `user`
 --
 
 CREATE TABLE `user` (
@@ -105,102 +121,120 @@ CREATE TABLE `user` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_forgot`
+-- Tabellenstruktur für Tabelle `user_forgot`
 --
 
 CREATE TABLE `user_forgot` (
   `user` varchar(250) NOT NULL,
   `token` text NOT NULL,
-  `from` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `from` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_tokens`
+-- Tabellenstruktur für Tabelle `user_tokens`
 --
 
 CREATE TABLE `user_tokens` (
   `token` text NOT NULL,
   `user` varchar(250) NOT NULL,
-  `from` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `from` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_verification`
+-- Tabellenstruktur für Tabelle `user_verification`
 --
 
 CREATE TABLE `user_verification` (
   `user` varchar(250) NOT NULL,
   `token` text NOT NULL,
-  `from` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `from` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Indexes for dumped tables
+-- Indizes der exportierten Tabellen
 --
 
 --
--- Indexes for table `animes`
+-- Indizes für die Tabelle `anime`
 --
-ALTER TABLE `animes`
+ALTER TABLE `anime`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `forum`
+-- Indizes für die Tabelle `forum`
 --
 ALTER TABLE `forum`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `forum_posts`
+-- Indizes für die Tabelle `forum_posts`
 --
 ALTER TABLE `forum_posts`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `forum_threads`
+-- Indizes für die Tabelle `forum_threads`
 --
 ALTER TABLE `forum_threads`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `user`
+-- Indizes für die Tabelle `schedule`
+--
+ALTER TABLE `schedule`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indizes für die Tabelle `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT für exportierte Tabellen
 --
 
 --
--- AUTO_INCREMENT for table `animes`
+-- AUTO_INCREMENT für Tabelle `anime`
 --
-ALTER TABLE `animes`
+ALTER TABLE `anime`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
--- AUTO_INCREMENT for table `forum`
+-- AUTO_INCREMENT für Tabelle `forum`
 --
 ALTER TABLE `forum`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
--- AUTO_INCREMENT for table `forum_posts`
+-- AUTO_INCREMENT für Tabelle `forum_posts`
 --
 ALTER TABLE `forum_posts`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
--- AUTO_INCREMENT for table `forum_threads`
+-- AUTO_INCREMENT für Tabelle `forum_threads`
 --
 ALTER TABLE `forum_threads`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT für Tabelle `schedule`
+--
+ALTER TABLE `schedule`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT für Tabelle `user`
 --
 ALTER TABLE `user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -1,5 +1,7 @@
 <?php
 
+// pages/browse.req.php - Mononoke
+
 $total_pages = $conn->query('SELECT COUNT(*) FROM `anime`')->fetch_row()[0];
 $page = isset($_GET['pagination']) && is_numeric($_GET['pagination']) ? $_GET['pagination'] : 1;
 $num_results_on_page = 20;

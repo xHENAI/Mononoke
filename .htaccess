@@ -1,3 +1,5 @@
+# .htaccess - Mononoke
+
 Options +FollowSymLinks
 RewriteEngine On
 Options -Indexes
@@ -39,3 +41,13 @@ RewriteRule ^forum/viewthread/(.+)/?$ ./?page=forum&action=viewthread&id=$1
 
 # Anime Pages
 RewriteRule ^add_anime/?$ ./?page=add_anime
+RewriteRule ^edit_anime/(.+)/?$ ./?page=edit_anime&id=$1
+RewriteRule ^anime/(.+)/?$ ./?page=anime&id=$1
+
+# Episode Pages
+RewriteRule ^add_episode/(.+)/?$ ./?page=add_episode&id=$1
+RewriteRule ^edit_episode/(.+)/?$ ./?page=edit_episode&id=$1
+RewriteRule ^watch/(.+)/(.+)/?$ ./?page=watch&id=$1&ep=$2
+
+# System Pages
+RewriteRule ^sys/schedule/?$ ./?page=mod&action=schedule

@@ -1,5 +1,7 @@
 <?php
 
+// pages/forum/viewforum.req.php - Mononoke
+
 $forum = $_GET["id"];
 $forum = $conn->query("SELECT * FROM `forum` WHERE `id`='$forum' LIMIT 1");
 $forum = mysqli_fetch_assoc($forum);

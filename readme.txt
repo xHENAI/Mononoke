@@ -1,6 +1,6 @@
 /**********************************************************************\
-|    _____   H33Tx & xHENAI                     __           30.01.2022|
-|   /     \   ____   ___Presents:  ____   ____ |  | __ ____  v0.0.5-dev|
+|    _____   H33Tx & xHENAI                     __           31.01.2022|
+|   /     \   ____   ___Presents:  ____   ____ |  | __ ____      v0.0.5|
 |  /  \ /  \ /  _ \ /    \ /  _ \ /    \ /  _ \|  |/ // __ \           |
 | /    Y    (  <_> )   |  (  <_> )   |  (  <_> )    <\  ___/           |
 | \____|__  /\____/|___|  /\____/|___|  /\____/|__|_ \\___  >          |
@@ -27,7 +27,7 @@
 |     [x] Make Forum private, public, open & closed                    |
 |     [x] Create new Threads and Post Replies                          |
 | [ ] Anime System                                                     |
-|     [ ] Add and Edit Animes (WIP)                                    |
+|     [x] Add and Edit Animes (WIP)                                    |
 |     [ ] View Animes on seperate Page                                 |
 |     [ ] See "New Episode" Button on Anime Page                       |
 | [ ] Episode System                                                   |
@@ -46,6 +46,10 @@
 |     [ ] Comment on Episode page                                      |
 |     [ ] Report Comments                                              |
 |     [ ] Manage Comments (As Mod, Admin or Comment Author)            |
+| [ ] Schedule System                                                  |
+|     [ ] Add new entry to Schedule                                    |
+|     [ ] Edit Schedule-entries                                        |
+|     [ ] View Schedule-Page and time (When release?)                  |
 |                                                                      |
 | More to come...                                                      |
 \======================================================================/
@@ -95,17 +99,17 @@
 
 /=== User-Levels ===\ /=================== Version ====================\
 | 0 = Administrator | |                                                |
-| 10 = Moderator    | |             Current: v0.0.5-dev                |
-| 20 = Valid User   | |           Last Updated: 30.01.2022             |
+| 10 = Moderator    | |               Current: v0.0.5                  |
+| 20 = Valid User   | |           Last Updated: 31.01.2022             |
 | 30 = Invalid User | |         Notes: Complete rewrite yay!           |
 | 50 = Guest        | |                                                |
 \===================/ \================================================/
 
-/============================ Anime Status ============================\
-| 0 = Planned                                                          |
-| 1 = Airing                                                           |
-| 2 = Completed                                                        |
-\======================================================================/
+/====== Anime Status ======\ /============== Weekdays =================\
+| 0 = Planned              | | 1 = Sunday         | 4 = Wednesday      |
+| 1 = Airing               | | 2 = Monday         | 5 = Thursday       |
+| 2 = Completed            | | 3 = Tuesday        | 6 = Friday         |
+\==========================/ \===================== 7 = Saturday ======/
 
 /=============================== Themes ===============================\
 | bootstrap.0.css - Bootstrap Default light theme                      |
