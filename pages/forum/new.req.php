@@ -1,3 +1,5 @@
+<?php // pages/forum/new.req.php - Mononoke ?>
+
 <title>Add new Forum | <?= $config["name"] ?></title>
 
 <?php

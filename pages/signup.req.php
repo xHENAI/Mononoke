@@ -1,7 +1,7 @@
 <title>Signup | <?= $config["name"] ?></title>
 <?php
     
-    // pages/signup.req.php - aniZero2
+    // pages/signup.req.php - Mononoke
     
 if($config["registration"]==true) {
     if($loggedin==false) {

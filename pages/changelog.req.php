@@ -5,6 +5,12 @@
     <i>Where can I find it?</i> <a href="https://github.com/xHENAI/Mononoke" target="_blank">You can check it out at GitHub!</a>
 </div>
 
+<h5>Changelog of v0.0.5</h5>
+<ul>
+    <li>Added Schedule-System</li>
+    <li>Added adding Animes</li>
+    <li>Added editing Animes</li>
+</ul>
 <h5>Changelog of v0.0.4</h5>
 <ul>
     <li>Forum somewhat done</li>

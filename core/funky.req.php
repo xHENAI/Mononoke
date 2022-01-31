@@ -95,6 +95,7 @@ function bbconvert($text) {
 	$find = array(
 		'~\[b\](.*?)\[/b\]~s',
 		'~\[i\](.*?)\[/i\]~s',
+		'~\[s\](.*?)\[/s\]~s',
 		'~\[u\](.*?)\[/u\]~s',
 		'~\[quote\](.*?)\[/quote\]~s',
 		'~\[size=(.*?)\](.*?)\[/size\]~s',
@@ -107,12 +108,13 @@ function bbconvert($text) {
 	$replace = array(
 		'<b>$1</b>',
 		'<i>$1</i>',
+		'<s>$1</s>',
 		'<span style="text-decoration:underline;">$1</span>',
 		'<pre>$1</'.'pre>',
 		'<span style="font-size:$1px;">$2</span>',
 		'<span style="color:$1;">$2</span>',
 		'<a href="$1">$1</a>',
-		'<img src="$1" alt="" />'
+		'<img src="$1" alt="$1" />'
 	);
 
 	// Replacing the BBcodes with corresponding HTML tags

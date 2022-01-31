@@ -1,6 +1,6 @@
 <?php
 
-// pages/confirm.req.php - aniZero2
+// pages/confirm.req.php - Mononoke
 
 $token = $_GET["token"];
 
