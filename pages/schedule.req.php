@@ -1,3 +1,9 @@
+<?php
+
+// pages/schedule.req.php - Mononoke
+
+?>
+<title>Schedule | <?= $config["name"] ?></title>
 <h3>Sunday <?php if(date("D")=="Sun") { ?><small style="color:blue">- Today</small><?php } ?></h3>
 <?php
         $result = $conn->query("SELECT * FROM `schedule` WHERE `day`='1'");
