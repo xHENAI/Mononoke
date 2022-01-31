@@ -46,10 +46,10 @@
 |     [ ] Comment on Episode page                                      |
 |     [ ] Report Comments                                              |
 |     [ ] Manage Comments (As Mod, Admin or Comment Author)            |
-| [ ] Schedule System                                                  |
-|     [ ] Add new entry to Schedule                                    |
-|     [ ] Edit Schedule-entries                                        |
-|     [ ] View Schedule-Page and time (When release?)                  |
+| [x] Schedule System                                                  |
+|     [x] Add new entry to Schedule                                    |
+|     [x] Edit Schedule-entries                                        |
+|     [x] View Schedule-Page and time (When release?)                  |
 |                                                                      |
 | More to come...                                                      |
 \======================================================================/
