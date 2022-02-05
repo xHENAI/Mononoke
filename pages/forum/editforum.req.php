@@ -54,7 +54,7 @@ if($user["level"]==10 || $user["level"]==0) {
 <title><?= $forum["name"] ?> (Edit Forum) | <?= $config["name"] ?></title>
 
 <ol class="breadcrumb">
-    <li><a href="<?= $config["url"] ?>forum">Forums (Index)</a></li>
+    <li><a href="<?= $config["url"] ?>forum/home">Forums (Index)</a></li>
     <li><?= $forum["name"] ?> (Edit Forum)</li>
 </ol>
 

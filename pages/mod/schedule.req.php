@@ -64,17 +64,17 @@ if(isset($_POST["delete_schedule"])) {
 
 ?>
 
-<title>Moderate Schedule | <?= $config["name"] ?></title>
+<title><?= $lang["schedule"]["title_2"] ?> | <?= $config["name"] ?></title>
 
 <div class="panel panel-success">
     <div class="panel-heading">
-        <h3 class="panel-title">Schedule</h3>
+        <h3 class="panel-title"><?= $lang["schedule"]["title_2"] ?></h3>
     </div>
     <div class="panel-body">
         <?php if($edit==true) { ?>
         <p class="text-center" style="color:red"><?= $edit_msg ?></p>
         <?php } ?>
-        <h4>Sunday</h4>
+        <h4><?= $lang["schedule"]["sunday"] ?></h4>
         <?php
         $result = $conn->query("SELECT * FROM `schedule` WHERE `day`='1'");
         if ($result->num_rows > 0) {
@@ -90,13 +90,13 @@ if(isset($_POST["delete_schedule"])) {
                 </div>
                 <div class="col-sm-2">
                     <select name="day" class="selectpicker form-control">
-                        <option selected value="1">Sunday</option>
-                        <option value="2">Monday</option>
-                        <option value="3">Tuesday</option>
-                        <option value="4">Wednesday</option>
-                        <option value="5">Thursday</option>
-                        <option value="6">Friday</option>
-                        <option value="7">Saturday</option>
+                        <option selected value="1"><?= $lang["schedule"]["sunday"] ?></option>
+                        <option value="2"><?= $lang["schedule"]["monday"] ?></option>
+                        <option value="3"><?= $lang["schedule"]["tuesday"] ?></option>
+                        <option value="4"><?= $lang["schedule"]["wednesday"] ?></option>
+                        <option value="5"><?= $lang["schedule"]["thursday"] ?></option>
+                        <option value="6"><?= $lang["schedule"]["friday"] ?></option>
+                        <option value="7"><?= $lang["schedule"]["saturday"] ?></option>
                     </select>
                 </div>
                 <div class="col-sm-4">
@@ -114,7 +114,7 @@ if(isset($_POST["delete_schedule"])) {
         }
         ?>
         <hr>
-        <h4>Monday</h4>
+        <h4><?= $lang["schedule"]["monday"] ?></h4>
         <?php
         $result = $conn->query("SELECT * FROM `schedule` WHERE `day`='2'");
         if ($result->num_rows > 0) {
@@ -130,13 +130,13 @@ if(isset($_POST["delete_schedule"])) {
                 </div>
                 <div class="col-sm-2">
                     <select name="day" class="selectpicker form-control">
-                        <option value="1">Sunday</option>
-                        <option selected value="2">Monday</option>
-                        <option value="3">Tuesday</option>
-                        <option value="4">Wednesday</option>
-                        <option value="5">Thursday</option>
-                        <option value="6">Friday</option>
-                        <option value="7">Saturday</option>
+                        <option value="1"><?= $lang["schedule"]["sunday"] ?></option>
+                        <option selected value="2"><?= $lang["schedule"]["monday"] ?></option>
+                        <option value="3"><?= $lang["schedule"]["tuesday"] ?></option>
+                        <option value="4"><?= $lang["schedule"]["wednesday"] ?></option>
+                        <option value="5"><?= $lang["schedule"]["thursday"] ?></option>
+                        <option value="6"><?= $lang["schedule"]["friday"] ?></option>
+                        <option value="7"><?= $lang["schedule"]["saturday"] ?></option>
                     </select>
                 </div>
                 <div class="col-sm-4">
@@ -154,7 +154,7 @@ if(isset($_POST["delete_schedule"])) {
         }
         ?>
         <hr>
-        <h4>Tuesday</h4>
+        <h4><?= $lang["schedule"]["tuesday"] ?></h4>
         <?php
         $result = $conn->query("SELECT * FROM `schedule` WHERE `day`='3'");
         if ($result->num_rows > 0) {
@@ -170,13 +170,13 @@ if(isset($_POST["delete_schedule"])) {
                 </div>
                 <div class="col-sm-2">
                     <select name="day" class="selectpicker form-control">
-                        <option value="1">Sunday</option>
-                        <option value="2">Monday</option>
-                        <option selected value="3">Tuesday</option>
-                        <option value="4">Wednesday</option>
-                        <option value="5">Thursday</option>
-                        <option value="6">Friday</option>
-                        <option value="7">Saturday</option>
+                        <option value="1"><?= $lang["schedule"]["sunday"] ?></option>
+                        <option value="2"><?= $lang["schedule"]["monday"] ?></option>
+                        <option selected value="3"><?= $lang["schedule"]["tuesday"] ?></option>
+                        <option value="4"><?= $lang["schedule"]["wednesday"] ?></option>
+                        <option value="5"><?= $lang["schedule"]["thursday"] ?></option>
+                        <option value="6"><?= $lang["schedule"]["friday"] ?></option>
+                        <option value="7"><?= $lang["schedule"]["saturday"] ?></option>
                     </select>
                 </div>
                 <div class="col-sm-4">
@@ -194,7 +194,7 @@ if(isset($_POST["delete_schedule"])) {
         }
         ?>
         <hr>
-        <h4>Wednesday</h4>
+        <h4><?= $lang["schedule"]["wednesday"] ?></h4>
         <?php
         $result = $conn->query("SELECT * FROM `schedule` WHERE `day`='4'");
         if ($result->num_rows > 0) {
@@ -210,13 +210,13 @@ if(isset($_POST["delete_schedule"])) {
                 </div>
                 <div class="col-sm-2">
                     <select name="day" class="selectpicker form-control">
-                        <option value="1">Sunday</option>
-                        <option value="2">Monday</option>
-                        <option value="3">Tuesday</option>
-                        <option selected value="4">Wednesday</option>
-                        <option value="5">Thursday</option>
-                        <option value="6">Friday</option>
-                        <option value="7">Saturday</option>
+                        <option value="1"><?= $lang["schedule"]["sunday"] ?></option>
+                        <option value="2"><?= $lang["schedule"]["monday"] ?></option>
+                        <option value="3"><?= $lang["schedule"]["tuesday"] ?></option>
+                        <option selected value="4"><?= $lang["schedule"]["wednesday"] ?></option>
+                        <option value="5"><?= $lang["schedule"]["thursday"] ?></option>
+                        <option value="6"><?= $lang["schedule"]["friday"] ?></option>
+                        <option value="7"><?= $lang["schedule"]["saturday"] ?></option>
                     </select>
                 </div>
                 <div class="col-sm-4">
@@ -234,7 +234,7 @@ if(isset($_POST["delete_schedule"])) {
         }
         ?>
         <hr>
-        <h4>Thursday</h4>
+        <h4><?= $lang["schedule"]["thursday"] ?></h4>
         <?php
         $result = $conn->query("SELECT * FROM `schedule` WHERE `day`='5'");
         if ($result->num_rows > 0) {
@@ -250,13 +250,13 @@ if(isset($_POST["delete_schedule"])) {
                 </div>
                 <div class="col-sm-2">
                     <select name="day" class="selectpicker form-control">
-                        <option value="1">Sunday</option>
-                        <option value="2">Monday</option>
-                        <option value="3">Tuesday</option>
-                        <option value="4">Wednesday</option>
-                        <option selected value="5">Thursday</option>
-                        <option value="6">Friday</option>
-                        <option value="7">Saturday</option>
+                        <option value="1"><?= $lang["schedule"]["sunday"] ?></option>
+                        <option value="2"><?= $lang["schedule"]["monday"] ?></option>
+                        <option value="3"><?= $lang["schedule"]["tuesday"] ?></option>
+                        <option value="4"><?= $lang["schedule"]["wednesday"] ?></option>
+                        <option selected value="5"><?= $lang["schedule"]["thursday"] ?></option>
+                        <option value="6"><?= $lang["schedule"]["friday"] ?></option>
+                        <option value="7"><?= $lang["schedule"]["saturday"] ?></option>
                     </select>
                 </div>
                 <div class="col-sm-4">
@@ -274,7 +274,7 @@ if(isset($_POST["delete_schedule"])) {
         }
         ?>
         <hr>
-        <h4>Friday</h4>
+        <h4><?= $lang["schedule"]["friday"] ?></h4>
         <?php
         $result = $conn->query("SELECT * FROM `schedule` WHERE `day`='6'");
         if ($result->num_rows > 0) {
@@ -290,13 +290,13 @@ if(isset($_POST["delete_schedule"])) {
                 </div>
                 <div class="col-sm-2">
                     <select name="day" class="selectpicker form-control">
-                        <option value="1">Sunday</option>
-                        <option value="2">Monday</option>
-                        <option value="3">Tuesday</option>
-                        <option value="4">Wednesday</option>
-                        <option value="5">Thursday</option>
-                        <option selected value="6">Friday</option>
-                        <option value="7">Saturday</option>
+                        <option value="1"><?= $lang["schedule"]["sunday"] ?></option>
+                        <option value="2"><?= $lang["schedule"]["monday"] ?></option>
+                        <option value="3"><?= $lang["schedule"]["tuesday"] ?></option>
+                        <option value="4"><?= $lang["schedule"]["wednesday"] ?></option>
+                        <option value="5"><?= $lang["schedule"]["thursday"] ?></option>
+                        <option selected value="6"><?= $lang["schedule"]["friday"] ?></option>
+                        <option value="7"><?= $lang["schedule"]["saturday"] ?></option>
                     </select>
                 </div>
                 <div class="col-sm-4">
@@ -314,7 +314,7 @@ if(isset($_POST["delete_schedule"])) {
         }
         ?>
         <hr>
-        <h4>Saturday</h4>
+        <h4><?= $lang["schedule"]["saturday"] ?></h4>
         <?php
         $result = $conn->query("SELECT * FROM `schedule` WHERE `day`='7'");
         if ($result->num_rows > 0) {
@@ -330,13 +330,13 @@ if(isset($_POST["delete_schedule"])) {
                 </div>
                 <div class="col-sm-2">
                     <select name="day" class="selectpicker form-control">
-                        <option value="1">Sunday</option>
-                        <option value="2">Monday</option>
-                        <option value="3">Tuesday</option>
-                        <option value="4">Wednesday</option>
-                        <option value="5">Thursday</option>
-                        <option value="6">Friday</option>
-                        <option selected value="7">Saturday</option>
+                        <option value="1"><?= $lang["schedule"]["sunday"] ?></option>
+                        <option value="2"><?= $lang["schedule"]["monday"] ?></option>
+                        <option value="3"><?= $lang["schedule"]["tuesday"] ?></option>
+                        <option value="4"><?= $lang["schedule"]["wednesday"] ?></option>
+                        <option value="5"><?= $lang["schedule"]["thursday"] ?></option>
+                        <option value="6"><?= $lang["schedule"]["friday"] ?></option>
+                        <option selected value="7"><?= $lang["schedule"]["saturday"] ?></option>
                     </select>
                 </div>
                 <div class="col-sm-4">
@@ -358,15 +358,15 @@ if(isset($_POST["delete_schedule"])) {
 
 <div class="panel panel-danger">
     <div class="panel-heading">
-        <h3 class="panel-title">Add new Schedule</h3>
+        <h3 class="panel-title"><?= $lang["schedule"]["new"] ?></h3>
     </div>
     <div class="panel-body">
         <form class="form-horizontal" method="post" action="" name="add_schedule">
             <div class="form-group">
                 <input hidden readonly value="<?= $row["id"] ?>" name="entry">
-                <label class="control-label col-sm-3" for="anime">AnimeID</label>
+                <label class="control-label col-sm-3" for="anime"><?= $lang["schedule"]["anime"] ?></label>
                 <div class="col-sm-9">
-                    <input required type="text" name="anime" id="anime" class="form-control" placeholder="Anime ID">
+                    <input required type="text" name="anime" id="anime" class="form-control" placeholder="<?= $lang["schedule"]["anime"] ?>">
                 </div>
             </div>
             <div class="form-group">
@@ -374,13 +374,13 @@ if(isset($_POST["delete_schedule"])) {
                 <div class="col-sm-9">
                     <select required class="selectpicker form-control" title="Select Weekday..." name="day" id="day">
                         <option selected disabled value="1">Select Day...</option>
-                        <option value="1">Sunday</option>
-                        <option value="2">Monday</option>
-                        <option value="3">Tuesday</option>
-                        <option value="4">Wednesday</option>
-                        <option value="5">Thursday</option>
-                        <option value="6">Friday</option>
-                        <option value="7">Saturday</option>
+                        <option value="1"><?= $lang["schedule"]["sunday"] ?></option>
+                        <option value="2"><?= $lang["schedule"]["monday"] ?></option>
+                        <option value="3"><?= $lang["schedule"]["tuesday"] ?></option>
+                        <option value="4"><?= $lang["schedule"]["wednesday"] ?></option>
+                        <option value="5"><?= $lang["schedule"]["thursday"] ?></option>
+                        <option value="6"><?= $lang["schedule"]["friday"] ?></option>
+                        <option value="7"><?= $lang["schedule"]["saturday"] ?></option>
                     </select>
                 </div>
             </div>
@@ -396,7 +396,7 @@ if(isset($_POST["delete_schedule"])) {
                     <input type="datetime-local" class="form-control" name="tleft" id="tleft">
                 </div>
             </div>
-            <button class="btn btn-success col-sm-offset-3" name="add_schedule" type="submit"><?= glyph("plus-sign","Add to Schedule") ?> Add to Schedule</button>
+            <button class="btn btn-success col-sm-offset-3" name="add_schedule" type="submit"><?= glyph("plus-sign",$lang["schedule"]["add"]) ?> <?= $lang["schedule"]["add"] ?></button>
             <?php if($error==true) { ?>
             <p style="color:red" class="col-sm-offset-3"><?= $error_msg ?></p>
             <?php } ?>
@@ -404,4 +404,4 @@ if(isset($_POST["delete_schedule"])) {
     </div>
 </div>
 
-<p class="text-center"><a href="<?= $config["url"] ?>schedule"><?= glyph("eye-open","View Schedule") ?> View Schedule</a></p>
+<p class="text-center"><a href="<?= $config["url"] ?>schedule"><?= glyph("eye-open",$lang["schedule"]["view"]) ?> <?= $lang["schedule"]["view"] ?></a></p>

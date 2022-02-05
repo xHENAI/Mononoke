@@ -44,16 +44,20 @@ body {
     margin-bottom: 20px;
 }
 
+.bg-0 {
+    background: url("../assets/img/bg/4.jpeg");
+}
+
 .signin-div {
-    background: url("../assets/img/signin.png");
-    background-position: center;
-    background-size: cover;
+    background: url("../assets/img/signin.png") !important;
+    background-position: center !important;
+    background-size: cover !important;
 }
 
 .signup-div {
-    background: url("../assets/img/signup.png");
-    background-position: center;
-    background-size: cover;
+    background: url("../assets/img/signup.png") !important;
+    background-position: center !important;
+    background-size: cover !important;
 }
 
 .image-shadow {

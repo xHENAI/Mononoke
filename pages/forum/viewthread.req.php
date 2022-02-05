@@ -85,7 +85,7 @@ if(!empty($thread["id"])) {
 
 <title><?= $thread["title"] ?> (Thread) | <?= $config["name"] ?></title>
 <ol class="breadcrumb">
-    <li><a href="<?= $config["url"] ?>forum">Forums (Index)</a></li>
+    <li><a href="<?= $config["url"] ?>forum/home">Forums (Index)</a></li>
     <li><a href="<?= $config["url"] ?>forum/viewforum/<?= $forum["id"] ?>"><?= $forum["name"] ?> (Forum)</a></li>
     <li><?= $thread["title"] ?> (Thread)</li>
 </ol>

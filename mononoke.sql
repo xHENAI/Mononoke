@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 4.6.6deb5ubuntu0.5
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Erstellungszeit: 31. Jan 2022 um 18:32
--- Server-Version: 10.4.22-MariaDB
--- PHP-Version: 7.4.27
+-- Host: localhost:3306
+-- Generation Time: Feb 05, 2022 at 05:54 PM
+-- Server version: 5.7.37-0ubuntu0.18.04.1
+-- PHP Version: 7.3.33-1+ubuntu18.04.1+deb.sury.org+1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -18,26 +17,35 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Datenbank: `mononoke`
+-- Database: `mononoke`
 --
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `anime`
+-- Table structure for table `anime`
 --
 
 CREATE TABLE `anime` (
   `id` int(11) NOT NULL,
-  `name` varchar(250) NOT NULL,
-  `image` varchar(4) NOT NULL,
-  `status` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `name` varchar(250) CHARACTER SET latin1 NOT NULL,
+  `alternates` longblob,
+  `year` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` varchar(4) CHARACTER SET latin1 NOT NULL,
+  `status` int(11) NOT NULL,
+  `description` text CHARACTER SET latin1,
+  `anisearch` int(11) DEFAULT NULL,
+  `9anime` text CHARACTER SET latin1,
+  `animixplay` text COLLATE utf8mb4_unicode_ci,
+  `gogoanime` text COLLATE utf8mb4_unicode_ci,
+  `twist` int(11) DEFAULT NULL,
+  `public` tinyint(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `forum`
+-- Table structure for table `forum`
 --
 
 CREATE TABLE `forum` (
@@ -52,7 +60,7 @@ CREATE TABLE `forum` (
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `forum_posts`
+-- Table structure for table `forum_posts`
 --
 
 CREATE TABLE `forum_posts` (
@@ -61,14 +69,14 @@ CREATE TABLE `forum_posts` (
   `forum` int(11) NOT NULL,
   `thread` int(11) NOT NULL,
   `content` text NOT NULL,
-  `date` datetime NOT NULL DEFAULT current_timestamp(),
+  `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `forum_threads`
+-- Table structure for table `forum_threads`
 --
 
 CREATE TABLE `forum_threads` (
@@ -79,14 +87,14 @@ CREATE TABLE `forum_threads` (
   `closed` int(11) NOT NULL,
   `sticky` int(11) NOT NULL,
   `deleted` int(11) NOT NULL,
-  `posted` datetime NOT NULL DEFAULT current_timestamp(),
+  `posted` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `user` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `schedule`
+-- Table structure for table `schedule`
 --
 
 CREATE TABLE `schedule` (
@@ -94,14 +102,14 @@ CREATE TABLE `schedule` (
   `anime` int(11) NOT NULL,
   `release` time NOT NULL,
   `tleft` datetime DEFAULT NULL,
-  `added` datetime NOT NULL DEFAULT current_timestamp(),
+  `added` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `day` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -112,129 +120,126 @@ CREATE TABLE `user` (
   `email` varchar(250) NOT NULL,
   `image` varchar(255) NOT NULL,
   `theme` int(11) NOT NULL,
+  `lang` varchar(10) NOT NULL,
   `public_profile` int(11) NOT NULL,
   `public_watchlist` int(11) NOT NULL,
   `read_announce` int(11) NOT NULL,
-  `forum_signature` varchar(500) DEFAULT NULL
+  `forum_signature` varchar(500) DEFAULT NULL,
+  `banned` tinyint(1) NOT NULL DEFAULT '0',
+  `banned_reason` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `user_forgot`
+-- Table structure for table `user_forgot`
 --
 
 CREATE TABLE `user_forgot` (
   `user` varchar(250) NOT NULL,
   `token` text NOT NULL,
-  `from` datetime NOT NULL DEFAULT current_timestamp()
+  `from` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `user_tokens`
+-- Table structure for table `user_tokens`
 --
 
 CREATE TABLE `user_tokens` (
   `token` text NOT NULL,
   `user` varchar(250) NOT NULL,
-  `from` datetime NOT NULL DEFAULT current_timestamp()
+  `from` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `user_verification`
+-- Table structure for table `user_verification`
 --
 
 CREATE TABLE `user_verification` (
   `user` varchar(250) NOT NULL,
   `token` text NOT NULL,
-  `from` datetime NOT NULL DEFAULT current_timestamp()
+  `from` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Indizes der exportierten Tabellen
+-- Indexes for dumped tables
 --
 
 --
--- Indizes für die Tabelle `anime`
+-- Indexes for table `anime`
 --
 ALTER TABLE `anime`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indizes für die Tabelle `forum`
+-- Indexes for table `forum`
 --
 ALTER TABLE `forum`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indizes für die Tabelle `forum_posts`
+-- Indexes for table `forum_posts`
 --
 ALTER TABLE `forum_posts`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indizes für die Tabelle `forum_threads`
+-- Indexes for table `forum_threads`
 --
 ALTER TABLE `forum_threads`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indizes für die Tabelle `schedule`
+-- Indexes for table `schedule`
 --
 ALTER TABLE `schedule`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indizes für die Tabelle `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT für exportierte Tabellen
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT für Tabelle `anime`
+-- AUTO_INCREMENT for table `anime`
 --
 ALTER TABLE `anime`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
--- AUTO_INCREMENT für Tabelle `forum`
+-- AUTO_INCREMENT for table `forum`
 --
 ALTER TABLE `forum`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
--- AUTO_INCREMENT für Tabelle `forum_posts`
+-- AUTO_INCREMENT for table `forum_posts`
 --
 ALTER TABLE `forum_posts`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
--- AUTO_INCREMENT für Tabelle `forum_threads`
+-- AUTO_INCREMENT for table `forum_threads`
 --
 ALTER TABLE `forum_threads`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
--- AUTO_INCREMENT für Tabelle `schedule`
+-- AUTO_INCREMENT for table `schedule`
 --
 ALTER TABLE `schedule`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
--- AUTO_INCREMENT für Tabelle `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-COMMIT;
-
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+

@@ -38,7 +38,7 @@ if(!empty($forum["id"])) {
 <title><?= $forum["name"] ?> (Forum) | <?= $config["name"] ?></title>
 
 <ol class="breadcrumb">
-    <li><a href="<?= $config["url"] ?>forum">Forums (Index)</a></li>
+    <li><a href="<?= $config["url"] ?>forum/home">Forums (Index)</a></li>
     <li><?= $forum["name"] ?> (Forum)</li>
 </ol>
 

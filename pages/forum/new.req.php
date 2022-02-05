@@ -36,7 +36,7 @@ if($user["level"]==10 || $user["level"]==0) {
 ?>
 
 <ol class="breadcrumb">
-    <li><a href="<?= $config["url"] ?>forum">Forums (Index)</a></li>
+    <li><a href="<?= $config["url"] ?>forum/home">Forums (Index)</a></li>
     <li>Add Forum (Forum)</li>
 </ol>
 

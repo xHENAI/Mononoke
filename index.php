@@ -35,10 +35,31 @@ $class = "";
 
 if($page=="signin") {
     $class = "signin-div";
-}
+} 
 
 if($page=="signup") {
     $class = "signup-div";
+}
+
+if($user["theme"]==0) {
+    // Bootstrap Default Light
+    $class = "bg-0";
+}
+if($user["theme"]==1) {
+    // Curelean Light
+    $class = "bg-1";
+}
+if($user["theme"]==2) {
+    // Bootstrap Default Dark
+    $class = "bg-2";
+}
+if($user["theme"]==3) {
+    // Cyborg Dark
+    $class = "bg-3";
+}
+if($user["theme"]==4) {
+    // Darkly Dark
+    $class = "bg-4";
 }
 
 if($page=="signout") {
@@ -105,13 +126,13 @@ ___________    .__                           ____  __.__         .__            
             <?php if($loggedin==true) { // Only display close button if user is logged in ?>
             <form name="read_announce" method="post" action=""><button type="submit" name="read_announce" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button></form>
             <?php } ?>
-            <b>Hello!</b> Please keep in mind that the software that is powering <?= $config["name"] ?> is still in Alpha. Make sure to check out the <a href="https://github.com/xHENAI/Mononoke" target="_blank">GitHub</a>!
+            <?= $lang["notice"] ?>
         </div>
         <?php } ?>
 
 
         <?php if($user["level"]==30) { // Show if user is still level 30 and not 20 (see readme.txt#devnotes) ?>
-        <div class="alert alert-info text-center" role="alert"><b>Alert:</b> You haven't verified your eMail yet! To use all features of <?= $config["name"] ?>, you need to do that first.</div>
+        <div class="alert alert-info text-center" role="alert"><?= $lang["unconfirmed"] ?></div>
         <?php } ?>
 
         <div class="row">
@@ -148,7 +169,7 @@ ___________    .__                           ____  __.__         .__            
                             include("navs/follow.bar.php");
                         }
                         include("navs/main.bar.php");
-                          ?>
+                ?>
 
             </div>
 

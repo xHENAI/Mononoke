@@ -30,19 +30,19 @@ if(!isset($error_msg)) {
 
 ?>
 
-<title>Confirm your eMail | <?= $config["name"] ?></title>
+<title><?= $lang["confirm"]["title"] ?> | <?= $config["name"] ?></title>
 <div style="margin: 0 auto; width: 300px" id="signup_container">
     <form method="post" id="signup_form" name="confirm_account">
-        <h1 class="text-center">Confirm eMail</h1>
+        <h1 class="text-center"><?= $lang["confirm"]["title"] ?></h1>
         <hr>
-        <button class="btn btn-lg btn-success btn-block" type="submit" name="confirm_account" id="signup_button"><?= glyph("ok","Confirm") ?> Confirm</button>
+        <button class="btn btn-lg btn-success btn-block" type="submit" name="confirm_account" id="signup_button"><?= glyph("ok",$lang["confirm"]["title"]) ?> <?= $lang["confirm"]["title"] ?></button>
         <?php if(!empty($error_msg)) { ?>
         <br>
         <p style="color:red"><?= $error_msg ?></p>
         <?php } ?>
         <?php if($success==true) { ?>
         <br>
-        <p style="color:green">Your eMail has been verified! You can use your account now properly.</p>
+        <p style="color:green"><?= $lang["confirm"]["success"] ?></p>
         <?php } ?>
     </form>
 </div>

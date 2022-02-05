@@ -19,7 +19,7 @@ if(!empty($user["id"])) {
 
 <?php if($vuser["public_profile"]==1) { ?>
 
-<title><?= $vuser["username"] ?> (User) | <?= $config["name"] ?></title>
+<title><?= $vuser["username"] ?> (<?= $lang["profile"]["title"] ?>) | <?= $config["name"] ?></title>
 <div class="panel panel-default">
     <div class="panel-heading">
         <h3 class="panel-title"><?= glyph("education","User") ?> <?= $vuser["username"] ?></h3>
@@ -27,32 +27,32 @@ if(!empty($user["id"])) {
     <table class="table table-condensed">
         <tr>
             <td width="150px" rowspan="5"><img src='<?= $vuser["image"] ?>' width='100%' title='Logo of <?= $vuser["username"] ?>' alt='Logo of <?= $vuser["Username"] ?>' /></td>
-            <th width="105px">Level:</th>
+            <th width="105px"><?= $lang["profile"]["level"] ?></th>
             <td><?= convert_level($vuser["level"]) ?></td>
         </tr>
         <tr>
-            <th>Uses Theme:</th>
+            <th><?= $lang["profile"]["theme"] ?></th>
             <td><?= convert_theme($vuser["theme"]) ?></td>
         </tr>
         <tr>
-            <th>Watchlist:</th>
-            <td><?php if($vuser["public_watchlist"]==1) { ?><a href="<?= $config["url"] ?>watchlist/<?= $vuser["id"] ?>">View it here! (Public)</a><?php } else { ?>This user's Watchlist ist private!<?php } ?></td>
+            <th><?= $lang["profile"]["watchlist"] ?></th>
+            <td><?php if($vuser["public_watchlist"]==1) { ?><a href="<?= $config["url"] ?>watchlist/<?= $vuser["id"] ?>"><?= $lang["profile"]["watchlist_1"] ?></a><?php } else { ?><?= $lang["profile"]["watchlist_2"] ?><?php } ?></td>
         </tr>
         <tr>
-            <th>Statistics:</th>
-            <td><?= glyph("comment","Anime & Episode Comments") ?> <?= $comments3 ?>
-                <!--, <?= glyph("text-size","Forum Posts") ?> <?= $forumposts3 ?>-->
+            <th><?= $lang["profile"]["stats"] ?></th>
+            <td><?= glyph("comment",$lang["profile"]["stats_comments"]) ?> <?= $comments3 ?>
+                <!--, <?= glyph("text-size",$lang["profile"]["stats_forum"]) ?> <?= $forumposts3 ?>-->
             </td>
         </tr>
     </table>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h3 class="panel-title"><?= glyph("comment","Comments") ?> Comments <span class="badge"><?= $comments3 ?></span></h3>
+        <h3 class="panel-title"><?= glyph("comment","Comments") ?> <?= $lang["profile"]["comments"] ?> <span class="badge"><?= $comments3 ?></span></h3>
     </div>
     <div class="panel-body">
         <?php if($comments3==0) { ?>
-        <?= glyph("info-sign","Error") ?> This user didn't comment on anything yet!
+        <?= glyph("info-sign",$lang["error"]) ?> <?= $lang["profile"]["no_comments"] ?>
         <?php } else { ?>
         Kommentare kommen hier hin
         <?php } ?>
@@ -61,7 +61,7 @@ if(!empty($user["id"])) {
 
 <?php } else { ?>
 
-<title><?= $vuser["username"] ?> (User) | <?= $config["name"] ?></title>
+<title><?= $vuser["username"] ?> (<?= $lang["profile"]["title"] ?>) | <?= $config["name"] ?></title>
 <div class="panel panel-default">
     <div class="panel-heading">
         <h3 class="panel-title"><?= glyph("education","User") ?> <?= $vuser["username"] ?></h3>
@@ -69,7 +69,7 @@ if(!empty($user["id"])) {
     <table class="table table-condensed">
         <tr>
             <td width="150px" rowspan="5"><img src='<?= $vuser["image"] ?>' width='100%' title='Logo des Nutzers' alt='Logo des Nutzers' /></td>
-            <td><?= glyph("info-sign","Error") ?> This user's profile isn't public!</td>
+            <td><?= glyph("info-sign",$lang["error"]) ?> <?= $lang["profile"]["private"] ?></td>
         </tr>
     </table>
 </div>
@@ -78,13 +78,13 @@ if(!empty($user["id"])) {
 
 <?php } else { ?>
 
-<title>Error (User) | <?= $config["name"] ?></title>
+<title><?= $lang["error"] ?> (<?= $lang["profile"]["title"] ?>) | <?= $config["name"] ?></title>
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h3 class="panel-title"><?= glyph("info-sign","Error") ?> Error</h3>
+        <h3 class="panel-title"><?= glyph("info-sign",$lang["error"]) ?> <?= $lang["error"] ?> </h3>
     </div>
     <div class="panel-body">
-        User not found!
+        <?= $lang["profile"]["none"] ?>
     </div>
 </div>
 

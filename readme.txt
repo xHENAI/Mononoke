@@ -106,7 +106,7 @@
 \===================/ \================================================/
 
 /====== Anime Status ======\ /============== Weekdays =================\
-| 0 = Planned              | | 1 = Sunday         | 4 = Wednesday      |
+| 0 = Announced            | | 1 = Sunday         | 4 = Wednesday      |
 | 1 = Airing               | | 2 = Monday         | 5 = Thursday       |
 | 2 = Completed            | | 3 = Tuesday        | 6 = Friday         |
 \==========================/ \===================== 7 = Saturday ======/
