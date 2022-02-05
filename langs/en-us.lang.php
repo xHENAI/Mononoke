@@ -116,6 +116,7 @@ $lang["settings"]["privacy"]["private"] = "Private";
 $lang["settings"]["forum"]["signature"] = "Signature (Supports BBCode)";
 $lang["settings"]["forum"]["signature_hover"] = "Forum Signature (Shows below a Thread/Post of you). Maximal 500 Characters.";
 $lang["settings"]["save"] = "Save Settings";
+$lang["settings"]["confirm_mail"] = "You have to confirm your eMail before doing that!";
 
 $lang["signin"]["title"] = "Signin";
 $lang["signin"]["username"] = "Username";

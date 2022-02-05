@@ -12,10 +12,10 @@ if($user["level"]==10 || $user["level"]==0) {
     $dream = "SELECT * FROM `anime` WHERE `public`='1' ORDER BY `id` ASC LIMIT ?,?";
 }
 
-if ($stmt = $conn->prepare($dream)) {
+if($stmt = $conn->prepare($dream)) {
 	$calc_page = ($page - 1) * $num_results_on_page;
 	$stmt->bind_param('ii', $calc_page, $num_results_on_page);
-	$stmt->execute(); 
+	$stmt->execute();
 	$result = $stmt->get_result();
 	$stmt->close();
 }
@@ -48,29 +48,31 @@ if ($stmt = $conn->prepare($dream)) {
 <?php } ?>
 
 <?php if (ceil($total_pages / $num_results_on_page) > 0): ?>
-<ul class="pagination">
-    <?php if ($page > 3): ?>
-    <li class="start"><a href="<?= $config["url"]."browse" ?>">«</a></li>
-    <?php endif; ?>
+<center>
+    <ul class="pagination">
+        <?php if ($page > 3): ?>
+        <li class="start"><a href="<?= $config["url"]."browse" ?>">«</a></li>
+        <?php endif; ?>
 
-    <?php if ($page > 1): ?>
-    <li class="prev"><a href="<?= $config["url"]."browse/" ?><?php echo $page-1 ?>">‹</a></li>
-    <?php endif; ?>
+        <?php if ($page > 1): ?>
+        <li class="prev"><a href="<?= $config["url"]."browse/" ?><?php echo $page-1 ?>">‹</a></li>
+        <?php endif; ?>
 
-    <?php if ($page-2 > 0): ?><li class="page"><a href="<?= $config["url"]."browse/" ?><?php echo $page-2 ?>"><?php echo $page-2 ?></a></li><?php endif; ?>
-    <?php if ($page-1 > 0): ?><li class="page"><a href="<?= $config["url"]."browse/" ?><?php echo $page-1 ?>"><?php echo $page-1 ?></a></li><?php endif; ?>
+        <?php if ($page-2 > 0): ?><li class="page"><a href="<?= $config["url"]."browse/" ?><?php echo $page-2 ?>"><?php echo $page-2 ?></a></li><?php endif; ?>
+        <?php if ($page-1 > 0): ?><li class="page"><a href="<?= $config["url"]."browse/" ?><?php echo $page-1 ?>"><?php echo $page-1 ?></a></li><?php endif; ?>
 
-    <li class="currentpage active"><a href="<?= $config["url"]."browse/" ?><?php echo $page ?>"><?php echo $page ?></a></li>
+        <li class="currentpage active"><a href="<?= $config["url"]."browse/" ?><?php echo $page ?>"><?php echo $page ?></a></li>
 
-    <?php if ($page+1 < ceil($total_pages / $num_results_on_page)+1): ?><li class="page"><a href="<?= $config["url"]."browse/" ?><?php echo $page+1 ?>"><?php echo $page+1 ?></a></li><?php endif; ?>
-    <?php if ($page+2 < ceil($total_pages / $num_results_on_page)+1): ?><li class="page"><a href="<?= $config["url"]."browse/" ?><?php echo $page+2 ?>"><?php echo $page+2 ?></a></li><?php endif; ?>
+        <?php if ($page+1 < ceil($total_pages / $num_results_on_page)+1): ?><li class="page"><a href="<?= $config["url"]."browse/" ?><?php echo $page+1 ?>"><?php echo $page+1 ?></a></li><?php endif; ?>
+        <?php if ($page+2 < ceil($total_pages / $num_results_on_page)+1): ?><li class="page"><a href="<?= $config["url"]."browse/" ?><?php echo $page+2 ?>"><?php echo $page+2 ?></a></li><?php endif; ?>
 
-    <?php if ($page < ceil($total_pages / $num_results_on_page)): ?>
-    <li class="next"><a href="p<?= $config["url"]."browse/" ?><?php echo $page+1 ?>">›</a></li>
-    <?php endif; ?>
+        <?php if ($page < ceil($total_pages / $num_results_on_page)): ?>
+        <li class="next"><a href="p<?= $config["url"]."browse/" ?><?php echo $page+1 ?>">›</a></li>
+        <?php endif; ?>
 
-    <?php if ($page < ceil($total_pages / $num_results_on_page)-2): ?>
-    <li class="end"><a href="<?= $config["url"]."browse/" ?><?php echo ceil($total_pages / $num_results_on_page) ?>">»</a></li>
-    <?php endif; ?>
-</ul>
+        <?php if ($page < ceil($total_pages / $num_results_on_page)-2): ?>
+        <li class="end"><a href="<?= $config["url"]."browse/" ?><?php echo ceil($total_pages / $num_results_on_page) ?>">»</a></li>
+        <?php endif; ?>
+    </ul>
+</center>
 <?php endif; ?>

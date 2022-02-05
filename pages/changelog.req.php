@@ -1,3 +1,5 @@
+<?php // pages/changelog.req.php - Mononoke ?>
+
 <title>Changelog of Mononoke</title>
 <div class="well well-sm">
     <b>Mononoke's Changelog</b><br>

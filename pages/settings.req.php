@@ -1,5 +1,7 @@
 <?php
 
+// pages/settings.req.php - Mononoke
+
 $uid = $user["id"];
 
 if(isset($_POST["update_general"])) {
@@ -34,8 +36,10 @@ if(isset($_POST["update_forum"])) {
 ?>
 
 <title><?= $lang["settings"]["title"] ?> | <?= $config["name"] ?></title>
+<?php if($user["level"]==30) { ?>
+<p><?= glyph("info-sign",$lang["error"]) ?> <?= $lang["settings"]["confirm_mail"] ?></p>
+<?php } else { ?>
 <div>
-
     <!-- Nav tabs -->
     <ul class="nav nav-pills" role="tablist">
         <li role="presentation" class="active"><a href="#general" aria-controls="general" role="tab" data-toggle="tab"><?= glyph("wrench",$lang["settings"]["settings_general"]) ?> <?= $lang["settings"]["settings_general"] ?></a></li>
@@ -166,3 +170,4 @@ if(isset($_POST["update_forum"])) {
         </div>
     </div>
 </div>
+<?php } ?>

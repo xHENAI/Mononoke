@@ -1,9 +1,9 @@
 <title><?= $lang["reset"]["title"] ?> | <?= $config["name"] ?></title>
 <?php
 
-    // pages/reset.req.php - Mononoke
+// pages/reset.req.php - Mononoke
     
-$token = $_GET["token"];
+$token = mysqli_real_escape_string($conn, $_GET["token"]);
 $tokenvalid = $conn->query("SELECT * FROM `user_forgot` WHERE `token`='$token'");
 if(mysqli_num_rows($tokenvalid)==1) {
 

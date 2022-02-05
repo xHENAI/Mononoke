@@ -1,5 +1,7 @@
 <?php
 
+// pages/forum.req.php - Mononoke
+
 if(isset($_GET["action"]) && !empty($_GET["action"])) {
     $action = $_GET["action"];
 } else {

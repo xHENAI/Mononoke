@@ -8,13 +8,18 @@ if(isset($_POST["login_user"])) {
     $error = false;
     $error_msg = "";
     $username = mysqli_real_escape_string($conn, $_POST["username"]);
-    $password = mysqli_real_escape_string($conn, $_POST["password"]);
-    $password = hash("sha512",$password);
-    $usercheck = $conn->query("SELECT * FROM `user` WHERE `username`='$username' AND `password`='$password'");
-    if(mysqli_num_rows($usercheck)==1) {
+    $cuser = $conn->query("SELECT * FROM `user` WHERE `username`='$username' LIMIT 1");
+    $cuser = mysqli_fetch_assoc($cuser);
+    $password = $_POST["password"];
+    $pcheck = password_verify($password, $cuser["password"]);
+    if($pcheck==true) {
         $token = rand();
         $token = md5($token);
-        setcookie("".$config["cookie"]."session", $token, time()+(86400*30), "/", $config["domain"]);
+        if(isset($_POST["remember_me"])) {
+            setcookie("".$config["cookie"]."session", $token, time()+(86400*30), "/", $config["domain"]);
+        } else {
+            setcookie("".$config["cookie"]."session", $token, time()+(86400), "/", $config["domain"]);
+        }
         $_SESSION[$config["cookie"]."session"] = $token;
         $conn->query("INSERT INTO `user_tokens`(`user`,`token`) VALUES('$username','$token')");
         redirect("home");

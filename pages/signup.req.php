@@ -1,7 +1,7 @@
 <title><?= $lang["signup"]["title"] ?> | <?= $config["name"] ?></title>
 <?php
     
-    // pages/signup.req.php - Mononoke
+// pages/signup.req.php - Mononoke
     
 if($config["registration"]==true) {
     if($loggedin==false) {
@@ -27,8 +27,8 @@ if($config["registration"]==true) {
                 $error_msg = "Passwords do not match!";
             }
             if($error==false) {
-                //$password = password_hash($password1, PASSWORD_DEFAULT);
-                $password = hash("sha512",$password1);
+                // Hash for better security
+                $password = password_hash($password1, PASSWORD_BCRYPT);
                 $conn->query("INSERT INTO `user`(`level`,`username`,`password`,`email`,`image`,`theme`,`lang`,`public_profile`,`public_watchlist`,`read_announce`,`forum_signature`) VALUES('30','$username','$password','$email','".$config["url"]."assets/img/default.jpeg','".$config["theme"]."','".$config["lang"]."','1','0','0',NULL)");
                 $namecheck = $conn->query("SELECT * FROM `user` WHERE `username`='$username' AND `password`='$password' LIMIT 1");
                 $namecheck = mysqli_fetch_assoc($namecheck);

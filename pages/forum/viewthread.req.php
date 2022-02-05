@@ -1,6 +1,8 @@
 <?php
 
-$thread = $_GET["id"];
+// pages/forum/viewthread.req.php - Mononoke
+
+$thread = mysqli_real_escape_string($conn, $_GET["id"]);
 $thread = $conn->query("SELECT * FROM `forum_threads` WHERE `id`='$thread' LIMIT 1");
 $thread = mysqli_fetch_assoc($thread);
 

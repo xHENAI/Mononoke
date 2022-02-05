@@ -2,7 +2,7 @@
 
 // pages/forum/viewforum.req.php - Mononoke
 
-$forum = $_GET["id"];
+$forum = mysqli_real_escape_string($conn, $_GET["id"]);
 $forum = $conn->query("SELECT * FROM `forum` WHERE `id`='$forum' LIMIT 1");
 $forum = mysqli_fetch_assoc($forum);
 

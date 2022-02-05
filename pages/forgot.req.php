@@ -1,11 +1,12 @@
 <?php
 
-// pages/forgot.req.php - aniZero2
+// pages/forgot.req.php - Mononoke
+
+$error = false;
+$success = false;
+$error_msg = "";
 
 if(isset($_POST["reset_password"])) {
-    $error = false;
-    $success = false;
-    $error_msg = "";
     $email = mysqli_real_escape_string($conn, $_POST["email"]);
     $emailcheck = $conn->query("SELECT * FROM `user` WHERE `email`='$email'");
     if(mysqli_num_rows($emailcheck)==1) {

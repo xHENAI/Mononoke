@@ -2,7 +2,7 @@
 
 // pages/confirm.req.php - Mononoke
 
-$token = $_GET["token"];
+$token =  mysqli_real_escape_string($conn, $_GET["token"]);
 
 if(isset($_POST["confirm_account"])) {
     $error = false;
