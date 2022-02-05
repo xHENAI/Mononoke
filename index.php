@@ -33,14 +33,6 @@ if(in_array($page,$requireMod) || in_array($page, $requireAdmin)) {
 
 $class = "";
 
-if($page=="signin") {
-    $class = "signin-div";
-} 
-
-if($page=="signup") {
-    $class = "signup-div";
-}
-
 if($user["theme"]==0) {
     // Bootstrap Default Light
     $class = "bg-0";
@@ -60,6 +52,14 @@ if($user["theme"]==3) {
 if($user["theme"]==4) {
     // Darkly Dark
     $class = "bg-4";
+}
+
+if($page=="signin") {
+    $class = "signin-div";
+} 
+
+if($page=="signup") {
+    $class = "signup-div";
 }
 
 if($page=="signout") {
