@@ -2,7 +2,7 @@
 
 // pages/forum/viewforum.req.php - Mononoke
 
-$forum = $_GET["id"];
+$forum = mysqli_real_escape_string($conn, $_GET["id"]);
 $forum = $conn->query("SELECT * FROM `forum` WHERE `id`='$forum' LIMIT 1");
 $forum = mysqli_fetch_assoc($forum);
 
@@ -38,7 +38,7 @@ if(!empty($forum["id"])) {
 <title><?= $forum["name"] ?> (Forum) | <?= $config["name"] ?></title>
 
 <ol class="breadcrumb">
-    <li><a href="<?= $config["url"] ?>forum">Forums (Index)</a></li>
+    <li><a href="<?= $config["url"] ?>forum/home">Forums (Index)</a></li>
     <li><?= $forum["name"] ?> (Forum)</li>
 </ol>
 

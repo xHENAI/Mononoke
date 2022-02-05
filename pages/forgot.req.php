@@ -1,11 +1,12 @@
 <?php
 
-// pages/forgot.req.php - aniZero2
+// pages/forgot.req.php - Mononoke
+
+$error = false;
+$success = false;
+$error_msg = "";
 
 if(isset($_POST["reset_password"])) {
-    $error = false;
-    $success = false;
-    $error_msg = "";
     $email = mysqli_real_escape_string($conn, $_POST["email"]);
     $emailcheck = $conn->query("SELECT * FROM `user` WHERE `email`='$email'");
     if(mysqli_num_rows($emailcheck)==1) {
@@ -29,25 +30,25 @@ if(isset($_POST["reset_password"])) {
 }
 
 ?>
-<title>Reset Password | <?= $config["name"] ?></title>
+<title><?= $lang["forgot"]["title"] ?> | <?= $config["name"] ?></title>
 <div style="margin: 0 auto; width: 300px" id="login_container">
     <form method="post" id="login_form" name="reset_password">
-        <h1 class="text-center">Reset Password</h1>
+        <h1 class="text-center"><?= $lang["forgot"]["title"] ?></h1>
         <hr>
         <div class="form-group">
-            <label for="login_username" class="sr-only">Username</label>
-            <input tabindex="1" type="email" name="email" id="login_username" class="form-control" placeholder="eMail" required>
+            <label for="login_username" class="sr-only"><?= $lang["forgot"]["email"] ?></label>
+            <input tabindex="1" type="email" name="email" id="login_username" class="form-control" placeholder="<?= $lang["forgot"]["email"] ?>" required>
         </div>
-        <button tabindex="3" class="btn btn-lg btn-success btn-block" type="submit" id="login_button" name="reset_password"><?= glyph("refresh","Send new Password") ?> Send new Password</button>
+        <button tabindex="3" class="btn btn-lg btn-success btn-block" type="submit" id="login_button" name="reset_password"><?= glyph("refresh",$lang["forgot"]["send"]) ?> <?= $lang["forgot"]["send"] ?></button>
         <?php if(!empty($error_msg)) { ?>
         <br>
         <p style="color:red"><?= $error_msg ?></p>
         <?php } ?>
         <?php if($success==true) { ?>
         <br>
-        <p style="color:green">The eMail has been send! Please read instructions below for more info.</p>
+        <p style="color:green"><?= $lang["forgot"]["success"] ?></p>
         <?php } ?>
         <hr>
-        <p>After you click "Send new Password", we will send you a link where you can reset your Password. Delivery may take up to 10 minutes and make sure to check the Spam folder!</p>
+        <p><?= $lang["forgot"]["info"] ?></p>
     </form>
 </div>

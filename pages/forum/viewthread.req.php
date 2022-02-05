@@ -1,6 +1,8 @@
 <?php
 
-$thread = $_GET["id"];
+// pages/forum/viewthread.req.php - Mononoke
+
+$thread = mysqli_real_escape_string($conn, $_GET["id"]);
 $thread = $conn->query("SELECT * FROM `forum_threads` WHERE `id`='$thread' LIMIT 1");
 $thread = mysqli_fetch_assoc($thread);
 
@@ -85,7 +87,7 @@ if(!empty($thread["id"])) {
 
 <title><?= $thread["title"] ?> (Thread) | <?= $config["name"] ?></title>
 <ol class="breadcrumb">
-    <li><a href="<?= $config["url"] ?>forum">Forums (Index)</a></li>
+    <li><a href="<?= $config["url"] ?>forum/home">Forums (Index)</a></li>
     <li><a href="<?= $config["url"] ?>forum/viewforum/<?= $forum["id"] ?>"><?= $forum["name"] ?> (Forum)</a></li>
     <li><?= $thread["title"] ?> (Thread)</li>
 </ol>

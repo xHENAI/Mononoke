@@ -27,6 +27,7 @@
 }
 
 html {
+    scroll-behavior: smooth;
     position: relative;
     min-height: 100%;
 }
@@ -42,6 +43,98 @@ body {
     position: static;
     display: block;
     margin-bottom: 20px;
+}
+
+#top_nav {
+    position: fixed;
+    z-index: 99999;
+}
+
+.bg-0 {
+    background: url("../assets/img/bg/0.jpeg");
+    filter: blur(4px);
+    -webkit-filter: blur(4px);
+    height: 100vh;
+    left: 0;
+    right: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: fixed;
+    z-index: 1;
+    display: block;
+    opacity: .2;
+}
+
+.bg-1 {
+    background: url("../assets/img/bg/1.jpeg");
+    filter: blur(1px);
+    -webkit-filter: blur(1px);
+    height: 100vh;
+    left: 0;
+    right: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: fixed;
+    z-index: 1;
+    display: block;
+    opacity: .2;
+}
+
+.bg-2 {
+    background: url("../assets/img/bg/2.jpeg");
+    filter: blur(4px);
+    -webkit-filter: blur(4px);
+    height: 100vh;
+    left: 0;
+    right: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: fixed;
+    z-index: 1;
+    display: block;
+    opacity: .2;
+}
+
+.bg-3 {
+    background: url("../assets/img/bg/3.jpeg");
+    filter: blur(1px);
+    -webkit-filter: blur(1px);
+    height: 100vh;
+    left: 0;
+    right: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: fixed;
+    z-index: 1;
+    display: block;
+    opacity: .2;
+}
+
+.bg-4 {
+    background: url("../assets/img/bg/4.jpeg");
+    filter: blur(4px);
+    -webkit-filter: blur(4px);
+    height: 100vh;
+    left: 0;
+    right: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: fixed;
+    z-index: 1;
+    display: block;
+    opacity: .2;
+}
+
+.contentx {
+    position: sticky;
+    left: 0;
+    right: 0;
+    z-index: 9999;
 }
 
 .signin-div {
@@ -68,6 +161,7 @@ body {
     width: 100%;
     /* Set the fixed height of the footer here */
     height: 40px;
+    z-index: 9999999;
 }
 
 .display-none {

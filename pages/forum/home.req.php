@@ -1,3 +1,5 @@
+<?php // pages/forum/home.req.php - Mononoke ?>
+
 <title>Home (Forums) | <?= $config["name"] ?></title>
 
 <?php
