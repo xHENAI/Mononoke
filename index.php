@@ -35,23 +35,23 @@ $class = "";
 
 if($user["theme"]==0) {
     // Bootstrap Default Light
-    $class = "bg-0";
+    $class2 = "bg-0";
 }
 if($user["theme"]==1) {
     // Curelean Light
-    $class = "bg-1";
+    $class2 = "bg-1";
 }
 if($user["theme"]==2) {
     // Bootstrap Default Dark
-    $class = "bg-2";
+    $class2 = "bg-2";
 }
 if($user["theme"]==3) {
     // Cyborg Dark
-    $class = "bg-3";
+    $class2 = "bg-3";
 }
 if($user["theme"]==4) {
     // Darkly Dark
-    $class = "bg-4";
+    $class2 = "bg-4";
 }
 
 if($page=="signin") {
@@ -116,10 +116,12 @@ ___________    .__                           ____  __.__         .__            
 </head>
 
 <body class="<?= $class ?>">
+    
+    <div class="<?= $class2 ?>"></div>
 
     <?php include("parts/menu.part.php"); ?>
 
-    <div class="container">
+    <div class="container contentx">
 
         <?php if($user["read_announce"]==0) { // Shows notice that this software is still trash :^) ?>
         <div class="alert alert-danger text-center" role="alert">

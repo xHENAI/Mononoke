@@ -2,11 +2,11 @@
 
 // pages/user.req.php - Mononoke
 
-$id = $_GET["id"];
+$id = mysqli_real_escape_string($conn, $_GET["id"]);
 $vuser = $conn->query("SELECT * FROM `user` WHERE `id`='$id' LIMIT 1");
 $vuser = mysqli_fetch_assoc($vuser);
 
-if(!empty($user["id"])) {
+if(!empty($vuser["id"])) {
     $comments1 = $conn->query("SELECT COUNT(*) AS total FROM `anime_comments` WHERE `user`='$id'");
     $comments2 = $conn->query("SELECT COUNT(*) AS total FROM `episode_comments` WHERE `user`='$id'");
     $comments3 = $comments1["total"]+$comments2["total"];

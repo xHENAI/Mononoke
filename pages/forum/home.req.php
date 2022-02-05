@@ -1,4 +1,4 @@
-<?php // pages/forum/home.req.php - Mononoke >
+<?php // pages/forum/home.req.php - Mononoke ?>
 
 <title>Home (Forums) | <?= $config["name"] ?></title>
 
