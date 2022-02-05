@@ -13,9 +13,9 @@ if ($conn->connect_error) {
 /* Get User-details from cookie or Session and set status */
 if((isset($_COOKIE[$config["cookie"]."session"]) && !empty($_COOKIE[$config["cookie"]."session"])) || (isset($_SESSION[$config["cookie"]."session"]) && !empty($_SESSION[$config["cookie"]."session"]))) {
     if(!empty($_COOKIE[$config["cookie"]."session"])) {
-        $checking = $_COOKIE[$config["cookie"]."session"];
+        $checking = mysqli_real_escape_string($conn, $_COOKIE[$config["cookie"]."session"]);
     } else {
-        $checking = $_SESSION[$config["cookie"]."session"];
+        $checking = mysqli_real_escape_string($conn, $_SESSION[$config["cookie"]."session"]);
     }
     $checking = $conn->query("SELECT * FROM `user_tokens` WHERE `token`='$checking'");
     if(mysqli_num_rows($checking)==1) {
