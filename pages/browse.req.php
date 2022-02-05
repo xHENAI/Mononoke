@@ -29,8 +29,20 @@ if ($stmt = $conn->prepare($dream)) {
 <?php } ?>
 
 <?php if(mysqli_num_rows($result)!==0) { ?>
-<?php while ($row = $result->fetch_assoc()): ?>
-<?php endwhile; ?>
+<div class="row">
+    <?php while ($row = $result->fetch_assoc()): ?>
+    <div class="col-sm-2">
+        <div class="thumbnail">
+            <a href="<?= $config["url"] ?>anime/<?= $row["id"] ?>">
+                <img src="<?= $config["url"] ?>assets/thumbs/<?= $row["id"] ?>.<?= $row["image"] ?>" alt="<?= $row["name"] ?>'s Image" width="100%">
+                <div class="caption text-center">
+                    <?= $row["name"] ?>
+                </div>
+            </a>
+        </div>
+    </div>
+    <?php endwhile; ?>
+</div>
 <?php } else { ?>
 <p><?= glyph("info-sign",$lang["error"]) ?> <?= $lang["browse"]["none"] ?></p>
 <?php } ?>

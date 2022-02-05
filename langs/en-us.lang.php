@@ -17,6 +17,7 @@ $mail["reset_content"] = "Hello there!\n\nAs you have been requesting an Account
 $seo["slogan"] = "Your place to watch Anime online in High-Quality in english with subtitles & dub!";
 
 $lang["anime"]["name"] = "Anime Name";
+$lang["anime"]["anime"] = "Anime";
 $lang["amine"]["status"]["name"] = "Status";
 $lang["anime"]["status"]["0"] = "Announced";
 $lang["anime"]["status"]["1"] = "Airing";
