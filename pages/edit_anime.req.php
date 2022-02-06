@@ -209,7 +209,7 @@ if(!empty($anime["id"])) {
                 <div class="form-group">
                     <label class="col-sm-3 control-label" for="twist"><?= $lang["edit_anime"]["twist"] ?></label>
                     <div class="col-sm-9">
-                        <input type="text" name="twist" id="twist" class="form-control" value="<?= $anime["twist"] ?>" placeholder="<?= $lang["edit_anime"]["twist"] ?>">
+                        <input type="text" name="twist" id="twist" class="form-control" value="<?= $anime["twist"] ?>" placeholder="<?= $lang["edit_anime"]["twist_hover"] ?>">
                     </div>
                 </div>
                 <div class="form-group">

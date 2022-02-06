@@ -27,9 +27,9 @@
 |     [x] Make Forum private, public, open & closed                    |
 |     [x] Create new Threads and Post Replies                          |
 | [ ] Anime System                                                     |
-|     [x] Add and Edit Animes (WIP)                                    |
-|     [ ] View Animes on seperate Page                                 |
-|     [ ] See "New Episode" Button on Anime Page                       |
+|     [x] Add and Edit Animes                                          |
+|     [x] View Animes on seperate Page                                 |
+|     [x] See "New Episode" Button on Anime Page                       |
 | [ ] Episode System                                                   |
 |     [ ] Add New Episode                                              |
 |     [ ] Multiple Streamhosters                                       |

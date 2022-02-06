@@ -6,8 +6,8 @@
 
 $lang["error"] = "Error!";
 $lang["permissions"] = "You do not have enough permissions to perform that action!";
-$lang["notice"] = '<b>Hello!</b> Please keep in mind that the software that is powering <?= $config["name"] ?> is still in Alpha. Make sure to check out the <a href="https://github.com/xHENAI/Mononoke" target="_blank">GitHub</a>!';
-$lang["unconfirmed"] = '<b>Alert:</b> You haven\'t verified your eMail yet! To use all features of <?= $config["name"] ?>, you need to do that first.';
+$lang["notice"] = "<b>Hello!</b> Please keep in mind that the software that is powering <?= \$config[\"name\"] ?> is still in Alpha. Make sure to check out the <a href=\"https://github.com/xHENAI/Mononoke\" target=\"_blank\">GitHub</a>!";
+$lang["unconfirmed"] = "<b>Alert:</b> You haven't verified your eMail yet! To use all features of <?= \$config[\"name\"] ?>, you need to do that first.";
 
 $mail["confirm_mail"] = "Please confirm your eMail!";
 $mail["confirm_content"] = "Hey there!\n\nYour ".$config["name"]." account was created, now you only need to activate it.\nPlease follow the link below to do so.\n\n";
@@ -20,12 +20,23 @@ $lang["anime"]["name"] = "Anime Name";
 $lang["anime"]["anime"] = "Anime";
 $lang["amine"]["status"]["name"] = "Status";
 $lang["anime"]["status"]["0"] = "Announced";
+$lang["anime"]["status"]["0_long"] = "The Anime has been announced to air soon.";
 $lang["anime"]["status"]["1"] = "Airing";
+$lang["anime"]["status"]["1_long"] = "The Anime is currently airing.";
 $lang["anime"]["status"]["2"] = "Finished";
+$lang["anime"]["status"]["2_long"] = "The Anime has been finished and will no longer receive new Episodes.";
 $lang["anime"]["description"] = "Description";
+$lang["anime"]["year"] = "Released first in";
+$lang["anime"]["unknown_year"] = "Release year is unknown to weebkind.";
+$lang["anime"]["anisearch"] = "AniSearch";
+$lang["anime"]["error"] = "Anime has not been found with this ID!";
+$lang["anime"]["watch_other"] = "Watch it also on:";
+$lang["anime"]["episodes"] = "Episodes";
+$lang["anime"]["comments"] = "Comments";
 
 $lang["episode"]["name"] = "Episode";
 $lang["episode"]["name_short"] = "Ep. ";
+$lang["episode"]["new"] = "Add new Episode";
 
 $lang["browse"]["title"] = "Browse Anime - Page";
 $lang["browse"]["none"] = "No Animes found on this Page!";
@@ -201,8 +212,8 @@ $lang["edit_anime"]["animixplay"] = "AniMixPlay URL";
 $lang["edit_anime"]["animixplay_hover"] = "Full URL to Anime, preferably Anime Page";
 $lang["edit_anime"]["gogoanime"] = "GogoAnime URL";
 $lang["edit_anime"]["gogoanime_hover"] = "Full URL to Anime, preferably info page";
-$lang["edit_anime"]["twist"] = "AnimeTwist ID";
-$lang["edit_anime"]["twist_hover"] = "Only the ID, not the full URL";
+$lang["edit_anime"]["twist"] = "AnimeTwist URL";
+$lang["edit_anime"]["twist_hover"] = "Full URL to Anime, preferably info page";
 $lang["edit_anime"]["public"] = "Public";
 $lang["edit_anime"]["public_yes"] = "Visible for Everyone";
 $lang["edit_anime"]["public_no"] = "Only visible to Administrators and Moderators";

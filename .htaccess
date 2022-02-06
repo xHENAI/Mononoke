@@ -57,3 +57,5 @@ RewriteRule ^watch/(.+)/(.+)/?$ ./?page=watch&id=$1&ep=$2
 
 # System Pages
 RewriteRule ^sys/schedule/?$ ./?page=mod&action=schedule
+
+ErrorDocument 404 /index.php?page=error

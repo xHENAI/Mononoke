@@ -31,11 +31,11 @@ if(isset($_POST["login_user"])) {
 
 /* Functions */
 
-function glyph($glyph, $title) {
+function glyph($glyph, $title = "") {
     echo "<span class=\"glyphicon glyphicon-$glyph\" title=\"$title\"></span>";
 }
 
-function redirect($destination) {
+function redirect($destination = "") {
     echo "<script type=\"text/javascript\"> document.location = \"".$config["url"].$destination."\"; </script>";
 }
 
