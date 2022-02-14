@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.6deb5ubuntu0.5
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Feb 05, 2022 at 05:54 PM
--- Server version: 5.7.37-0ubuntu0.18.04.1
--- PHP Version: 7.3.33-1+ubuntu18.04.1+deb.sury.org+1
+-- Host: 127.0.0.1
+-- Erstellungszeit: 09. Feb 2022 um 22:21
+-- Server-Version: 10.4.22-MariaDB
+-- PHP-Version: 7.4.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -17,35 +18,73 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `mononoke`
+-- Datenbank: `mononoke`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `anime`
+-- Tabellenstruktur für Tabelle `anime`
 --
 
 CREATE TABLE `anime` (
   `id` int(11) NOT NULL,
   `name` varchar(250) CHARACTER SET latin1 NOT NULL,
-  `alternates` longblob,
+  `alternates` longblob DEFAULT NULL,
   `year` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `image` varchar(4) CHARACTER SET latin1 NOT NULL,
   `status` int(11) NOT NULL,
-  `description` text CHARACTER SET latin1,
+  `description` text CHARACTER SET latin1 DEFAULT NULL,
   `anisearch` int(11) DEFAULT NULL,
-  `9anime` text CHARACTER SET latin1,
-  `animixplay` text COLLATE utf8mb4_unicode_ci,
-  `gogoanime` text COLLATE utf8mb4_unicode_ci,
-  `twist` int(11) DEFAULT NULL,
-  `public` tinyint(1) NOT NULL DEFAULT '0'
+  `9anime` text CHARACTER SET latin1 DEFAULT NULL,
+  `animixplay` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `gogoanime` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `twist` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `public` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `forum`
+-- Tabellenstruktur für Tabelle `anime_tag_cloud`
+--
+
+CREATE TABLE `anime_tag_cloud` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `anime_tag_relations`
+--
+
+CREATE TABLE `anime_tag_relations` (
+  `id` int(11) NOT NULL,
+  `anime` int(11) NOT NULL,
+  `tag` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `episode`
+--
+
+CREATE TABLE `episode` (
+  `id` int(11) NOT NULL,
+  `anime` int(11) NOT NULL,
+  `episode` int(11) NOT NULL,
+  `host` int(11) NOT NULL,
+  `url` text NOT NULL,
+  `deleted` tinyint(1) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `forum`
 --
 
 CREATE TABLE `forum` (
@@ -60,7 +99,7 @@ CREATE TABLE `forum` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `forum_posts`
+-- Tabellenstruktur für Tabelle `forum_posts`
 --
 
 CREATE TABLE `forum_posts` (
@@ -69,14 +108,14 @@ CREATE TABLE `forum_posts` (
   `forum` int(11) NOT NULL,
   `thread` int(11) NOT NULL,
   `content` text NOT NULL,
-  `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `date` datetime NOT NULL DEFAULT current_timestamp(),
   `deleted` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `forum_threads`
+-- Tabellenstruktur für Tabelle `forum_threads`
 --
 
 CREATE TABLE `forum_threads` (
@@ -87,14 +126,14 @@ CREATE TABLE `forum_threads` (
   `closed` int(11) NOT NULL,
   `sticky` int(11) NOT NULL,
   `deleted` int(11) NOT NULL,
-  `posted` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `posted` datetime NOT NULL DEFAULT current_timestamp(),
   `user` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `schedule`
+-- Tabellenstruktur für Tabelle `schedule`
 --
 
 CREATE TABLE `schedule` (
@@ -102,14 +141,14 @@ CREATE TABLE `schedule` (
   `anime` int(11) NOT NULL,
   `release` time NOT NULL,
   `tleft` datetime DEFAULT NULL,
-  `added` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `added` datetime NOT NULL DEFAULT current_timestamp(),
   `day` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Tabellenstruktur für Tabelle `user`
 --
 
 CREATE TABLE `user` (
@@ -125,121 +164,163 @@ CREATE TABLE `user` (
   `public_watchlist` int(11) NOT NULL,
   `read_announce` int(11) NOT NULL,
   `forum_signature` varchar(500) DEFAULT NULL,
-  `banned` tinyint(1) NOT NULL DEFAULT '0',
-  `banned_reason` text
+  `banned` tinyint(1) NOT NULL DEFAULT 0,
+  `banned_reason` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_forgot`
+-- Tabellenstruktur für Tabelle `user_forgot`
 --
 
 CREATE TABLE `user_forgot` (
   `user` varchar(250) NOT NULL,
   `token` text NOT NULL,
-  `from` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `from` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_tokens`
+-- Tabellenstruktur für Tabelle `user_tokens`
 --
 
 CREATE TABLE `user_tokens` (
   `token` text NOT NULL,
   `user` varchar(250) NOT NULL,
-  `from` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `from` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_verification`
+-- Tabellenstruktur für Tabelle `user_verification`
 --
 
 CREATE TABLE `user_verification` (
   `user` varchar(250) NOT NULL,
   `token` text NOT NULL,
-  `from` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `from` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Indexes for dumped tables
+-- Indizes der exportierten Tabellen
 --
 
 --
--- Indexes for table `anime`
+-- Indizes für die Tabelle `anime`
 --
 ALTER TABLE `anime`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `forum`
+-- Indizes für die Tabelle `anime_tag_cloud`
+--
+ALTER TABLE `anime_tag_cloud`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indizes für die Tabelle `anime_tag_relations`
+--
+ALTER TABLE `anime_tag_relations`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indizes für die Tabelle `episode`
+--
+ALTER TABLE `episode`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indizes für die Tabelle `forum`
 --
 ALTER TABLE `forum`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `forum_posts`
+-- Indizes für die Tabelle `forum_posts`
 --
 ALTER TABLE `forum_posts`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `forum_threads`
+-- Indizes für die Tabelle `forum_threads`
 --
 ALTER TABLE `forum_threads`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `schedule`
+-- Indizes für die Tabelle `schedule`
 --
 ALTER TABLE `schedule`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `user`
+-- Indizes für die Tabelle `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT für exportierte Tabellen
 --
 
 --
--- AUTO_INCREMENT for table `anime`
+-- AUTO_INCREMENT für Tabelle `anime`
 --
 ALTER TABLE `anime`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
--- AUTO_INCREMENT for table `forum`
+-- AUTO_INCREMENT für Tabelle `anime_tag_cloud`
+--
+ALTER TABLE `anime_tag_cloud`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT für Tabelle `anime_tag_relations`
+--
+ALTER TABLE `anime_tag_relations`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT für Tabelle `episode`
+--
+ALTER TABLE `episode`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT für Tabelle `forum`
 --
 ALTER TABLE `forum`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
--- AUTO_INCREMENT for table `forum_posts`
+-- AUTO_INCREMENT für Tabelle `forum_posts`
 --
 ALTER TABLE `forum_posts`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
--- AUTO_INCREMENT for table `forum_threads`
+-- AUTO_INCREMENT für Tabelle `forum_threads`
 --
 ALTER TABLE `forum_threads`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
--- AUTO_INCREMENT for table `schedule`
+-- AUTO_INCREMENT für Tabelle `schedule`
 --
 ALTER TABLE `schedule`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT für Tabelle `user`
 --
 ALTER TABLE `user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-

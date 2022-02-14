@@ -2,6 +2,10 @@
 
 // requires.php - Mononoke
 
+if(!file_exists("installed")) {
+    header("location: install");
+}
+
 require("config.php");
 require("core/conn.req.php");
 require("langs/".$user["lang"].".lang.php");

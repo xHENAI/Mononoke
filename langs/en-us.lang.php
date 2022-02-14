@@ -38,6 +38,10 @@ $lang["episode"]["name"] = "Episode";
 $lang["episode"]["name_short"] = "Ep. ";
 $lang["episode"]["new"] = "Add new Episode";
 
+$lang["add_episode"]["title"] = "Add Episode to";
+$lang["add_episode"]["error"] = "Could not find the Anime you want to add an Episode!";
+$lang["add_episode"]["view_anime"] = "View Anime";
+
 $lang["browse"]["title"] = "Browse Anime - Page";
 $lang["browse"]["none"] = "No Animes found on this Page!";
 $lang["browse"]["xxx"] = "xxx";
