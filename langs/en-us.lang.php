@@ -16,6 +16,13 @@ $mail["reset_content"] = "Hello there!\n\nAs you have been requesting an Account
 
 $seo["slogan"] = "Your place to watch Anime online in High-Quality in english with subtitles & dub!";
 
+$lang["home"]["explore"] = "Explore new Animes";
+$lang["home"]["recent_episodes"] = "Recent Episodes";
+$lang["home"]["recent_animes"] = "Recent Animes";
+$lang["home"]["browse_anime"] = "Browse all Anime";
+$lang["home"]["browse_ranime"] = "View more recent Anime";
+$lang["home"]["browse_episodes"] = "View more recent Episodes";
+
 $lang["anime"]["name"] = "Anime Name";
 $lang["anime"]["anime"] = "Anime";
 $lang["amine"]["status"]["name"] = "Status";
@@ -29,18 +36,36 @@ $lang["anime"]["description"] = "Description";
 $lang["anime"]["year"] = "Released first in";
 $lang["anime"]["unknown_year"] = "Release year is unknown to weebkind.";
 $lang["anime"]["anisearch"] = "AniSearch";
+$lang["anime"]["mal"] = "MyAnimeList";
 $lang["anime"]["error"] = "Anime has not been found with this ID!";
 $lang["anime"]["watch_other"] = "Watch it also on:";
 $lang["anime"]["episodes"] = "Episodes";
 $lang["anime"]["comments"] = "Comments";
+$lang["anime"]["no_ep"] = "This Anime doesn't have any Episodes yet!";
 
 $lang["episode"]["name"] = "Episode";
 $lang["episode"]["name_short"] = "Ep. ";
 $lang["episode"]["new"] = "Add new Episode";
+$lang["episode"]["released"] = "Released";
 
 $lang["add_episode"]["title"] = "Add Episode to";
+$lang["add_episode"]["add"] = "Add Episode!";
 $lang["add_episode"]["error"] = "Could not find the Anime you want to add an Episode!";
 $lang["add_episode"]["view_anime"] = "View Anime";
+$lang["add_episode"]["host"] = "Streamhoster";
+$lang["add_episode"]["host_select"] = "Select Streamhoster...";
+$lang["add_episode"]["url"] = "URL to Episode";
+
+$lang["ago"]["year"] = "Year";
+$lang["ago"]["month"] = "Month";
+$lang["ago"]["week"] = "Week";
+$lang["ago"]["day"] = "Day";
+$lang["ago"]["hour"] = "Hour";
+$lang["ago"]["minute"] = "Minute";
+$lang["ago"]["second"] = "Second";
+$lang["ago"]["plural"] = "s";
+$lang["ago"]["ago"] = "ago";
+$lang["ago"]["now"] = "Just now";
 
 $lang["browse"]["title"] = "Browse Anime - Page";
 $lang["browse"]["none"] = "No Animes found on this Page!";
@@ -210,6 +235,7 @@ $lang["edit_anime"]["alternates"] = "Alternate Names";
 $lang["edit_anime"]["alternates_hover"] = "Seperate best with ; or leave empty for none";
 $lang["edit_anime"]["description"] = "Description of the Anime. Supports BBCode!";
 $lang["edit_anime"]["anisearch"] = "AniSearch ID";
+$lang["edit_anime"]["mal"] = "MyAnimeList ID";
 $lang["edit_anime"]["9anime"] = "9Anime URL";
 $lang["edit_anime"]["9anime_hover"] = "Full URL to Anime, preferably first Episode";
 $lang["edit_anime"]["animixplay"] = "AniMixPlay URL";

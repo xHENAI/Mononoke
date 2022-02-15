@@ -3,6 +3,12 @@
 // requires.php - Mononoke
 
 if(!file_exists("installed") || !file_exists("config.php")) {
+    if(file_exists("config.php")) {
+        unlink("config.php");
+    }
+    if(file_exists("installed")) {
+        unlink("installed");
+    }
     header("location: install");
 }
 

@@ -1,7 +1,7 @@
 <?php
 
 // Deutsche Sprach-Datei für Mononoke
-// Von $aintly2k and Kleineick
+// Von $aintly2k und Kleineick
 // H33T.moe et HENAI.eu
 
 $lang["error"] = "Error!";
@@ -16,6 +16,13 @@ $mail["reset_content"] = "Hey hey!\n\nWie du es wolltest, ist hier ein Link um d
 
 $seo["slogan"] = "Dein Platz um Anime in unschlagbarer Qualität online zu sehen und deine Träume wahr werden zu lassen!";
 
+$lang["home"]["explore"] = "Entdecke neue Animes";
+$lang["home"]["recent_episodes"] = "Neue Episoden";
+$lang["home"]["recent_animes"] = "Neue Animes";
+$lang["home"]["browse_anime"] = "Alle Animes durchstöbern";
+$lang["home"]["browse_ranime"] = "Mehr kürzlich erschienen Animes ansehen";
+$lang["home"]["browse_episodes"] = "Mehr kürzlich erschienen Episoden ansehen";
+
 $lang["anime"]["name"] = "Anime Name";
 $lang["anime"]["anime"] = "Anime";
 $lang["amine"]["status"]["name"] = "Status";
@@ -29,18 +36,36 @@ $lang["anime"]["description"] = "Beschreibung";
 $lang["anime"]["year"] = "Zuerst veröffentlicht in";
 $lang["anime"]["unknown_year"] = "Veröffentlichungsjahr ist unbekannt.";
 $lang["anime"]["anisearch"] = "AniSearch";
+$lang["anime"]["mal"] = "MyAnimeList";
 $lang["anime"]["error"] = "Es wurde kein Anime mit dieser ID gefunden!";
 $lang["anime"]["watch_other"] = "Siehe ihn auch hier:";
 $lang["anime"]["episodes"] = "Episoden";
 $lang["anime"]["comments"] = "Kommentare";
+$lang["anime"]["no_ep"] = "Dieser Anime hat noch keine Episoden!";
 
 $lang["episode"]["name"] = "Episode";
 $lang["episode"]["name_short"] = "Ep. ";
 $lang["episode"]["new"] = "Füge eine neue Episode hinzu";
+$lang["episode"]["released"] = "Veröffentlicht";
 
 $lang["add_episode"]["title"] = "Füge eine neue Episode hinzu für";
+$lang["add_episode"]["add"] = "Episode hinzufügen!";
 $lang["add_episode"]["error"] = "Es konnte kein Anime gefunden werden, für den du eine neue Episode hinzufügen möchtest!";
 $lang["add_episode"]["view_anime"] = "Zurück zum Anime";
+$lang["add_episode"]["host"] = "Streamhoster";
+$lang["add_episode"]["host_select"] = "Streamhoster auswählen...";
+$lang["add_episode"]["url"] = "URL zur Episode";
+
+$lang["ago"]["year"] = "Jahre";
+$lang["ago"]["month"] = "Monate";
+$lang["ago"]["week"] = "Wochen";
+$lang["ago"]["day"] = "Tage";
+$lang["ago"]["hour"] = "Stunden";
+$lang["ago"]["minute"] = "Minuten";
+$lang["ago"]["second"] = "Sekunden";
+$lang["ago"]["plural"] = "";
+$lang["ago"]["ago"] = "her";
+$lang["ago"]["now"] = "Gerade jetzt";
 
 $lang["browse"]["title"] = "Animes - Seite";
 $lang["browse"]["none"] = "Es wurden keine Animes auf dieser Seite gefunden!";
@@ -210,6 +235,7 @@ $lang["edit_anime"]["alternates"] = "Weitere Namen";
 $lang["edit_anime"]["alternates_hover"] = "Trennen mit ; oder leer lassen für keine";
 $lang["edit_anime"]["description"] = "Beschreibung des Animes. Unterstützt BBCode!";
 $lang["edit_anime"]["anisearch"] = "AniSearch ID";
+$lang["edit_anime"]["mal"] = "MyAnimeList ID";
 $lang["edit_anime"]["9anime"] = "9Anime URL";
 $lang["edit_anime"]["9anime_hover"] = "Ganze URL zum Anime, vorzugsweise zur ersten Episode";
 $lang["edit_anime"]["animixplay"] = "AniMixPlay URL";

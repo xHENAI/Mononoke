@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 15. Feb 2022 um 01:26
+-- Erstellungszeit: 15. Feb 2022 um 14:12
 -- Server-Version: 10.4.22-MariaDB
 -- PHP-Version: 7.4.27
 
@@ -37,12 +37,44 @@ CREATE TABLE `anime` (
   `status` int(11) NOT NULL,
   `description` text CHARACTER SET latin1 DEFAULT NULL,
   `anisearch` int(11) DEFAULT NULL,
+  `mal` int(11) DEFAULT NULL,
   `9anime` text CHARACTER SET latin1 DEFAULT NULL,
   `animixplay` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `gogoanime` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `twist` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `public` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `anime_comments`
+--
+
+DROP TABLE IF EXISTS `anime_comments`;
+CREATE TABLE `anime_comments` (
+  `id` int(11) NOT NULL,
+  `anime` int(11) NOT NULL,
+  `user` int(11) NOT NULL,
+  `content` text NOT NULL,
+  `added` datetime NOT NULL DEFAULT current_timestamp(),
+  `deleted` tinyint(1) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `anime_rating`
+--
+
+DROP TABLE IF EXISTS `anime_rating`;
+CREATE TABLE `anime_rating` (
+  `id` int(11) NOT NULL,
+  `anime` int(11) NOT NULL,
+  `user` int(11) NOT NULL,
+  `stars` int(1) NOT NULL,
+  `added` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -83,6 +115,22 @@ CREATE TABLE `episode` (
   `host` int(11) NOT NULL,
   `url` text NOT NULL,
   `deleted` tinyint(1) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `episode_comments`
+--
+
+DROP TABLE IF EXISTS `episode_comments`;
+CREATE TABLE `episode_comments` (
+  `id` int(11) NOT NULL,
+  `episode` int(11) NOT NULL,
+  `user` int(11) NOT NULL,
+  `content` text NOT NULL,
+  `added` datetime NOT NULL DEFAULT current_timestamp(),
+  `deleted` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -227,6 +275,18 @@ ALTER TABLE `anime`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indizes für die Tabelle `anime_comments`
+--
+ALTER TABLE `anime_comments`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indizes für die Tabelle `anime_rating`
+--
+ALTER TABLE `anime_rating`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indizes für die Tabelle `anime_tag_cloud`
 --
 ALTER TABLE `anime_tag_cloud`
@@ -242,6 +302,12 @@ ALTER TABLE `anime_tag_relations`
 -- Indizes für die Tabelle `episode`
 --
 ALTER TABLE `episode`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indizes für die Tabelle `episode_comments`
+--
+ALTER TABLE `episode_comments`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -285,6 +351,18 @@ ALTER TABLE `anime`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT für Tabelle `anime_comments`
+--
+ALTER TABLE `anime_comments`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT für Tabelle `anime_rating`
+--
+ALTER TABLE `anime_rating`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT für Tabelle `anime_tag_cloud`
 --
 ALTER TABLE `anime_tag_cloud`
@@ -300,6 +378,12 @@ ALTER TABLE `anime_tag_relations`
 -- AUTO_INCREMENT für Tabelle `episode`
 --
 ALTER TABLE `episode`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT für Tabelle `episode_comments`
+--
+ALTER TABLE `episode_comments`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --

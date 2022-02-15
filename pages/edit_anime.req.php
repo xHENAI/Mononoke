@@ -39,6 +39,12 @@ if(!empty($anime["id"])) {
                               } else {
                                   $anisearch = "'".$anisearch."'";
                               }
+                              $mal = mysqli_real_escape_string($conn, $_POST["mal"]);
+                              if(empty($mal)) {
+                                  $mal = "NULL";
+                              } else {
+                                  $mal = "'".$mal."'";
+                              }
                               $nanime = mysqli_real_escape_string($conn, $_POST["9anime"]);
                               if(empty($nanime)) {
                                   $nanime = "NULL";
@@ -64,8 +70,10 @@ if(!empty($anime["id"])) {
                                   $twist = "'".$twist."'";
                               }
                               $public = mysqli_real_escape_string($conn, $_POST["public"]);
-                              $update = $conn->query("UPDATE `anime` SET `name`='$name', `alternates`=$alternates, `year`=$year, `status`='$status', `description`=$description, `anisearch`=$anisearch, `9anime`=$nanime, `animixplay`=$animixplay, `gogoanime`=$gogoanime, `twist`=$twist, `public`='$public' WHERE `id`='".$anime["id"]."'");
-                              redirect("");
+                              if($error==false) {
+                                $conn->query("UPDATE `anime` SET `name`='$name', `alternates`=$alternates, `year`=$year, `status`='$status', `description`=$description, `anisearch`=$anisearch, `mal`=$mal, `9anime`=$nanime, `animixplay`=$animixplay, `gogoanime`=$gogoanime, `twist`=$twist, `public`='$public  ' WHERE `id`='".$anime["id"]."'");
+                                redirect("");
+                              }
                           }
     
     if(isset($_POST["edit_cover"])) {
@@ -83,8 +91,8 @@ if(!empty($anime["id"])) {
         ///////// Start the thumbnail generation//////////////
         $n_width = 100;    // Fix the width of the thumb nail images
         $n_height = 120;   // Fix the height of the thumb nail imaage
-        $n_width2 = 500;    // Fix the width of the thumb nail images
-        $n_height2 = 200;   // Fix the height of the thumb nail imaage
+        $n_width2 = 1100;    // Fix the width of the thumb nail images
+        $n_height2 = 500;   // Fix the height of the thumb nail imaage
 
         $tsrc = "assets/thumbs/".$anime["id"].".jpg";   // Path where thumb nail image will be stored
         $tsrc2 = "assets/banner/".$anime["id"].".jpg";   // Path where thumb nail image will be stored
@@ -220,6 +228,12 @@ if(!empty($anime["id"])) {
                     <label class="col-sm-3 control-label" for="anisearch"><?= $lang["edit_anime"]["anisearch"] ?></label>
                     <div class="col-sm-9">
                         <input type="text" name="anisearch" id="anisearch" class="form-control" value="<?= $anime["anisearch"] ?>" placeholder="<?= $lang["edit_anime"]["anisearch"] ?>">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="mal"><?= $lang["edit_anime"]["mal"] ?></label>
+                    <div class="col-sm-9">
+                        <input type="text" name="mal" id="mal" class="form-control" value="<?= $anime["mal"] ?>" placeholder="<?= $lang["edit_anime"]["mal"] ?>">
                     </div>
                 </div>
                 <div class="form-group">

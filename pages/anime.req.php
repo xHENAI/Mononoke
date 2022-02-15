@@ -6,9 +6,9 @@ $id =  mysqli_real_escape_string($conn, $_GET["id"]);
 $anime = $conn->query("SELECT * FROM `anime` WHERE `id`='$id' LIMIT 1");
 $anime = mysqli_fetch_assoc($anime);
 if($user["level"]==10 || $user["level"]==0) {
-    $episodes = $conn->query("SELECT * FROM `episode` WHERE `anime`='$id'");
+    $episodes = $conn->query("SELECT * FROM `episode` WHERE `anime`='$id' ORDER BY `episode` ASC");
 } else {
-    $episodes = $conn->query("SELECT * FROM `episode` WHERE `anime`='$id' AND `deleted`='0'");
+    $episodes = $conn->query("SELECT * FROM `episode` WHERE `anime`='$id' AND `deleted`='0' ORDER BY `episode` ASC");
 }
 
 if(empty($anime["id"]) || ($anime["public"]==0 && ($user["level"]==20 || $user["level"]==30 || $user["level"]==50))) { 
@@ -27,9 +27,11 @@ if(empty($anime["id"]) || ($anime["public"]==0 && ($user["level"]==20 || $user["
             <div class="col-sm-9">
                 <h3><?= $anime["name"] ?></h3>
                 <p><i><?php if(!empty($anime["alternates"])) { echo $anime["alternates"]; } else { echo "This Anime doesn't have any other names!"; } ?></i></p>
+                <?php if(!empty($anime["description"])) { ?>
                 <div class="well well-sm">
                     <?= bbconvert($anime["description"]) ?>
                 </div>
+                <?php } ?>
                 <?php if($anime["status"]==0) { ?>
                 <p><?= $lang["anime"]["status"]["0_long"] ?></p>
                 <?php } elseif($anime["status"]==1) { ?>
@@ -75,7 +77,30 @@ if(empty($anime["id"]) || ($anime["public"]==0 && ($user["level"]==20 || $user["
     <br>
     <div role="tabpanel" class="tab-pane fade in active panel panel-default" id="episodes">
         <div class="panel-body">
-            Episodes (WIP)
+            <?php if(mysqli_num_rows($episodes)!==0) { ?>
+            <div class="table-responsive">
+                <table class="table table-stripped table-condensed table-hover">
+                    <thead>
+                        <tr>
+                            <th width="70%"><?= glyph("film",$lang["episode"]["name"]) ?> <?= $lang["episode"]["name"] ?></th>
+                            <th width="30%" class="text-right"><?= glyph("time",$lang["episode"]["released"]) ?> <?= $lang["episode"]["released"] ?></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php while ($row = $episodes->fetch_assoc()): ?>
+                        <tr>
+                            <td>
+                                <a href="<?= $config["url"] ?>watch/<?= $id ?>/<?= $row["episode"] ?>"><?= $lang["episode"]["name"]." ".$row["episode"] ?></a>
+                            </td>
+                            <td class="text-right"><span title="<?= $row["added"] ?>"><?= ago($row["added"]) ?></span></td>
+                        </tr>
+                        <?php endwhile; ?>
+                    </tbody>
+                </table>
+            </div>
+            <?php } else { ?>
+            <?= glyph("info-sign",$lang["error"]) ?> <?= $lang["anime"]["no_ep"] ?>
+            <?php } ?>
         </div>
     </div>
     <div role="tabpanel" class="tab-pane fade in panel panel-default" id="comments">

@@ -22,7 +22,7 @@ if(isset($_POST["login_user"])) {
         }
         $_SESSION[$config["cookie"]."session"] = $token;
         $conn->query("INSERT INTO `user_tokens`(`user`,`token`) VALUES('$username','$token')");
-        redirect("home");
+        redirect("");
     } else {
         $error = true;
         $error_msg = "Username/Password is wrong!";
@@ -32,11 +32,12 @@ if(isset($_POST["login_user"])) {
 /* Functions */
 
 function glyph($glyph, $title = "") {
-    echo "<span class=\"glyphicon glyphicon-$glyph\" title=\"$title\"></span>";
+    return "<span class=\"glyphicon glyphicon-$glyph\" title=\"$title\"></span>";
 }
 
 function redirect($destination = "") {
-    echo "<script type=\"text/javascript\"> document.location = \"".$config["url"].$destination."\"; </script>";
+    require("config.php");
+    echo "<script type=\"text/javascript\"> document.location = \"".$destination."\"; </script>";
 }
 
 function convert_level($level) {
@@ -49,7 +50,7 @@ function convert_level($level) {
     } else {
         $level = "User (eMail not confirmed)";
     }
-    echo $level;
+    return $level;
 }
 
 function convert_theme($theme) {
@@ -64,7 +65,49 @@ function convert_theme($theme) {
     } else {
         $theme = "Darkly Dark";
     }
-    echo $theme;
+    return $theme;
+}
+
+function shorten($text, $maxlength = 25) {
+    if(strlen($text)<=$maxlength) {
+        $text = $text;
+    } else {
+        $text = substr($text, 0,$maxlength)."...";
+    }
+    return $text;
+}
+
+function ago($datetime, $full = false) {
+
+    require("config.php");
+    require("core/conn.req.php");
+    require("langs/".$user["lang"].".lang.php");
+    $now = new DateTime;
+    $ago = new DateTime($datetime);
+    $diff = $now->diff($ago);
+    
+    $diff->w = floor($diff->d / 7);
+    $diff->d -= $diff->w * 7;
+    
+    $string = array(
+        'y' => $lang["ago"]["year"],
+        'm' => $lang["ago"]["month"],
+        'w' => $lang["ago"]["week"],
+        'd' => $lang["ago"]["day"],
+        'h' => $lang["ago"]["hour"],
+        'i' => $lang["ago"]["minute"],
+        's' => $lang["ago"]["second"],
+    );
+    foreach($string as $k => &$v) {
+        if($diff->$k) {
+            $v = $diff->$k.' '.$v.($diff->$k > 1 ? $lang["ago"]["plural"]." " : ' ');
+        } else {
+            unset($string[$k]);
+        }
+    }
+    
+    if(!$full) $string = array_slice($string, 0, 1);
+    return $string ? implode(', ', $string)." ".$lang["ago"]["ago"] : " ".$lang["ago"]["now"];
 }
 
 function bbconvert($text) {

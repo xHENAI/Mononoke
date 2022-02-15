@@ -13,7 +13,7 @@
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav" id="nav_links">
                 <li class="<?php if($page=="newest") { echo "active"; } ?>" id="titles">
-                    <a href="<?= $config["url"]; ?>newest"><?= glyph("time",$lang["navbar"]["newest"]) ?> <?= $lang["navbar"]["newest"] ?></a>
+                    <a href="<?= $config["url"]; ?>newest/ep"><?= glyph("time",$lang["navbar"]["newest"]) ?> <?= $lang["navbar"]["newest"] ?></a>
                 </li>
                 <li class="<?php if($page=="browse") { echo "active"; } ?>" id="titles">
                     <a href="<?= $config["url"]; ?>browse"><?= glyph("th-list",$lang["navbar"]["browse"]) ?> <?= $lang["navbar"]["browse"] ?></a>

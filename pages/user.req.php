@@ -8,13 +8,16 @@ $vuser = mysqli_fetch_assoc($vuser);
 
 if(!empty($vuser["id"])) {
     $comments1 = $conn->query("SELECT COUNT(*) AS total FROM `anime_comments` WHERE `user`='$id'");
+    $comments1 = mysqli_fetch_assoc($comments1);
     $comments2 = $conn->query("SELECT COUNT(*) AS total FROM `episode_comments` WHERE `user`='$id'");
-    $comments3 = $comments1["total"]+$comments2["total"];
+    $comments2 = mysqli_fetch_assoc($comments2);
+    $comments3 = $comments1["total"] + $comments2["total"];
     
-    //errors for literally no reason :( $forumposts1 = $conn->query("SELECT COUNT(*) AS total FROM `forum_posts` WHERE `user`='$id'");
-    //$forumposts2 = $conn->query("SELECT COUNT(*) AS total FROM `forum_threads` WHERE `user`='$id'");
-    //$forumposts3 = $forumposts1["total"]+$forumposts2["total"];
-    //$forumposts3 = 0;
+    $forumposts1 = $conn->query("SELECT COUNT(*) AS total FROM `forum_posts` WHERE `user`='$id'");
+    $forumposts1 = mysqli_fetch_assoc($forumposts1);
+    $forumposts2 = $conn->query("SELECT COUNT(*) AS total FROM `forum_threads` WHERE `user`='$id'");
+    $forumposts2 = mysqli_fetch_assoc($forumposts2);
+    $forumposts3 = $forumposts1["total"]+$forumposts2["total"];
 ?>
 
 <?php if($vuser["public_profile"]==1) { ?>
@@ -41,14 +44,14 @@ if(!empty($vuser["id"])) {
         <tr>
             <th><?= $lang["profile"]["stats"] ?></th>
             <td><?= glyph("comment",$lang["profile"]["stats_comments"]) ?> <?= $comments3 ?>
-                <!--, <?= glyph("text-size",$lang["profile"]["stats_forum"]) ?> <?= $forumposts3 ?>-->
+                , <?= glyph("text-size",$lang["profile"]["stats_forum"]) ?> <?= $forumposts3 ?>
             </td>
         </tr>
     </table>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h3 class="panel-title"><?= glyph("comment","Comments") ?> <?= $lang["profile"]["comments"] ?> <span class="badge"><?= $comments3 ?></span></h3>
+        <h3 class="panel-title"><?= glyph("comment",$lang["profile"]["comments"]) ?> <?= $lang["profile"]["comments"] ?> <span class="badge"><?= $comments3 ?></span></h3>
     </div>
     <div class="panel-body">
         <?php if($comments3==0) { ?>

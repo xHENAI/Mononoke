@@ -33,7 +33,7 @@ if(isset($_POST["add_anime"])) {
         ///////// Start the thumbnail generation//////////////
         $n_width = 100;    // Fix the width of the thumb nail images
         $n_height = 120;   // Fix the height of the thumb nail imaage
-        $n_width2 = 200;    // Fix the width of the thumb nail images
+        $n_width2 = 1100;    // Fix the width of the thumb nail images
         $n_height2 = 500;   // Fix the height of the thumb nail imaage
 
         $tsrc = "assets/thumbs/".$latest.".jpg";   // Path where thumb nail image will be stored
