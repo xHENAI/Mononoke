@@ -164,6 +164,16 @@ body {
     z-index: 9999999;
 }
 
+#anime-bg {
+    filter: blur(4px);
+    -webkit-filter: blur(4px);
+    height: 100vh;
+    left: 0;
+    right: 0;
+    position: fixed;
+    opacity: .2;
+}
+
 .display-none {
     display: none;
 }

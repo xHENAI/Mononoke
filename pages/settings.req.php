@@ -74,8 +74,8 @@ if(isset($_POST["update_forum"])) {
                         <br>
                     </div>
                     <div class="col-sm-3"></div>
-                    <div class="col-sm-1"><img src="<?= $user["image"] ?>" width="100%" alt="<?= $lang["settings"]["general"]["image_current"] ?>" title="<?= $lang["settings"]["general"]["image_current"] ?>"></div>
-                    <div class="col-sm-8"><?= $lang["settings"]["general"]["image_current"] ?></div>
+                    <div class="col-sm-2"><img src="<?= $user["image"] ?>" width="100%" alt="<?= $lang["settings"]["general"]["image_current"] ?>" title="<?= $lang["settings"]["general"]["image_current"] ?>"></div>
+                    <div class="col-sm-7"><?= $lang["settings"]["general"]["image_current"] ?></div>
                 </div>
                 <button class="col-sm-offset-3 btn btn-success" type="submit" name="update_general"><?= glyph("floppy-saved",$lang["settings"]["save"]) ?> <?= $lang["settings"]["save"] ?></button>
             </form>
@@ -100,7 +100,7 @@ if(isset($_POST["update_forum"])) {
                     <div class="col-sm-9">
                         <select class="selectpicker form-control" name="language" id="languag">
                             <option <?php if($user["theme"]=="en-us") { echo "selected"; } ?> value="en-us">English</option>
-                            <option <?php if($user["lang"]=="de-de") { echo "selected"; } ?> value="de-de">German (Formal)</option>
+                            <option <?php if($user["lang"]=="de-de") { echo "selected"; } ?> value="de-de">German/Deutsch</option>
                         </select>
                     </div>
                 </div>

@@ -7,11 +7,17 @@
     <i>Where can I find it?</i> <a href="https://github.com/xHENAI/Mononoke" target="_blank">You can check it out at GitHub!</a>
 </div>
 
+<h5>Changelog of v0.0.7</h5>
+<ul>
+    <li>Added Viewing Animes</li>
+    <li>Added Adding Episodes</li>
+    <li>Added Editing Episodes</li>
+</ul>
 <h5>Changelog of v0.0.6</h5>
-<il>
+<ul>
     <li>Added adding Animes</li>
     <li>Added editing Animes</li>
-</il>
+</ul>
 <h5>Changelog of v0.0.5</h5>
 <ul>
     <li>Added Schedule-System</li>

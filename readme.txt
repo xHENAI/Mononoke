@@ -1,6 +1,6 @@
 /**********************************************************************\
-|    _____   H33Tx & xHENAI                     __           31.01.2022|
-|   /     \   ____   ___Presents:  ____   ____ |  | __ ____      v0.0.5|
+|    _____   H33Tx & xHENAI                     __           14.02.2022|
+|   /     \   ____   ___Presents:  ____   ____ |  | __ ____      v0.0.7|
 |  /  \ /  \ /  _ \ /    \ /  _ \ /    \ /  _ \|  |/ // __ \           |
 | /    Y    (  <_> )   |  (  <_> )   |  (  <_> )    <\  ___/           |
 | \____|__  /\____/|___|  /\____/|___|  /\____/|__|_ \\___  >          |
@@ -17,6 +17,7 @@
                                           \============================/
 /============== Features ===============\
 | Existing and planned ones.            \==============================\
+| [x] Three-step Installation-System (easy, fast & simple)             |
 | [x] Account System                                                   |
 |     [x] Signin & Signup                                              |
 |     [x] Confirm Account via eMail                                    |
@@ -26,10 +27,10 @@
 |     [x] Create and Edit Forum                                        |
 |     [x] Make Forum private, public, open & closed                    |
 |     [x] Create new Threads and Post Replies                          |
-| [ ] Anime System                                                     |
-|     [x] Add and Edit Animes (WIP)                                    |
-|     [ ] View Animes on seperate Page                                 |
-|     [ ] See "New Episode" Button on Anime Page                       |
+| [x] Anime System                                                     |
+|     [x] Add and Edit Animes                                          |
+|     [x] View Animes on seperate Page                                 |
+|     [x] See "New Episode" Button on Anime Page                       |
 | [ ] Episode System                                                   |
 |     [ ] Add New Episode                                              |
 |     [ ] Multiple Streamhosters                                       |
@@ -58,11 +59,11 @@
 |   ONLY DOWNLOAD @ github.com/xHENAI                                  |
 | - General Setup ---------------------------------------------------- |
 | 1. Download the latest stable Release                                |
-| 2. Move all stuff to your webroot and open config.php                |
-| 3. Edit the main stuff and the MySQL Database details                |
-| 4. Import "mononoke.sql" to the MySQL Database                       |
+| 2. Move all stuff to your webroot and open it in your browser        |
+| 3. You should be redirected into the /isntall/ directory             |
+| 4. Select your language and fill out all the details                 |
 | 5. Configure Sendmail (tutorial below)                               |
-| 6. Create an Account, confirm eMail and set "level" in MySQL to 0    |
+| 6. You're done, just fill up the Database now :D                     |
 | - Mail Setup ------------------------------------------------------- |
 | Sendmail is required - https://gist.github.com/adamstac/7462202      |
 | 1. Open your php.ini file (usually in /etc/ directory)               |
@@ -99,8 +100,8 @@
 
 /=== User-Levels ===\ /=================== Version ====================\
 | 0 = Administrator | |                                                |
-| 10 = Moderator    | |               Current: v0.0.5                  |
-| 20 = Valid User   | |           Last Updated: 31.01.2022             |
+| 10 = Moderator    | |               Current: v0.0.7                  |
+| 20 = Valid User   | |           Last Updated: 14.02.2022             |
 | 30 = Invalid User | |         Notes: Complete rewrite yay!           |
 | 50 = Guest        | |                                                |
 \===================/ \================================================/

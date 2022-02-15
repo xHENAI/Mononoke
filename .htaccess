@@ -14,7 +14,8 @@ php_value max_input_time 300
 
 # Main Pages
 RewriteRule ^home/?$ ./?page=home
-RewriteRule ^newest/?(.*)/?$ ./?page=newest&pagination=$1
+RewriteRule ^newest/ep/?(.*)/?$ ./?page=newest&tab=episodes&pagination=$1
+RewriteRule ^newest/an/?(.*)/?$ ./?page=newest&tab=anime&pagination=$1
 RewriteRule ^browse/?(.*)/?$ ./?page=browse&pagination=$1
 RewriteRule ^schedule/?(.*)/?$ ./?page=schedule
 RewriteRule ^changelog/?$ ./?page=changelog
@@ -57,3 +58,5 @@ RewriteRule ^watch/(.+)/(.+)/?$ ./?page=watch&id=$1&ep=$2
 
 # System Pages
 RewriteRule ^sys/schedule/?$ ./?page=mod&action=schedule
+
+ErrorDocument 404 "Error 404: Page not found!"

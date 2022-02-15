@@ -7,9 +7,9 @@ $page = isset($_GET['pagination']) && is_numeric($_GET['pagination']) ? $_GET['p
 $num_results_on_page = 20;
 
 if($user["level"]==10 || $user["level"]==0) {
-    $dream = 'SELECT * FROM `anime` ORDER BY `id` ASC LIMIT ?,?';
+    $dream = 'SELECT * FROM `anime` ORDER BY `name` ASC LIMIT ?,?';
 } else {
-    $dream = "SELECT * FROM `anime` WHERE `public`='1' ORDER BY `id` ASC LIMIT ?,?";
+    $dream = "SELECT * FROM `anime` WHERE `public`='1' ORDER BY `name` ASC LIMIT ?,?";
 }
 
 if($stmt = $conn->prepare($dream)) {
@@ -32,11 +32,11 @@ if($stmt = $conn->prepare($dream)) {
 <div class="row">
     <?php while ($row = $result->fetch_assoc()): ?>
     <div class="col-sm-2">
-        <div class="thumbnail">
+        <div class="thumbnail" style="height: <?php if($user["theme"]==0 || $user["theme"]==2) { ?>225px<?php } else { ?>210px<?php } ?>">
             <a href="<?= $config["url"] ?>anime/<?= $row["id"] ?>">
-                <img src="<?= $config["url"] ?>assets/thumbs/<?= $row["id"] ?>.<?= $row["image"] ?>" alt="<?= $row["name"] ?>'s Image" width="100%">
-                <div class="caption text-center">
-                    <?= $row["name"] ?>
+                <img src="<?= $config["url"] ?>assets/thumbs/<?= $row["id"] ?>.jpg" alt="<?= $row["name"] ?>'s Image" title="<?= $row["name"] ?>" width="100%">
+                <div class="caption text-center" title="<?= $row["name"] ?>">
+                    <?= shorten($row["name"]) ?>
                 </div>
             </a>
         </div>
