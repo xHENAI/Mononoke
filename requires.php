@@ -2,7 +2,7 @@
 
 // requires.php - Mononoke
 
-if(!file_exists("installed")) {
+if(!file_exists("installed") || !file_exists("config.php")) {
     header("location: install");
 }
 

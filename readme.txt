@@ -17,6 +17,7 @@
                                           \============================/
 /============== Features ===============\
 | Existing and planned ones.            \==============================\
+| [x] Three-step Installation-System (easy, fast & simple)             |
 | [x] Account System                                                   |
 |     [x] Signin & Signup                                              |
 |     [x] Confirm Account via eMail                                    |
@@ -58,11 +59,11 @@
 |   ONLY DOWNLOAD @ github.com/xHENAI                                  |
 | - General Setup ---------------------------------------------------- |
 | 1. Download the latest stable Release                                |
-| 2. Move all stuff to your webroot and open config.php                |
-| 3. Edit the main stuff and the MySQL Database details                |
-| 4. Import "mononoke.sql" to the MySQL Database                       |
+| 2. Move all stuff to your webroot and open it in your browser        |
+| 3. You should be redirected into the /isntall/ directory             |
+| 4. Select your language and fill out all the details                 |
 | 5. Configure Sendmail (tutorial below)                               |
-| 6. Create an Account, confirm eMail and set "level" in MySQL to 0    |
+| 6. You're done, just fill up the Database now :D                     |
 | - Mail Setup ------------------------------------------------------- |
 | Sendmail is required - https://gist.github.com/adamstac/7462202      |
 | 1. Open your php.ini file (usually in /etc/ directory)               |

@@ -72,7 +72,7 @@ if(!empty($anime["id"])) {
         $ext = end(explode('.', $_FILES["userfile"]["name"]));
     
         //$add = "assets/anime/".$_FILES['userfile']['name']; 
-        $add = "assets/anime/".$anime["id"].".".$ext; 
+        $add = "assets/anime/".$anime["id"].".jpg"; 
         //echo $add;
         unlink("assets/anime/".$anime["id"].".".$anime["image"]);
         if(move_uploaded_file ($_FILES['userfile']['tmp_name'],$add)) {
@@ -82,9 +82,12 @@ if(!empty($anime["id"])) {
         
         ///////// Start the thumbnail generation//////////////
         $n_width = 100;    // Fix the width of the thumb nail images
-        $n_height = 100;   // Fix the height of the thumb nail imaage
+        $n_height = 120;   // Fix the height of the thumb nail imaage
+        $n_width2 = 500;    // Fix the width of the thumb nail images
+        $n_height2 = 200;   // Fix the height of the thumb nail imaage
 
-        $tsrc = "assets/thumbs/".$anime["id"].".".$ext;   // Path where thumb nail image will be stored
+        $tsrc = "assets/thumbs/".$anime["id"].".jpg";   // Path where thumb nail image will be stored
+        $tsrc2 = "assets/banner/".$anime["id"].".jpg";   // Path where thumb nail image will be stored
         //$tsrc = "assets/thumbs/".$latest.".jpeg";   // Path where thumb nail image will be stored
         //echo $tsrc;
         if (!($_FILES['userfile']['type'] =="image/jpeg" || $_FILES['userfile']['type']=="image/png")){
@@ -93,7 +96,7 @@ if(!empty($anime["id"])) {
         }
         ////////////// starting of JPEG thumb nail creation////
         if($_FILES['userfile']['type']=="image/jpeg" && $error == false) {
-            unlink("assets/thumbs/".$anime["id"].".".$anime["image"]);
+            unlink("assets/thumbs/".$anime["id"].".jpg");
             $im = ImageCreateFromJPEG($add); 
             $width = ImageSx($im);              // Original picture width is stored
             $height = ImageSy($im);             // Original picture height is stored
@@ -108,8 +111,8 @@ if(!empty($anime["id"])) {
         }
         ////////////// starting of PNG thumb nail creation////
         if($_FILES['userfile']['type']=="image/png" && $error == false) {
-            unlink("assets/thumbs/".$anime["id"].".".$anime["image"]);
-            $im = ImageCreateFromJPEG($add); 
+            unlink("assets/thumbs/".$anime["id"].".jpg");
+            $im = ImageCreateFromPNG($add); 
             $width = ImageSx($im);              // Original picture width is stored
             $height = ImageSy($im);             // Original picture height is stored
             // Add this line to maintain aspect ratio
@@ -121,9 +124,40 @@ if(!empty($anime["id"])) {
             ImageJpeg($newimage,$tsrc);
             chmod("$tsrc",0777);
         }
+        
+        ////////////// starting of JPEG thumb banner creation////
+        if($_FILES['userfile']['type']=="image/jpeg" || $_FILES['userfile']['type']=="image/jpg") {
+            unlink("assets/banner/".$anime["id"].".jpg");
+            $im = ImageCreateFromJPEG($add); 
+            $width2 = ImageSx($im);              // Original picture width is stored
+            $height2 = ImageSy($im);             // Original picture height is stored
+            // Add this line to maintain aspect ratio
+            //$n_height=($n_width/$width) * $height; 
+            $n_height2 = $n_height2;
+            // But we don't need it! We need a specific size, stretched or not, here it comes!
+            $newimage = imagecreatetruecolor($n_width2,$n_height2);                 
+            imageCopyResized($newimage,$im,0,0,0,0,$n_width2,$n_height2,$width2,$height2);
+            ImageJpeg($newimage,$tsrc2);
+            chmod("$tsrc2",0777);
+        }
+        ////////////// starting of PNG thumb banner creation////
+        if($_FILES['userfile']['type']=="image/png") {
+            unlink("assets/banner/".$anime["id"].".jpg");
+            $im = ImageCreateFromPNG($add); 
+            $width2 = ImageSx($im);              // Original picture width is stored
+            $height2 = ImageSy($im);             // Original picture height is stored
+            // Add this line to maintain aspect ratio
+            //$n_height=($n_width/$width) * $height; 
+            $n_height2 = $n_height2;
+            // But we don't need it! We need a specific size, stretched or not, here it comes!
+            $newimage = imagecreatetruecolor($n_width2,$n_height2);                 
+            imageCopyResized($newimage,$im,0,0,0,0,$n_width2,$n_height2,$width2,$height2);
+            ImageJpeg($newimage,$tsrc2);
+            chmod("$tsrc2",0777);
+        }
         // <3 https://www.plus2net.com/php_tutorial/php_thumbnail.php <-- Stolen from here >_<
         if($error==false) {
-            $conn->query("UPDATE `anime` SET `image`='$ext' WHERE `id`='".$anime["id"]."'");
+            $conn->query("UPDATE `anime` SET `image`='jpg' WHERE `id`='".$anime["id"]."'");
             redirect("");
         }
     }

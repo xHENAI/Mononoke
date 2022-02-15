@@ -34,7 +34,7 @@ if($stmt = $conn->prepare($dream)) {
     <div class="col-sm-2">
         <div class="thumbnail">
             <a href="<?= $config["url"] ?>anime/<?= $row["id"] ?>">
-                <img src="<?= $config["url"] ?>assets/thumbs/<?= $row["id"] ?>.<?= $row["image"] ?>" alt="<?= $row["name"] ?>'s Image" width="100%">
+                <img src="<?= $config["url"] ?>assets/thumbs/<?= $row["id"] ?>.jpg" alt="<?= $row["name"] ?>'s Image" width="100%">
                 <div class="caption text-center">
                     <?= $row["name"] ?>
                 </div>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 09. Feb 2022 um 22:21
+-- Erstellungszeit: 15. Feb 2022 um 01:26
 -- Server-Version: 10.4.22-MariaDB
 -- PHP-Version: 7.4.27
 
@@ -27,6 +27,7 @@ SET time_zone = "+00:00";
 -- Tabellenstruktur für Tabelle `anime`
 --
 
+DROP TABLE IF EXISTS `anime`;
 CREATE TABLE `anime` (
   `id` int(11) NOT NULL,
   `name` varchar(250) CHARACTER SET latin1 NOT NULL,
@@ -49,6 +50,7 @@ CREATE TABLE `anime` (
 -- Tabellenstruktur für Tabelle `anime_tag_cloud`
 --
 
+DROP TABLE IF EXISTS `anime_tag_cloud`;
 CREATE TABLE `anime_tag_cloud` (
   `id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL
@@ -60,6 +62,7 @@ CREATE TABLE `anime_tag_cloud` (
 -- Tabellenstruktur für Tabelle `anime_tag_relations`
 --
 
+DROP TABLE IF EXISTS `anime_tag_relations`;
 CREATE TABLE `anime_tag_relations` (
   `id` int(11) NOT NULL,
   `anime` int(11) NOT NULL,
@@ -72,6 +75,7 @@ CREATE TABLE `anime_tag_relations` (
 -- Tabellenstruktur für Tabelle `episode`
 --
 
+DROP TABLE IF EXISTS `episode`;
 CREATE TABLE `episode` (
   `id` int(11) NOT NULL,
   `anime` int(11) NOT NULL,
@@ -87,6 +91,7 @@ CREATE TABLE `episode` (
 -- Tabellenstruktur für Tabelle `forum`
 --
 
+DROP TABLE IF EXISTS `forum`;
 CREATE TABLE `forum` (
   `id` int(11) NOT NULL,
   `name` varchar(50) NOT NULL,
@@ -102,6 +107,7 @@ CREATE TABLE `forum` (
 -- Tabellenstruktur für Tabelle `forum_posts`
 --
 
+DROP TABLE IF EXISTS `forum_posts`;
 CREATE TABLE `forum_posts` (
   `id` int(11) NOT NULL,
   `user` int(11) NOT NULL,
@@ -118,6 +124,7 @@ CREATE TABLE `forum_posts` (
 -- Tabellenstruktur für Tabelle `forum_threads`
 --
 
+DROP TABLE IF EXISTS `forum_threads`;
 CREATE TABLE `forum_threads` (
   `id` int(11) NOT NULL,
   `forum` int(11) NOT NULL,
@@ -136,6 +143,7 @@ CREATE TABLE `forum_threads` (
 -- Tabellenstruktur für Tabelle `schedule`
 --
 
+DROP TABLE IF EXISTS `schedule`;
 CREATE TABLE `schedule` (
   `id` int(11) NOT NULL,
   `anime` int(11) NOT NULL,
@@ -151,6 +159,7 @@ CREATE TABLE `schedule` (
 -- Tabellenstruktur für Tabelle `user`
 --
 
+DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `id` int(11) NOT NULL,
   `level` int(11) NOT NULL,
@@ -174,6 +183,7 @@ CREATE TABLE `user` (
 -- Tabellenstruktur für Tabelle `user_forgot`
 --
 
+DROP TABLE IF EXISTS `user_forgot`;
 CREATE TABLE `user_forgot` (
   `user` varchar(250) NOT NULL,
   `token` text NOT NULL,
@@ -186,6 +196,7 @@ CREATE TABLE `user_forgot` (
 -- Tabellenstruktur für Tabelle `user_tokens`
 --
 
+DROP TABLE IF EXISTS `user_tokens`;
 CREATE TABLE `user_tokens` (
   `token` text NOT NULL,
   `user` varchar(250) NOT NULL,
@@ -198,6 +209,7 @@ CREATE TABLE `user_tokens` (
 -- Tabellenstruktur für Tabelle `user_verification`
 --
 
+DROP TABLE IF EXISTS `user_verification`;
 CREATE TABLE `user_verification` (
   `user` varchar(250) NOT NULL,
   `token` text NOT NULL,
