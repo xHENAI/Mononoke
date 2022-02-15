@@ -113,7 +113,7 @@ if($step==1) {
     $output .= '<p>Wilkommen zu Mononoke, ein Open-Source Anime-Content-Management-Syste,, Streaming Seite und Forum.<br>In dieser kleinen Anleitung, wirst du es installieren.<br>Was du brauchst:';
     $output .= '<ul>';
     $output .= '<li>Eine MySQL Datenbank und die dazugehörigen Anmelde-Daten</li>';
-    $output .= '<li>Eine Tastatur und eine Katze denn die sind wirklich <3< /li>';
+    $output .= '<li>Eine Tastatur und eine Katze denn die sind wirklich <3</li>';
     $output .= '</ul>';
     $output .= '<a href="?step=2" class="button">Installation beginnen!</a></p>';
 }
