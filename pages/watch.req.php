@@ -20,7 +20,7 @@ if(empty($anime["id"]) || empty($episode["id"]) || ($anime["public"]==0 && ($use
 <?php } else { ?>
 
 <title><?= $lang["watch"]["title2"] ?> <?= $anime["name"] ?> <?= $lang["episode"]["name"] ?> <?= $ep ?> | <?= $config["name"] ?></title>
-<h3><?= $lang["watch"]["title2"] ?> <b><?= $anime["name"] ?></b> - <?= $lang["episode"]["name"] ?> <?= $ep ?> <?php if($user["level"]==10 || $user["level"]==0) { ?><small><a href="<?= $config["url"] ?>edit_episode/<?= $ep ?>"><?= $lang["watch"]["edit"] ?></a></small><?php } ?></h3>
+<h3><?= $lang["watch"]["title2"] ?> <a href="<?= $config["url"] ?>anime/<?= $aid ?>"><b><?= $anime["name"] ?></b></a> - <?= $lang["episode"]["name"] ?> <?= $ep ?> <?php if($user["level"]==10 || $user["level"]==0) { ?><small>(<a href="<?= $config["url"] ?>edit_episode/<?= $ep ?>"><?= $lang["watch"]["edit"] ?></a>)</small><?php } ?></h3>
 
 <div class="panel panel-danger">
     <div class="panel-heading">

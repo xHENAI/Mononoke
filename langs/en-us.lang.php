@@ -59,6 +59,11 @@ $lang["add_episode"]["view_anime"] = "View Anime";
 $lang["add_episode"]["host"] = "Streamhoster";
 $lang["add_episode"]["host_select"] = "Select Streamhoster...";
 $lang["add_episode"]["url"] = "URL to Episode";
+$lang["add_episode"]["type"] = "Sub, Dub or Raw?";
+$lang["add_episode"]["type_select"] = "Select type...";
+$lang["add_episode"]["type_sub"] = "Sub";
+$lang["add_episode"]["type_dub"] = "Dub";
+$lang["add_episode"]["type_raw"] = "Raw";
 
 $lang["ago"]["year"] = "Year";
 $lang["ago"]["month"] = "Month";

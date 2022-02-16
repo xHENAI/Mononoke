@@ -59,6 +59,11 @@ $lang["add_episode"]["view_anime"] = "Zurück zum Anime";
 $lang["add_episode"]["host"] = "Streamhoster";
 $lang["add_episode"]["host_select"] = "Streamhoster auswählen...";
 $lang["add_episode"]["url"] = "URL zur Episode";
+$lang["add_episode"]["type"] = "Untertitel, Synchro oder Raw?";
+$lang["add_episode"]["type_select"] = "Wähle Typ aus...";
+$lang["add_episode"]["type_sub"] = "Untertitel";
+$lang["add_episode"]["type_dub"] = "Synchro";
+$lang["add_episode"]["type_raw"] = "Raw";
 
 $lang["ago"]["year"] = "Jahre";
 $lang["ago"]["month"] = "Monate";

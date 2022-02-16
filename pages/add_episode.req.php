@@ -13,15 +13,16 @@ if(!empty($anime["id"])) {
     
     if(isset($_POST["add_episode"])) {
         $episode = mysqli_real_escape_string($conn, $_POST["episode"]);
+        $type = mysqli_real_escape_string($conn, $_POST["type"]);
         $host = mysqli_real_escape_string($conn, $_POST["host"]);
         $url = mysqli_real_escape_string($conn, $_POST["url"]);
-        $check = $conn->query("SELECT * FROM `episode` WHERE `anime`='$id' AND `episode`='$episode' LIMIT 1");
+        $check = $conn->query("SELECT * FROM `episode` WHERE `anime`='$id' AND `episode`='$episode' AND `type`='$type' LIMIT 1");
         if(mysqli_num_rows($check)==1) {
             $error = true;
             $error_msg = "This episode exists already!";
         }
         if($error==false) {
-            $conn->query("INSERT INTO `episode`(`anime`,`episode`,`host`,`url`,`deleted`) VALUES('$id','$episode','$host','$url','0')");
+            $conn->query("INSERT INTO `episode`(`anime`,`episode`,`type`,`host`,`url`,`deleted`) VALUES('$id','$episode','$type','$host','$url','0')");
         }
     }
     
@@ -40,6 +41,17 @@ if(!empty($anime["id"])) {
         <label class="control-label col-sm-3" for="animeepisode"><?= $lang["episode"]["name"] ?></label>
         <div class="col-sm-9">
             <input required type="number" class="form-control" id="animeepisode" name="episode" <?php if(isset($_POST["episode"])) { ?>value="<?php $ep = $_POST["episode"]; $ep++; echo $ep ?>"<?php } ?>>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-3" for="animetype"><?= $lang["add_episode"]["type"] ?></label>
+        <div class="col-sm-9">
+            <select required class="selectpicker form-control" name="type" id="animetype" title="Select Type...">
+                <option disabled selected><?= $lang["add_episode"]["type_select"] ?></option>
+                <option <?php if(isset($_POST["type"]) && $_POST["type"]=="sub") { ?>selected<?php } ?> value="sub"><?= $lang["add_episode"]["type_sub"] ?></option>
+                <option <?php if(isset($_POST["type"]) && $_POST["type"]=="dub") { ?>selected<?php } ?> value="dub"><?= $lang["add_episode"]["type_dub"] ?></option>
+                <option <?php if(isset($_POST["type"]) && $_POST["type"]=="raw") { ?>selected<?php } ?> value="raw"><?= $lang["add_episode"]["type_raw"] ?></option>
+            </select>
         </div>
     </div>
     <div class="form-group">
