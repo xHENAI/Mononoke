@@ -79,92 +79,102 @@ if(empty($anime["id"]) || ($anime["public"]==0 && ($user["level"]==20 || $user["
 </ul>
 <div class="tab-content contentx">
     <br>
-    <div role="tabpanel" class="tab-pane fade in active panel panel-default" id="episodes">
-        <div class="panel-body">
-            <ul class="contentx nav nav-tabs" role="tablist">
-                <li role="presentation" class="active"><a href="#sub" aria-controls="sub" role="tab" data-toggle="tab"><?= glyph("subtitles",$lang["add_episode"]["type_sub"]) ?> <?= $lang["add_episode"]["type_sub"] ?></a></li>
-                <li role="presentation"><a href="#dub" aria-controls="dub" role="tab" data-toggle="tab"><?= glyph("sound-dolby",$lang["add_episode"]["type_dub"]) ?> <?= $lang["add_episode"]["type_dub"] ?></a></li>
-                <li role="presentation"><a href="#raw" aria-controls="raw" role="tab" data-toggle="tab"><?= glyph("jpy",$lang["add_episode"]["type_raw"]) ?> <?= $lang["add_episode"]["type_raw"] ?></a></li>
-            </ul>
-            <div class="tab-content contentx">
-                <div role="tabpanel" class="tab-pane fade in active" id="sub">
-                    <?php if(mysqli_num_rows($episodes_sub)!==0) { ?>
-                    <div class="table-responsive">
-                        <table class="table table-stripped table-condensed table-hover">
-                            <thead>
-                                <tr>
-                                    <th width="70%"><?= glyph("film",$lang["episode"]["name"]) ?> <?= $lang["episode"]["name"] ?></th>
-                                    <th width="30%" class="text-right"><?= glyph("time",$lang["episode"]["released"]) ?> <?= $lang["episode"]["released"] ?></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php while ($row = $episodes_sub->fetch_assoc()): ?>
-                                <tr>
-                                    <td>
-                                        <a href="<?= $config["url"] ?>watch/<?= $id ?>-<?= $row["episode"] ?>"><?= $lang["episode"]["name"]." ".$row["episode"] ?></a>
-                                    </td>
-                                    <td class="text-right"><span title="<?= $row["added"] ?>"><?= ago($row["added"]) ?></span></td>
-                                </tr>
-                                <?php endwhile; ?>
-                            </tbody>
-                        </table>
-                    </div>
-                    <?php } else { ?>
-                    <?= glyph("info-sign",$lang["error"]) ?> <?= $lang["anime"]["no_ep"] ?>
-                    <?php } ?>
+    <div role="tabpanel" class="tab-pane fade in active" id="episodes">
+        <ul class="contentx nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#sub" aria-controls="sub" role="tab" data-toggle="tab"><?= glyph("subtitles",$lang["add_episode"]["type_sub"]) ?> <?= $lang["add_episode"]["type_sub"] ?></a></li>
+            <li role="presentation"><a href="#dub" aria-controls="dub" role="tab" data-toggle="tab"><?= glyph("sound-dolby",$lang["add_episode"]["type_dub"]) ?> <?= $lang["add_episode"]["type_dub"] ?></a></li>
+            <li role="presentation"><a href="#raw" aria-controls="raw" role="tab" data-toggle="tab"><?= glyph("jpy",$lang["add_episode"]["type_raw"]) ?> <?= $lang["add_episode"]["type_raw"] ?></a></li>
+        </ul>
+        <div class="tab-content contentx">
+            <div role="tabpanel" class="tab-pane fade in active panel panel-default" id="sub">
+                <?php if(mysqli_num_rows($episodes_sub)!==0) { ?>
+                <div class="table-responsive">
+                    <table class="table table-stripped table-condensed table-hover">
+                        <thead>
+                            <tr>
+                                <th width="70%"><?= glyph("film",$lang["episode"]["name"]) ?> <?= $lang["episode"]["name"] ?></th>
+                                <th width="30%" class="text-right"><?= glyph("time",$lang["episode"]["released"]) ?> <?= $lang["episode"]["released"] ?></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php while ($row = $episodes_sub->fetch_assoc()): ?>
+                            <tr>
+                                <td>
+                                    <?php if($row["deleted"]==1) { ?><?= glyph("trash","Deleted") ?><?php } ?>
+                                    <a href="<?= $config["url"] ?>watch/<?= $id ?>-<?= $row["episode"] ?>-sub"><?= glyph("play","Watch") ?> <?= $lang["episode"]["name"]." ".$row["episode"] ?></a>
+                                    <?php if($user["level"]==10 || $user["level"]==0) { ?>
+                                    <a href="<?= $config["url"] ?>edit_episode/<?= $row["id"] ?>" class="badge"><?= glyph("pencil",$lang["watch"]["edit"]) ?> <?= $lang["watch"]["edit"] ?></a>
+                                    <?php } ?>
+                                </td>
+                                <td class="text-right"><span title="<?= $row["added"] ?>"><?= ago($row["added"]) ?></span></td>
+                            </tr>
+                            <?php endwhile; ?>
+                        </tbody>
+                    </table>
                 </div>
-                <div role="tabpanel" class="tab-pane fade in" id="dub">
-                    <?php if(mysqli_num_rows($episodes_dub)!==0) { ?>
-                    <div class="table-responsive">
-                        <table class="table table-stripped table-condensed table-hover">
-                            <thead>
-                                <tr>
-                                    <th width="70%"><?= glyph("film",$lang["episode"]["name"]) ?> <?= $lang["episode"]["name"] ?></th>
-                                    <th width="30%" class="text-right"><?= glyph("time",$lang["episode"]["released"]) ?> <?= $lang["episode"]["released"] ?></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php while ($row = $episodes_dub->fetch_assoc()): ?>
-                                <tr>
-                                    <td>
-                                        <a href="<?= $config["url"] ?>watch/<?= $id ?>-<?= $row["episode"] ?>"><?= $lang["episode"]["name"]." ".$row["episode"] ?></a>
-                                    </td>
-                                    <td class="text-right"><span title="<?= $row["added"] ?>"><?= ago($row["added"]) ?></span></td>
-                                </tr>
-                                <?php endwhile; ?>
-                            </tbody>
-                        </table>
-                    </div>
-                    <?php } else { ?>
-                    <?= glyph("info-sign",$lang["error"]) ?> <?= $lang["anime"]["no_ep"] ?>
-                    <?php } ?>
+                <?php } else { ?>
+                <?= glyph("info-sign",$lang["error"]) ?> <?= $lang["anime"]["no_ep"] ?>
+                <?php } ?>
+            </div>
+            <div role="tabpanel" class="tab-pane fade in panel panel-default" id="dub">
+                <?php if(mysqli_num_rows($episodes_dub)!==0) { ?>
+                <div class="table-responsive">
+                    <table class="table table-stripped table-condensed table-hover">
+                        <thead>
+                            <tr>
+                                <th width="70%"><?= glyph("film",$lang["episode"]["name"]) ?> <?= $lang["episode"]["name"] ?></th>
+                                <th width="30%" class="text-right"><?= glyph("time",$lang["episode"]["released"]) ?> <?= $lang["episode"]["released"] ?></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php while ($row = $episodes_dub->fetch_assoc()): ?>
+                            <tr>
+                                <td>
+                                    <?php if($row["deleted"]==1) { ?><?= glyph("trash","Deleted") ?><?php } ?>
+                                    <a href="<?= $config["url"] ?>watch/<?= $id ?>-<?= $row["episode"] ?>-dub"><?= glyph("play","Watch") ?> <?= $lang["episode"]["name"]." ".$row["episode"] ?></a>
+                                    <?php if($user["level"]==10 || $user["level"]==0) { ?>
+                                    <a href="<?= $config["url"] ?>edit_episode/<?= $row["id"] ?>" class="badge"><?= glyph("pencil",$lang["watch"]["edit"]) ?> <?= $lang["watch"]["edit"] ?></a>
+                                    <?php } ?>
+                                </td>
+                                <td class="text-right"><span title="<?= $row["added"] ?>"><?= ago($row["added"]) ?></span></td>
+                            </tr>
+                            <?php endwhile; ?>
+                        </tbody>
+                    </table>
                 </div>
-                <div role="tabpanel" class="tab-pane fade in" id="raw">
-                    <?php if(mysqli_num_rows($episodes_raw)!==0) { ?>
-                    <div class="table-responsive">
-                        <table class="table table-stripped table-condensed table-hover">
-                            <thead>
-                                <tr>
-                                    <th width="70%"><?= glyph("film",$lang["episode"]["name"]) ?> <?= $lang["episode"]["name"] ?></th>
-                                    <th width="30%" class="text-right"><?= glyph("time",$lang["episode"]["released"]) ?> <?= $lang["episode"]["released"] ?></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php while ($row = $episodes_raw->fetch_assoc()): ?>
-                                <tr>
-                                    <td>
-                                        <a href="<?= $config["url"] ?>watch/<?= $id ?>-<?= $row["episode"] ?>"><?= $lang["episode"]["name"]." ".$row["episode"] ?></a>
-                                    </td>
-                                    <td class="text-right"><span title="<?= $row["added"] ?>"><?= ago($row["added"]) ?></span></td>
-                                </tr>
-                                <?php endwhile; ?>
-                            </tbody>
-                        </table>
-                    </div>
-                    <?php } else { ?>
-                    <?= glyph("info-sign",$lang["error"]) ?> <?= $lang["anime"]["no_ep"] ?>
-                    <?php } ?>
+                <?php } else { ?>
+                <?= glyph("info-sign",$lang["error"]) ?> <?= $lang["anime"]["no_ep"] ?>
+                <?php } ?>
+            </div>
+            <div role="tabpanel" class="tab-pane fade in panel panel-default" id="raw">
+                <?php if(mysqli_num_rows($episodes_raw)!==0) { ?>
+                <div class="table-responsive">
+                    <table class="table table-stripped table-condensed table-hover">
+                        <thead>
+                            <tr>
+                                <th width="70%"><?= glyph("film",$lang["episode"]["name"]) ?> <?= $lang["episode"]["name"] ?></th>
+                                <th width="30%" class="text-right"><?= glyph("time",$lang["episode"]["released"]) ?> <?= $lang["episode"]["released"] ?></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php while ($row = $episodes_raw->fetch_assoc()): ?>
+                            <tr>
+                                <td>
+                                    <?php if($row["deleted"]==1) { ?><?= glyph("trash","Deleted") ?><?php } ?>
+                                    <a href="<?= $config["url"] ?>watch/<?= $id ?>-<?= $row["episode"] ?>-raw"><?= $lang["episode"]["name"]." ".$row["episode"] ?></a>
+                                    <?php if($user["level"]==10 || $user["level"]==0) { ?>
+                                    <a href="<?= $config["url"] ?>edit_episode/<?= $row["id"] ?>" class="badge"><?= glyph("pencil",$lang["watch"]["edit"]) ?> <?= $lang["watch"]["edit"] ?></a>
+                                    <?php } ?>
+                                </td>
+                                <td class="text-right"><span title="<?= $row["added"] ?>"><?= ago($row["added"]) ?></span></td>
+                            </tr>
+                            <?php endwhile; ?>
+                        </tbody>
+                    </table>
                 </div>
+                <?php } else { ?>
+                <?= glyph("info-sign",$lang["error"]) ?> <?= $lang["anime"]["no_ep"] ?>
+                <?php } ?>
             </div>
         </div>
     </div>

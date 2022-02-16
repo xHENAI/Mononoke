@@ -116,12 +116,12 @@ ___________    .__                           ____  __.__         .__            
 </head>
 
 <body class="<?= $class ?>">
-    
+
     <div class="<?= $class2 ?>"></div>
 
     <?php include("parts/menu.part.php"); ?>
 
-    <div class="container contentx">
+    <div class="container contentx" id="">
 
         <?php if($user["read_announce"]==0) { // Shows notice that this software is still trash :^) ?>
         <div class="alert alert-danger text-center" role="alert">
@@ -180,6 +180,8 @@ ___________    .__                           ____  __.__         .__            
         </div>
 
     </div>
+
+    <div class="text-muted text-center contentx"><a href="#" class="label label-default"><?= $lang["top"] ?></a></div>
 
     <?php include("parts/footer.part.php"); ?>
 

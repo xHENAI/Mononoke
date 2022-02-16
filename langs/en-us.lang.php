@@ -5,6 +5,7 @@
 // H33T.moe et HENAI.eu
 
 $lang["error"] = "Error!";
+$lang["top"] = "Go back to top";
 $lang["permissions"] = "You do not have enough permissions to perform that action!";
 $lang["notice"] = "<b>Hello!</b> Please keep in mind that the software that is powering <?= \$config[\"name\"] ?> is still in Alpha. Make sure to check out the <a href=\"https://github.com/xHENAI/Mononoke\" target=\"_blank\">GitHub</a>!";
 $lang["unconfirmed"] = "<b>Alert:</b> You haven't verified your eMail yet! To use all features of <?= \$config[\"name\"] ?>, you need to do that first.";
@@ -51,6 +52,11 @@ $lang["episode"]["released"] = "Released";
 $lang["watch"]["title2"] = "Watch";
 $lang["watch"]["wrong"] = "Nonono... that's not how it's supposed to be!";
 $lang["watch"]["edit"] = "Edit Episode";
+$lang["watch"]["lights"] = "Dim/Undim Lights";
+$lang["watch"]["open"] = "Open Source";
+$lang["watch"]["skip"] = "Skip Intro";
+$lang["watch"]["next_ep"] = "Next";
+$lang["watch"]["prev_ep"] = "Prev";
 
 $lang["add_episode"]["title"] = "Add Episode to";
 $lang["add_episode"]["add"] = "Add Episode!";
@@ -245,6 +251,8 @@ $lang["edit_anime"]["alternates_hover"] = "Seperate best with ; or leave empty f
 $lang["edit_anime"]["description"] = "Description of the Anime. Supports BBCode!";
 $lang["edit_anime"]["anisearch"] = "AniSearch ID";
 $lang["edit_anime"]["mal"] = "MyAnimeList ID";
+$lang["edit_anime"]["anilist"] = "AniList.co URL";
+$lang["edit_anime"]["anilist_hover"] = "Full URL to Anime, preferably Anime Page";
 $lang["edit_anime"]["9anime"] = "9Anime URL";
 $lang["edit_anime"]["9anime_hover"] = "Full URL to Anime, preferably first Episode";
 $lang["edit_anime"]["animixplay"] = "AniMixPlay URL";

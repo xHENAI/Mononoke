@@ -5,6 +5,7 @@
 // H33T.moe et HENAI.eu
 
 $lang["error"] = "Error!";
+$lang["top"] = "Zurück zum Anfang";
 $lang["permissions"] = "Dir fehlen die nötigen Berechtigungen, um dies zu tun!";
 $lang["notice"] = "<b>Hallo!</b> Bitte behalte im Hinterkopf, dass die Software die diese Seite betreibt, <?= \$config[\"name\"] ?>, immer noch in der Alpha ist. Mache sicher das <a href=\"https://github.com/xHENAI/Mononoke\" target=\"_blank\">GitHub</a> mal auszuchecken!";
 $lang["unconfirmed"] = "<b>Achtung:</b> Du hast deine eMail noch nicht verifiziert! Um alle Funktionen von <?= \$config[\"name\"] ?> genießen zu können, musst du dieß zuerst tun.";
@@ -51,6 +52,10 @@ $lang["episode"]["released"] = "Veröffentlicht";
 $lang["watch"]["title2"] = "Ansehen";
 $lang["watch"]["wrong"] = "Ayayaya... so sollte das nicht sein, nein!";
 $lang["watch"]["edit"] = "Episode bearbeiten";
+$lang["watch"]["lights"] = "Verdunkeln/Verhellen";
+$lang["watch"]["open"] = "Quelle öffnen";
+$lang["watch"]["next_ep"] = "Nächste";
+$lang["watch"]["prev_ep"] = "Vorherige";
 
 $lang["add_episode"]["title"] = "Füge eine neue Episode hinzu für";
 $lang["add_episode"]["add"] = "Episode hinzufügen!";
@@ -245,6 +250,8 @@ $lang["edit_anime"]["alternates_hover"] = "Trennen mit ; oder leer lassen für k
 $lang["edit_anime"]["description"] = "Beschreibung des Animes. Unterstützt BBCode!";
 $lang["edit_anime"]["anisearch"] = "AniSearch ID";
 $lang["edit_anime"]["mal"] = "MyAnimeList ID";
+$lang["edit_anime"]["anilist"] = "AniList.co URL";
+$lang["edit_anime"]["anilist_hover"] = "Full URL to Anime, preferably Anime Page";
 $lang["edit_anime"]["9anime"] = "9Anime URL";
 $lang["edit_anime"]["9anime_hover"] = "Ganze URL zum Anime, vorzugsweise zur ersten Episode";
 $lang["edit_anime"]["animixplay"] = "AniMixPlay URL";

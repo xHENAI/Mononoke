@@ -39,6 +39,12 @@ if(!empty($anime["id"])) {
                               } else {
                                   $anisearch = "'".$anisearch."'";
                               }
+                              $anilist = mysqli_real_escape_string($conn, $_POST["anilist"]);
+                              if(empty($anilist)) {
+                                  $anilist = "NULL";
+                              } else {
+                                  $anilist = "'".$anilist."'";
+                              }
                               $mal = mysqli_real_escape_string($conn, $_POST["mal"]);
                               if(empty($mal)) {
                                   $mal = "NULL";
@@ -71,7 +77,7 @@ if(!empty($anime["id"])) {
                               }
                               $public = mysqli_real_escape_string($conn, $_POST["public"]);
                               if($error==false) {
-                                $conn->query("UPDATE `anime` SET `name`='$name', `alternates`=$alternates, `year`=$year, `status`='$status', `description`=$description, `anisearch`=$anisearch, `mal`=$mal, `9anime`=$nanime, `animixplay`=$animixplay, `gogoanime`=$gogoanime, `twist`=$twist, `public`='$public  ' WHERE `id`='".$anime["id"]."'");
+                                $conn->query("UPDATE `anime` SET `name`='$name', `alternates`=$alternates, `year`=$year, `status`='$status', `description`=$description, `anisearch`=$anisearch, `mal`=$mal, `9anime`=$nanime, `anilist`=$anilist, `animixplay`=$animixplay, `gogoanime`=$gogoanime, `twist`=$twist, `public`='$public  ' WHERE `id`='".$anime["id"]."'");
                                 redirect("");
                               }
                           }
@@ -234,6 +240,12 @@ if(!empty($anime["id"])) {
                     <label class="col-sm-3 control-label" for="mal"><?= $lang["edit_anime"]["mal"] ?></label>
                     <div class="col-sm-9">
                         <input type="text" name="mal" id="mal" class="form-control" value="<?= $anime["mal"] ?>" placeholder="<?= $lang["edit_anime"]["mal"] ?>">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="anilist"><?= $lang["edit_anime"]["anilist"] ?></label>
+                    <div class="col-sm-9">
+                        <input type="text" name="anilist" id="anilist" class="form-control" value="<?= $anime["anilist"] ?>" placeholder="<?= $lang["edit_anime"]["anilist_hover"] ?>">
                     </div>
                 </div>
                 <div class="form-group">
