@@ -206,16 +206,22 @@ function display_tags($anime) {
 
     require("config.php");
     require("core/conn.req.php");
-    require("langs/".$user["lang"].".lang.php");
+    
+    $output = "";
     
     $tags = $conn->query("SELECT * FROM `anime_tag_relations` WHERE `anime`='$anime'");
     if(mysqli_num_rows($tags)!==0) {
         while ($tag = $tags->fetch_assoc()):
-            convert_tag($tag["tag"]);
+            $output .= glyph("tag",convert_tag($tag["tag"]));
+            $output .= '<a href="'.$config["url"].'tag/'.$tag["tag"].'">';
+            $output .= convert_tag($tag["tag"]);
+            $output .= '</a> ';
         endwhile; 
      } else { 
-        return "This Anime has no Tags yet!";   
+        $output .= "No Tags D:";   
     }
+    
+    return $output;
 }
 
 ?>

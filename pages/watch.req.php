@@ -138,7 +138,7 @@ if(empty($anime["id"]) || empty($episode["id"]) || ($anime["public"]==0 && ($use
             <img src="<?= $config["url"] ?>assets/anime/<?= $aid ?>.jpg" width="100%">
         </div>
         <div class="col-sm-9" style="padding:0">
-            <h3><b><a href="<?= $config["url"] ?>anime/<?= $aid ?>"><?= $anime["name"] ?></a></b></h3>
+            <h3><b><a href="<?= $config["url"] ?>anime/<?= $aid ?>"><?= $anime["name"] ?></a></b> <?php if($user["level"]==10 || $user["level"]==0) { ?><small>(<a href="<?= $config["url"] ?>edit_anime/<?= $aid ?>"><?= $lang["edit_anime"]["title"] ?></a>)</small><?php } ?></h3>
             <?php if($anime["status"]==0) { ?>
             <p><?= $lang["anime"]["status"]["0_long"] ?></p>
             <?php } elseif($anime["status"]==1) { ?>
