@@ -153,23 +153,20 @@ function convert_player($host, $url) {
     
     if($host=="animixplay") {
         // Soon
-    }
-    if($host=="gogoanime") {
+    } elseif($host=="gogoanime") {
         // Soon
-    }
-    if($host=="9anime") {
+    } elseif($host=="9anime") {
         // Soon
-    }
-    if($host=="youtube") {
+    } elseif($host=="youtube") {
         $output .= '<div class="embed-responsive embed-responsive-16by9">';
         $output .= '<iframe class="embed-responsive-item" src="'.$url.'"></iframe>';
         $output .= '</div>';
-    }
-    if($host=="mp4upload") {
+    } elseif($host=="mp4upload") {
         // Soon
-    }
-    if($host=="streamtape") {
+    } elseif($host=="streamtape") {
         // Soon
+    } else {
+        $output .= '<p>This Streamhoster hasn\'t been implemented yet!</p>';
     }
     
     return $output;
