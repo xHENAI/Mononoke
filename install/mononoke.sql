@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 15. Feb 2022 um 14:12
+-- Erstellungszeit: 16. Feb 2022 um 19:41
 -- Server-Version: 10.4.22-MariaDB
 -- PHP-Version: 7.4.27
 
@@ -112,8 +112,10 @@ CREATE TABLE `episode` (
   `id` int(11) NOT NULL,
   `anime` int(11) NOT NULL,
   `episode` int(11) NOT NULL,
-  `host` int(11) NOT NULL,
+  `sub` tinyint(1) NOT NULL DEFAULT 1,
+  `host` varchar(20) NOT NULL,
   `url` text NOT NULL,
+  `added` datetime NOT NULL DEFAULT current_timestamp(),
   `deleted` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 

@@ -48,6 +48,10 @@ $lang["episode"]["name_short"] = "Ep. ";
 $lang["episode"]["new"] = "Add new Episode";
 $lang["episode"]["released"] = "Released";
 
+$lang["watch"]["title2"] = "Watch";
+$lang["watch"]["wrong"] = "Nonono... that's not how it's supposed to be!";
+$lang["watch"]["edit"] = "Edit Episode";
+
 $lang["add_episode"]["title"] = "Add Episode to";
 $lang["add_episode"]["add"] = "Add Episode!";
 $lang["add_episode"]["error"] = "Could not find the Anime you want to add an Episode!";

@@ -145,4 +145,32 @@ function bbconvert($text) {
 	return preg_replace($find,$replace,$text);
 }
 
+function convert_player($host, $url) {
+    
+    $output = "";
+    
+    if($host=="animixplay") {
+        // Soon
+    }
+    if($host=="gogoanime") {
+        // Soon
+    }
+    if($host=="9anime") {
+        // Soon
+    }
+    if($host=="youtube") {
+        $output .= '<div class="embed-responsive embed-responsive-16by9">';
+        $output .= '<iframe class="embed-responsive-item" src="'.$url.'"></iframe>';
+        $output .= '</div>';
+    }
+    if($host=="mp4upload") {
+        // Soon
+    }
+    if($host=="streamtape") {
+        // Soon
+    }
+    
+    return $output;
+}
+
 ?>

@@ -49,7 +49,7 @@ RewriteRule ^anime/(.+)/?$ ./?page=anime&id=$1
 # Episodes Pages
 RewriteRule ^add_episode/(.+)/?$ ./?page=add_episode&id=$1
 RewriteRule ^edit_episode/(.+)/?$ ./?page=edit_episode&id=$1
-RewriteRule ^watch/(.+)/(.+)/?$ ./?page=watch&id=$1&ep=$2
+RewriteRule ^watch/(.+)-(.+)/?$ ./?page=watch&id=$1&ep=$2
 
 # Episode Pages
 RewriteRule ^add_episode/(.+)/?$ ./?page=add_episode&id=$1
