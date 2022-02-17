@@ -52,6 +52,7 @@ if(empty($anime["id"]) || ($anime["public"]==0 && ($user["level"]==20 || $user["
         </div>
     </div>
 </div>
+
 <?php if(!empty($anime["9anime"]) || !empty($anime["animixplay"]) || !empty($anime["gogoanime"]) || !empty($anime["twist"])) { ?>
 <div class="panel panel-danger contentx">
     <div class="panel-heading">
