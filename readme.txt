@@ -1,6 +1,6 @@
 /**********************************************************************\
-|    _____   H33Tx & xHENAI                     __           14.02.2022|
-|   /     \   ____   ___Presents:  ____   ____ |  | __ ____      v0.0.7|
+|    _____   H33Tx & xHENAI                     __           16.02.2022|
+|   /     \   ____   ___Presents:  ____   ____ |  | __ ____      v0.0.8|
 |  /  \ /  \ /  _ \ /    \ /  _ \ /    \ /  _ \|  |/ // __ \           |
 | /    Y    (  <_> )   |  (  <_> )   |  (  <_> )    <\  ___/           |
 | \____|__  /\____/|___|  /\____/|___|  /\____/|__|_ \\___  >          |
@@ -32,15 +32,13 @@
 |     [x] View Animes on seperate Page                                 |
 |     [x] See "New Episode" Button on Anime Page                       |
 | [ ] Episode System                                                   |
-|     [ ] Add New Episode                                              |
-|     [ ] Multiple Streamhosters                                       |
+|     [x] Add New Episode                                              |
+|     [x] Multiple Streamhosters                                       |
 |         [ ] Local Storage (Upload)                                   |
-|         [ ] Animixplay                                               |
-|         [x] GogoAnime                                                |
-|         [ ] 9anime                                                   |
-|         [x] YouTube                                                  |
-|         [x] mp4upload                                                |
-|         [x] StreamTape                                               |
+|         [x] GogoPlay.io                                              |
+|         [x] YouTube.com                                              |
+|         [x] mp4upload.com                                            |
+|         [x] StreamTape.com                                           |
 |     [ ] Edit Episode                                                 |
 | [ ] Comment System                                                   |
 |     [ ] Comment on Anime page                                        |
@@ -54,7 +52,7 @@
 |                                                                      |
 | More to come...                                                      |
 \======================================================================/
-                                          
+
 /============================ Installation ============================\
 |   ONLY DOWNLOAD @ github.com/xHENAI                                  |
 | - General Setup ---------------------------------------------------- |
@@ -100,8 +98,8 @@
 
 /=== User-Levels ===\ /=================== Version ====================\
 | 0 = Administrator | |                                                |
-| 10 = Moderator    | |               Current: v0.0.7                  |
-| 20 = Valid User   | |           Last Updated: 14.02.2022             |
+| 10 = Moderator    | |               Current: v0.0.8                  |
+| 20 = Valid User   | |           Last Updated: 16.02.2022             |
 | 30 = Invalid User | |         Notes: Complete rewrite yay!           |
 | 50 = Guest        | |                                                |
 \===================/ \================================================/

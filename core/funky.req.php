@@ -16,8 +16,10 @@ if(isset($_POST["login_user"])) {
         $token = rand();
         $token = md5($token);
         if(isset($_POST["remember_me"])) {
+            // For one month
             setcookie("".$config["cookie"]."session", $token, time()+(86400*30), "/", $config["domain"]);
         } else {
+            // Only for one day since checkbox wasn't checked
             setcookie("".$config["cookie"]."session", $token, time()+(86400), "/", $config["domain"]);
         }
         $_SESSION[$config["cookie"]."session"] = $token;
@@ -143,6 +145,82 @@ function bbconvert($text) {
 
 	// Replacing the BBcodes with corresponding HTML tags
 	return preg_replace($find,$replace,$text);
+}
+
+function convert_player($host, $url) {
+    
+    $output = "";
+    
+    if($host=="gogoplay") {
+        $output .= '<div class="embed-responsive embed-responsive-16by9">';
+        $output .= '<iframe class="embed-responsive-item" src="'.$url.'" allowfullscreen allowtransparency allow="autoplay" scrolling="no" frameborder="0"></iframe>';
+        $output .= '</div>';
+    } elseif($host=="youtube") {
+        $output .= '<div class="embed-responsive embed-responsive-16by9">';
+        $output .= '<iframe class="embed-responsive-item" src="'.$url.'" allowfullscreen allowtransparency allow="autoplay" scrolling="no" frameborder="0"></iframe>';
+        $output .= '</div>';
+    } elseif($host=="mp4upload") {
+        $output .= '<div class="embed-responsive embed-responsive-16by9">';
+        $output .= '<iframe class="embed-responsive-item" src="'.$url.'" allowfullscreen allowtransparency allow="autoplay" scrolling="no" frameborder="0"></iframe>';
+        $output .= '</div>';
+    } elseif($host=="streamtape") {
+        $output .= '<div class="embed-responsive embed-responsive-16by9">';
+        $output .= '<iframe class="embed-responsive-item" src="'.$url.'" allowfullscreen allowtransparency allow="autoplay" scrolling="no" frameborder="0"></iframe>';
+        $output .= '</div>';
+    } else {
+        $output .= '<p>This Streamhoster hasn\'t been implemented yet!</p>';
+    }
+    
+    return $output;
+}
+
+function convert_tag($tag, $type = "id") {
+
+    require("config.php");
+    require("core/conn.req.php");
+    require("langs/".$user["lang"].".lang.php");
+    
+    if($type=="id") {
+        $tag = $conn->query("SELECT * FROM `anime_tag_cloud` WHERE `id`='$tag' LIMIT 1");
+        $tag = mysqli_fetch_assoc($tag);
+        if(empty($tag["id"])) {
+            $tag = "Unknown";
+        } else {
+            $tag = $tag["name"];
+        }
+    } else {
+        $tag = $conn->query("SELECT * FROM `anime_tag_cloud` WHERE `name`='$tag' LIMIT 1");
+        $tag = mysqli_fetch_assoc($tag);
+        if(empty($tag["id"])) {
+            $tag = "Unknown";
+        } else {
+            $tag = $tag["name"];
+        }
+    }
+    
+    return $tag;
+}
+
+function display_tags($anime) {
+
+    require("config.php");
+    require("core/conn.req.php");
+    
+    $output = "";
+    
+    $tags = $conn->query("SELECT * FROM `anime_tag_relations` WHERE `anime`='$anime'");
+    if(mysqli_num_rows($tags)!==0) {
+        while ($tag = $tags->fetch_assoc()):
+            $output .= glyph("tag",convert_tag($tag["tag"]));
+            $output .= '<a href="'.$config["url"].'tag/'.$tag["tag"].'">';
+            $output .= convert_tag($tag["tag"]);
+            $output .= '</a> ';
+        endwhile; 
+     } else { 
+        $output .= "No Tags D:";   
+    }
+    
+    return $output;
 }
 
 ?>

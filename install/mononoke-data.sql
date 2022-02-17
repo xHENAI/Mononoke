@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 16. Feb 2022 um 19:41
+-- Erstellungszeit: 17. Feb 2022 um 17:36
 -- Server-Version: 10.4.22-MariaDB
 -- PHP-Version: 7.4.27
 
@@ -42,6 +42,7 @@ CREATE TABLE `anime` (
   `animixplay` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `gogoanime` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `twist` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `anilist` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `public` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -88,6 +89,62 @@ CREATE TABLE `anime_tag_cloud` (
   `name` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Daten für Tabelle `anime_tag_cloud`
+--
+
+INSERT INTO `anime_tag_cloud` (`id`, `name`) VALUES
+(1, 'Action'),
+(2, 'Adventure'),
+(3, 'Cars'),
+(4, 'Comedy'),
+(5, 'Crime'),
+(6, 'Dementia'),
+(7, 'Demons'),
+(8, 'Drama'),
+(9, 'Dub'),
+(10, 'Ecchi'),
+(11, 'Family'),
+(12, 'Fantasy'),
+(13, 'Game'),
+(14, 'Gender Bender'),
+(15, 'Gourmet'),
+(16, 'Harem'),
+(17, 'Henai'),
+(18, 'Historical'),
+(19, 'Horror'),
+(20, 'Josei'),
+(21, 'Kids'),
+(22, 'Magic'),
+(23, 'Martial Arts'),
+(24, 'Mecha'),
+(25, 'Military'),
+(26, 'Music'),
+(27, 'Mystery'),
+(28, 'Parody'),
+(29, 'Police'),
+(30, 'Psychological'),
+(31, 'Romance'),
+(32, 'Samurai'),
+(33, 'School'),
+(34, 'Sci-Fi'),
+(35, 'Seinen'),
+(36, 'Shoujo'),
+(37, 'Shoujo Ai'),
+(38, 'Shounen'),
+(39, 'Shounen Ai'),
+(40, 'Slice of Life'),
+(41, 'Space'),
+(42, 'Sports'),
+(43, 'Super Power'),
+(44, 'Supernatural'),
+(45, 'Suspense'),
+(46, 'Thriller'),
+(47, 'Vampire'),
+(48, 'Work Life'),
+(49, 'Yaoi'),
+(50, 'Yuri');
+
 -- --------------------------------------------------------
 
 --
@@ -112,7 +169,7 @@ CREATE TABLE `episode` (
   `id` int(11) NOT NULL,
   `anime` int(11) NOT NULL,
   `episode` int(11) NOT NULL,
-  `sub` tinyint(1) NOT NULL DEFAULT 1,
+  `type` varchar(13) NOT NULL,
   `host` varchar(20) NOT NULL,
   `url` text NOT NULL,
   `added` datetime NOT NULL DEFAULT current_timestamp(),
@@ -133,6 +190,24 @@ CREATE TABLE `episode_comments` (
   `content` text NOT NULL,
   `added` datetime NOT NULL DEFAULT current_timestamp(),
   `deleted` tinyint(1) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `episode_watchlist`
+--
+
+DROP TABLE IF EXISTS `episode_watchlist`;
+CREATE TABLE `episode_watchlist` (
+  `id` int(11) NOT NULL,
+  `anime` int(11) NOT NULL,
+  `ep` int(11) NOT NULL,
+  `epid` int(11) NOT NULL,
+  `type` varchar(3) NOT NULL,
+  `status` int(11) NOT NULL DEFAULT 0,
+  `user` int(11) NOT NULL,
+  `added` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -313,6 +388,12 @@ ALTER TABLE `episode_comments`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indizes für die Tabelle `episode_watchlist`
+--
+ALTER TABLE `episode_watchlist`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indizes für die Tabelle `forum`
 --
 ALTER TABLE `forum`
@@ -368,7 +449,7 @@ ALTER TABLE `anime_rating`
 -- AUTO_INCREMENT für Tabelle `anime_tag_cloud`
 --
 ALTER TABLE `anime_tag_cloud`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT für Tabelle `anime_tag_relations`
@@ -386,6 +467,12 @@ ALTER TABLE `episode`
 -- AUTO_INCREMENT für Tabelle `episode_comments`
 --
 ALTER TABLE `episode_comments`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT für Tabelle `episode_watchlist`
+--
+ALTER TABLE `episode_watchlist`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --

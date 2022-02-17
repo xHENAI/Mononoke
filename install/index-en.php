@@ -14,7 +14,7 @@ if(empty($_GET["step"])) {
 
 $step = $_GET["step"];
 
-if(file_exists("../config.php") && $step!=5) {
+if(file_exists("../config.php") && $step!=5 && $step!=4 && $step!=3) {
     header("location: ?step=5");
 }
 

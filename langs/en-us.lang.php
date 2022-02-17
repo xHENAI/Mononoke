@@ -5,6 +5,7 @@
 // H33T.moe et HENAI.eu
 
 $lang["error"] = "Error!";
+$lang["top"] = "Go back to top";
 $lang["permissions"] = "You do not have enough permissions to perform that action!";
 $lang["notice"] = "<b>Hello!</b> Please keep in mind that the software that is powering <?= \$config[\"name\"] ?> is still in Alpha. Make sure to check out the <a href=\"https://github.com/xHENAI/Mononoke\" target=\"_blank\">GitHub</a>!";
 $lang["unconfirmed"] = "<b>Alert:</b> You haven't verified your eMail yet! To use all features of <?= \$config[\"name\"] ?>, you need to do that first.";
@@ -48,6 +49,15 @@ $lang["episode"]["name_short"] = "Ep. ";
 $lang["episode"]["new"] = "Add new Episode";
 $lang["episode"]["released"] = "Released";
 
+$lang["watch"]["title2"] = "Watch";
+$lang["watch"]["wrong"] = "Nonono... that's not how it's supposed to be!";
+$lang["watch"]["edit"] = "Edit Episode";
+$lang["watch"]["lights"] = "Dim/Undim Lights";
+$lang["watch"]["open"] = "Open Source";
+$lang["watch"]["skip"] = "Skip Intro";
+$lang["watch"]["next_ep"] = "Next";
+$lang["watch"]["prev_ep"] = "Prev";
+
 $lang["add_episode"]["title"] = "Add Episode to";
 $lang["add_episode"]["add"] = "Add Episode!";
 $lang["add_episode"]["error"] = "Could not find the Anime you want to add an Episode!";
@@ -55,6 +65,11 @@ $lang["add_episode"]["view_anime"] = "View Anime";
 $lang["add_episode"]["host"] = "Streamhoster";
 $lang["add_episode"]["host_select"] = "Select Streamhoster...";
 $lang["add_episode"]["url"] = "URL to Episode";
+$lang["add_episode"]["type"] = "Sub, Dub or Raw?";
+$lang["add_episode"]["type_select"] = "Select type...";
+$lang["add_episode"]["type_sub"] = "Sub";
+$lang["add_episode"]["type_dub"] = "Dub";
+$lang["add_episode"]["type_raw"] = "Raw";
 
 $lang["ago"]["year"] = "Year";
 $lang["ago"]["month"] = "Month";
@@ -109,6 +124,20 @@ $lang["nav-main"]["settings"] = "Settings";
 $lang["nav-main"]["bye"] = "Signout";
 $lang["nav-main"]["signin"] = "Signin";
 $lang["nav-main"]["signup"] = "Signup";
+
+$lang["nav-watch"]["title"] = "Watchbar";
+$lang["nav-watch"]["not_tracked"] = "You haven't tracked this Anime yet.";
+$lang["nav-watch"]["verify"] = "Your eMail has not been verified. Please do that first do access this function.";
+$lang["nav-watch"]["start"] = "Start tracking!";
+$lang["nav-watch"]["update"] = "Update tracking!";
+$lang["nav-watch"]["delete"] = "Remove tracking.";
+$lang["nav-watch"]["status"]["0"] = "Planned";
+$lang["nav-watch"]["status"]["1"] = "Watching";
+$lang["nav-watch"]["status"]["2"] = "Paused";
+$lang["nav-watch"]["status"]["3"] = "Completed";
+$lang["nav-watch"]["status"]["4"] = "Dropped";
+$lang["nav-watch"]["last_ep"] = "Last tracked:";
+$lang["nav-watch"]["curr_ep"] = "Current Episode:";
 
 $lang["profile"]["title"] = "User";
 $lang["profile"]["level"] = "Level:";
@@ -236,6 +265,8 @@ $lang["edit_anime"]["alternates_hover"] = "Seperate best with ; or leave empty f
 $lang["edit_anime"]["description"] = "Description of the Anime. Supports BBCode!";
 $lang["edit_anime"]["anisearch"] = "AniSearch ID";
 $lang["edit_anime"]["mal"] = "MyAnimeList ID";
+$lang["edit_anime"]["anilist"] = "AniList.co URL";
+$lang["edit_anime"]["anilist_hover"] = "Full URL to Anime, preferably Anime Page";
 $lang["edit_anime"]["9anime"] = "9Anime URL";
 $lang["edit_anime"]["9anime_hover"] = "Full URL to Anime, preferably first Episode";
 $lang["edit_anime"]["animixplay"] = "AniMixPlay URL";

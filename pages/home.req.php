@@ -115,7 +115,7 @@ $carousel_first = mysqli_fetch_assoc($carousel_first);
             ?>
             <div class="col-sm-2">
                 <div class="thumbnail" style="height: <?php if($user["theme"]==0 || $user["theme"]==2) { ?>245px<?php } else { ?>230px<?php } ?>">
-                    <a href="<?= $config["url"] ?>watch/<?= $anime["id"] ?>/<?= $row["episode"] ?>">
+                    <a href="<?= $config["url"] ?>watch/<?= $anime["id"] ?>-<?= $row["episode"] ?>-<?= $row["type"] ?>">
                         <img src="<?= $config["url"] ?>assets/thumbs/<?= $anime["id"] ?>.jpg" alt="<?= $anime["name"] ?>'s Image" title="<?= $anime["name"]." ".$lang["episode"]["name"]." ".$row["episode"] ?>" width="100%">
                         <div class="caption text-center" title="<?= $anime["name"] ?>">
                             <span class="badge"><?= $lang["episode"]["name"]." ".$row["episode"] ?></span> <b><?= shorten($anime["name"],20) ?></b> (<?= ago($row["added"]) ?>)

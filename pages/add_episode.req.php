@@ -13,15 +13,16 @@ if(!empty($anime["id"])) {
     
     if(isset($_POST["add_episode"])) {
         $episode = mysqli_real_escape_string($conn, $_POST["episode"]);
+        $type = mysqli_real_escape_string($conn, $_POST["type"]);
         $host = mysqli_real_escape_string($conn, $_POST["host"]);
         $url = mysqli_real_escape_string($conn, $_POST["url"]);
-        $check = $conn->query("SELECT * FROM `episode` WHERE `anime`='$id' AND `episode`='$episode' LIMIT 1");
+        $check = $conn->query("SELECT * FROM `episode` WHERE `anime`='$id' AND `episode`='$episode' AND `type`='$type' LIMIT 1");
         if(mysqli_num_rows($check)==1) {
             $error = true;
             $error_msg = "This episode exists already!";
         }
         if($error==false) {
-            $conn->query("INSERT INTO `episode`(`anime`,`episode`,`host`,`url`,`deleted`) VALUES('$id','$episode','$host','$url','0')");
+            $conn->query("INSERT INTO `episode`(`anime`,`episode`,`type`,`host`,`url`,`deleted`) VALUES('$id','$episode','$type','$host','$url','0')");
         }
     }
     
@@ -43,16 +44,25 @@ if(!empty($anime["id"])) {
         </div>
     </div>
     <div class="form-group">
+        <label class="control-label col-sm-3" for="animetype"><?= $lang["add_episode"]["type"] ?></label>
+        <div class="col-sm-9">
+            <select required class="selectpicker form-control" name="type" id="animetype" title="Select Type...">
+                <option disabled selected><?= $lang["add_episode"]["type_select"] ?></option>
+                <option <?php if(isset($_POST["type"]) && $_POST["type"]=="sub") { ?>selected<?php } ?> value="sub"><?= $lang["add_episode"]["type_sub"] ?></option>
+                <option <?php if(isset($_POST["type"]) && $_POST["type"]=="dub") { ?>selected<?php } ?> value="dub"><?= $lang["add_episode"]["type_dub"] ?></option>
+                <option <?php if(isset($_POST["type"]) && $_POST["type"]=="raw") { ?>selected<?php } ?> value="raw"><?= $lang["add_episode"]["type_raw"] ?></option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
         <label class="control-label col-sm-3" for="animehost"><?= $lang["add_episode"]["host"] ?></label>
         <div class="col-sm-9">
             <select required class="selectpicker form-control" name="host" id="animehost" title="Select Streamhoster...">
                 <option disabled selected><?= $lang["add_episode"]["host_select"] ?></option>
-                <option <?php if(isset($_POST["host"]) && $_POST["host"]=="animixplay") { ?>selected<?php } ?> disabled value="animixplay">AniMixPlay (soon)</option>
-                <option <?php if(isset($_POST["host"]) && $_POST["host"]=="gogoanime") { ?>selected<?php } ?> value="gogoanime">GogoAnime</option>
-                <option <?php if(isset($_POST["host"]) && $_POST["host"]=="9anime") { ?>selected<?php } ?> disabled value="9anime">9anime (soon)</option>
-                <option <?php if(isset($_POST["host"]) && $_POST["host"]=="youtube") { ?>selected<?php } ?> value="youtube">YouTube</option>
-                <option <?php if(isset($_POST["host"]) && $_POST["host"]=="mp4upload") { ?>selected<?php } ?> value="mp4upload">mp4upload</option>
-                <option <?php if(isset($_POST["host"]) && $_POST["host"]=="streamtape") { ?>selected<?php } ?> value="streamtape">StreamTape</option>
+                <option <?php if(isset($_POST["host"]) && $_POST["host"]=="gogoplay") { ?>selected<?php } ?> value="gogoanime">GogoPlay.io</option>
+                <option <?php if(isset($_POST["host"]) && $_POST["host"]=="youtube") { ?>selected<?php } ?> value="youtube">YouTube.com</option>
+                <option <?php if(isset($_POST["host"]) && $_POST["host"]=="mp4upload") { ?>selected<?php } ?> value="mp4upload">mp4upload.com</option>
+                <option <?php if(isset($_POST["host"]) && $_POST["host"]=="streamtape") { ?>selected<?php } ?> value="streamtape">StreamTape.com</option>
             </select>
         </div>
     </div>
