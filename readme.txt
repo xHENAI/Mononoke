@@ -32,15 +32,13 @@
 |     [x] View Animes on seperate Page                                 |
 |     [x] See "New Episode" Button on Anime Page                       |
 | [ ] Episode System                                                   |
-|     [ ] Add New Episode                                              |
-|     [ ] Multiple Streamhosters                                       |
+|     [x] Add New Episode                                              |
+|     [x] Multiple Streamhosters                                       |
 |         [ ] Local Storage (Upload)                                   |
-|         [ ] Animixplay                                               |
-|         [x] GogoAnime                                                |
-|         [ ] 9anime                                                   |
-|         [x] YouTube                                                  |
-|         [x] mp4upload                                                |
-|         [x] StreamTape                                               |
+|         [x] GogoPlay.io                                              |
+|         [x] YouTube.com                                              |
+|         [x] mp4upload.com                                            |
+|         [x] StreamTape.com                                           |
 |     [ ] Edit Episode                                                 |
 | [ ] Comment System                                                   |
 |     [ ] Comment on Anime page                                        |
@@ -54,7 +52,7 @@
 |                                                                      |
 | More to come...                                                      |
 \======================================================================/
-                                          
+
 /============================ Installation ============================\
 |   ONLY DOWNLOAD @ github.com/xHENAI                                  |
 | - General Setup ---------------------------------------------------- |
