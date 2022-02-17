@@ -59,12 +59,10 @@ if(!empty($anime["id"])) {
         <div class="col-sm-9">
             <select required class="selectpicker form-control" name="host" id="animehost" title="Select Streamhoster...">
                 <option disabled selected><?= $lang["add_episode"]["host_select"] ?></option>
-                <option <?php if(isset($_POST["host"]) && $_POST["host"]=="animixplay") { ?>selected<?php } ?> disabled value="animixplay">AniMixPlay (soon)</option>
-                <option <?php if(isset($_POST["host"]) && $_POST["host"]=="gogoanime") { ?>selected<?php } ?> value="gogoanime">GogoAnime</option>
-                <option <?php if(isset($_POST["host"]) && $_POST["host"]=="9anime") { ?>selected<?php } ?> disabled value="9anime">9anime (soon)</option>
-                <option <?php if(isset($_POST["host"]) && $_POST["host"]=="youtube") { ?>selected<?php } ?> value="youtube">YouTube</option>
-                <option <?php if(isset($_POST["host"]) && $_POST["host"]=="mp4upload") { ?>selected<?php } ?> value="mp4upload">mp4upload</option>
-                <option <?php if(isset($_POST["host"]) && $_POST["host"]=="streamtape") { ?>selected<?php } ?> value="streamtape">StreamTape</option>
+                <option <?php if(isset($_POST["host"]) && $_POST["host"]=="gogoplay") { ?>selected<?php } ?> value="gogoanime">GogoPlay.io</option>
+                <option <?php if(isset($_POST["host"]) && $_POST["host"]=="youtube") { ?>selected<?php } ?> value="youtube">YouTube.com</option>
+                <option <?php if(isset($_POST["host"]) && $_POST["host"]=="mp4upload") { ?>selected<?php } ?> value="mp4upload">mp4upload.com</option>
+                <option <?php if(isset($_POST["host"]) && $_POST["host"]=="streamtape") { ?>selected<?php } ?> value="streamtape">StreamTape.com</option>
             </select>
         </div>
     </div>

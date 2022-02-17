@@ -125,6 +125,20 @@ $lang["nav-main"]["bye"] = "Signout";
 $lang["nav-main"]["signin"] = "Signin";
 $lang["nav-main"]["signup"] = "Signup";
 
+$lang["nav-watch"]["title"] = "Watchbar";
+$lang["nav-watch"]["not_tracked"] = "You haven't tracked this Anime yet.";
+$lang["nav-watch"]["verify"] = "Your eMail has not been verified. Please do that first do access this function.";
+$lang["nav-watch"]["start"] = "Start tracking!";
+$lang["nav-watch"]["update"] = "Update tracking!";
+$lang["nav-watch"]["delete"] = "Remove tracking.";
+$lang["nav-watch"]["status"]["0"] = "Planned";
+$lang["nav-watch"]["status"]["1"] = "Watching";
+$lang["nav-watch"]["status"]["2"] = "Paused";
+$lang["nav-watch"]["status"]["3"] = "Completed";
+$lang["nav-watch"]["status"]["4"] = "Dropped";
+$lang["nav-watch"]["last_ep"] = "Last tracked:";
+$lang["nav-watch"]["curr_ep"] = "Current Episode:";
+
 $lang["profile"]["title"] = "User";
 $lang["profile"]["level"] = "Level:";
 $lang["profile"]["theme"] = "Uses Theme:";

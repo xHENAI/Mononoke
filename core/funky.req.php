@@ -151,20 +151,22 @@ function convert_player($host, $url) {
     
     $output = "";
     
-    if($host=="animixplay") {
-        // Soon
-    } elseif($host=="gogoanime") {
-        // Soon
-    } elseif($host=="9anime") {
-        // Soon
+    if($host=="gogoplay") {
+        $output .= '<div class="embed-responsive embed-responsive-16by9">';
+        $output .= '<iframe class="embed-responsive-item" src="'.$url.'" allowfullscreen allowtransparency allow="autoplay" scrolling="no" frameborder="0"></iframe>';
+        $output .= '</div>';
     } elseif($host=="youtube") {
         $output .= '<div class="embed-responsive embed-responsive-16by9">';
-        $output .= '<iframe class="embed-responsive-item" src="'.$url.'"></iframe>';
+        $output .= '<iframe class="embed-responsive-item" src="'.$url.'" allowfullscreen allowtransparency allow="autoplay" scrolling="no" frameborder="0"></iframe>';
         $output .= '</div>';
     } elseif($host=="mp4upload") {
-        // Soon
+        $output .= '<div class="embed-responsive embed-responsive-16by9">';
+        $output .= '<iframe class="embed-responsive-item" src="'.$url.'" allowfullscreen allowtransparency allow="autoplay" scrolling="no" frameborder="0"></iframe>';
+        $output .= '</div>';
     } elseif($host=="streamtape") {
-        // Soon
+        $output .= '<div class="embed-responsive embed-responsive-16by9">';
+        $output .= '<iframe class="embed-responsive-item" src="'.$url.'" allowfullscreen allowtransparency allow="autoplay" scrolling="no" frameborder="0"></iframe>';
+        $output .= '</div>';
     } else {
         $output .= '<p>This Streamhoster hasn\'t been implemented yet!</p>';
     }

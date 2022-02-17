@@ -54,6 +54,7 @@ $lang["watch"]["wrong"] = "Ayayaya... so sollte das nicht sein, nein!";
 $lang["watch"]["edit"] = "Episode bearbeiten";
 $lang["watch"]["lights"] = "Verdunkeln/Verhellen";
 $lang["watch"]["open"] = "Quelle öffnen";
+$lang["watch"]["skip"] = "Intro überspringen";
 $lang["watch"]["next_ep"] = "Nächste";
 $lang["watch"]["prev_ep"] = "Vorherige";
 
@@ -123,6 +124,20 @@ $lang["nav-main"]["settings"] = "Einstellungen";
 $lang["nav-main"]["bye"] = "Abmelden";
 $lang["nav-main"]["signin"] = "Anmelden";
 $lang["nav-main"]["signup"] = "Registrieren";
+
+$lang["nav-watch"]["title"] = "Merkliste";
+$lang["nav-watch"]["not_tracked"] = "Du hast diesen Anime noch nicht auf deiner Merkliste";
+$lang["nav-watch"]["verify"] = "Deine eMail wurde noch nicht bestätigt. Bitte tu dies zuerst um diese Funktion nutzen zu können.";
+$lang["nav-watch"]["start"] = "Auf die Merkliste!";
+$lang["nav-watch"]["update"] = "Eintrag aktualisieren!";
+$lang["nav-watch"]["delete"] = "Von der Merkliste entfernen.";
+$lang["nav-watch"]["status"]["0"] = "Geplant";
+$lang["nav-watch"]["status"]["1"] = "Am schauen";
+$lang["nav-watch"]["status"]["2"] = "Pausiert";
+$lang["nav-watch"]["status"]["3"] = "Abgeschlossen";
+$lang["nav-watch"]["status"]["4"] = "Abgebrochen";
+$lang["nav-watch"]["last_ep"] = "Zuletzt gesehen:";
+$lang["nav-watch"]["curr_ep"] = "Jetzige Episode:";
 
 $lang["profile"]["title"] = "Nutzer";
 $lang["profile"]["level"] = "Level:";
