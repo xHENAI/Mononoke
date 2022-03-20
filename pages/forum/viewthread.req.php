@@ -22,29 +22,42 @@ if(!empty($thread["id"])) {
         $replys = $conn->query("SELECT * FROM `forum_posts` WHERE `forum`='".$forum["id"]."' AND `thread`='".$thread["id"]."' AND `deleted`='0' ORDER BY `id` ASC");
     }
     
-    if(isset($_POST["lock_thread"])) {
-        $conn->query("UPDATE `forum_threads` SET `closed`='1' WHERE `id`='".$thread["id"]."'");
-        redirect("../viewthread/".$thread["id"]);
-    }
-    if(isset($_POST["unlock_thread"])) {
-        $conn->query("UPDATE `forum_threads` SET `closed`='0' WHERE `id`='".$thread["id"]."'");
-        redirect("../viewthread/".$thread["id"]);
-    }
-    if(isset($_POST["stick_thread"])) {
-        $conn->query("UPDATE `forum_threads` SET `sticky`='1' WHERE `id`='".$thread["id"]."'");
-        redirect("../viewthread/".$thread["id"]);
-    }
-    if(isset($_POST["unstick_thread"])) {
-        $conn->query("UPDATE `forum_threads` SET `sticky`='0' WHERE `id`='".$thread["id"]."'");
-        redirect("../viewthread/".$thread["id"]);
-    }
-    if(isset($_POST["delete_thread"])) {
-        $conn->query("UPDATE `forum_threads` SET `deleted`='1' WHERE `id`='".$thread["id"]."'");
-        redirect("../viewthread/".$thread["id"]);
-    }
-    if(isset($_POST["undelete_thread"])) {
-        $conn->query("UPDATE `forum_threads` SET `deleted`='0' WHERE `id`='".$thread["id"]."'");
-        redirect("../viewthread/".$thread["id"]);
+    if($user["level"]==10 || $user["level"]==0) {
+        if(isset($_POST["lock_thread"])) {
+            $conn->query("UPDATE `forum_threads` SET `closed`='1' WHERE `id`='".$thread["id"]."'");
+            redirect("../viewthread/".$thread["id"]);
+        }
+        if(isset($_POST["unlock_thread"])) {
+            $conn->query("UPDATE `forum_threads` SET `closed`='0' WHERE `id`='".$thread["id"]."'");
+            redirect("../viewthread/".$thread["id"]);
+        }
+        if(isset($_POST["stick_thread"])) {
+            $conn->query("UPDATE `forum_threads` SET `sticky`='1' WHERE `id`='".$thread["id"]."'");
+            redirect("../viewthread/".$thread["id"]);
+        }
+        if(isset($_POST["unstick_thread"])) {
+            $conn->query("UPDATE `forum_threads` SET `sticky`='0' WHERE `id`='".$thread["id"]."'");
+            redirect("../viewthread/".$thread["id"]);
+        }
+        if(isset($_POST["delete_thread"])) {
+            $conn->query("UPDATE `forum_threads` SET `deleted`='1' WHERE `id`='".$thread["id"]."'");
+            redirect("../viewthread/".$thread["id"]);
+        }
+        if(isset($_POST["undelete_thread"])) {
+            $conn->query("UPDATE `forum_threads` SET `deleted`='0' WHERE `id`='".$thread["id"]."'");
+            redirect("../viewthread/".$thread["id"]);
+        }
+        if(isset($_POST["delete_reply"])) {
+            $reply = mysqli_real_escape_string($conn, $_POST["reply"]);
+            $conn->query("UPDATE `forum_posts` SET `deleted`='1' WHERE `id`='$reply'");
+            redirect("");
+        }
+
+        if(isset($_POST["undelete_reply"])) {
+            $reply = mysqli_real_escape_string($conn, $_POST["reply"]);
+            $conn->query("UPDATE `forum_posts` SET `deleted`='0' WHERE `id`='$reply'");
+            redirect("");
+        }
     }
     
     if(isset($_POST["edit_thread"])) {
@@ -64,18 +77,6 @@ if(!empty($thread["id"])) {
         $content = strip_tags(mysqli_real_escape_string($conn, $_POST["content"]));
         $reply = mysqli_real_escape_string($conn, $_POST["reply"]);
         $conn->query("UPDATE `forum_posts` SET `content`='$content' WHERE `id`='$reply'");
-        redirect("");
-    }
-    
-    if(isset($_POST["delete_reply"])) {
-        $reply = mysqli_real_escape_string($conn, $_POST["reply"]);
-        $conn->query("UPDATE `forum_posts` SET `deleted`='1' WHERE `id`='$reply'");
-        redirect("");
-    }
-    
-    if(isset($_POST["undelete_reply"])) {
-        $reply = mysqli_real_escape_string($conn, $_POST["reply"]);
-        $conn->query("UPDATE `forum_posts` SET `deleted`='0' WHERE `id`='$reply'");
         redirect("");
     }
     

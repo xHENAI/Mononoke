@@ -15,15 +15,21 @@ if($config["registration"]==true) {
             $namecheck = $conn->query("SELECT * FROM `user` WHERE `username`='$username'");
             $mailcheck = $conn->query("SELECT * FROM `user` WHERE `email`='$email'");
             foreach ($banned_usernames as $banned) {
-                if (strpos($username, $banned) == FALSE) { // Yoshi version
+                if (strpos($username, $banned) == FALSE) {
                     $error = true;
                     $error_msg = "Username contains bad characters!";
                 }
             }
             foreach ($banned_usernames as $banned) {
-                if (strpos($password1, $banned) == FALSE) { // Yoshi version
+                if (strpos($password1, $banned) == FALSE) {
                     $error = true;
-                    $error_msg = "Username contains bad characters!";
+                    $error_msg = "Password contains bad characters!";
+                }
+            }
+            foreach ($banned_usernames as $banned) {
+                if (strpos($email, $banned) == FALSE) {
+                    $error = true;
+                    $error_msg = "eMail contains bad characters!";
                 }
             }
             if(mysqli_num_rows($namecheck)==1) {
@@ -32,7 +38,7 @@ if($config["registration"]==true) {
             }
             if(mysqli_num_rows($mailcheck)==1) {
                 $error = true;
-                $error_msg = "eMail already in use!";
+                $error_msg = "eMail already taken!";
             }
             if($password1!==$password2) {
                 $error = true;

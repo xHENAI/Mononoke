@@ -7,6 +7,15 @@
     <i>Where can I find it?</i> <a href="https://github.com/xHENAI/Mononoke" target="_blank">You can check it out at GitHub!</a>
 </div>
 
+<h5>Changelog of v0.0.9</h5>
+<ul>
+    <li>Fixed: Major security issued (Thanks to <b>Auvrandil</b>)</li>
+    <li>Fixed: Forum permissions, improved security</li>
+</ul>
+<h5>Changelog of v0.0.8</h5>
+<ul>
+    <li>Added: Automated installer</li>
+</ul>
 <h5>Changelog of v0.0.7</h5>
 <ul>
     <li>Added Viewing Animes</li>
