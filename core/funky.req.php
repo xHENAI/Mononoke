@@ -42,6 +42,10 @@ function redirect($destination = "") {
     echo "<script type=\"text/javascript\"> document.location = \"".$destination."\"; </script>";
 }
 
+function escape($str) {
+    return htmlspecialchars($str);
+}
+
 function convert_level($level) {
     if($level==0) {
         $level = "Administrator";
