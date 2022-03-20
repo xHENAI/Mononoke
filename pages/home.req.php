@@ -2,20 +2,24 @@
 
 // pages/home.req.php - Mononoke
 
+if($config["scraper"]==false) {
+    if($user["level"]==10 || $user["level"]==0) {
+        $carousel_first = $conn->query("SELECT * FROM `anime` ORDER BY rand() LIMIT 1");
+        $carousel = $conn->query("SELECT * FROM `anime` ORDER BY rand() LIMIT 9");
+        $recent_episodes = $conn->query("SELECT * FROM `episode` ORDER BY `id` DESC LIMIT 16");
+        $recent_animes = $conn->query("SELECT * FROM `anime` ORDER BY `id` DESC LIMIT 16");
+    } else {
+        $carousel_first = $conn->query("SELECT * FROM `anime` WHERE `public`='1' ORDER BY rand() LIMIT 1");
+        $carousel = $conn->query("SELECT * FROM `anime` WHERE `public`='1' ORDER BY rand() LIMIT 9");
+        $recent_episodes = $conn->query("SELECT * FROM `episode` WHERE `deleted`='0' ORDER BY `id` DESC LIMIT 16");
+        $recent_animes = $conn->query("SELECT * FROM `anime` WHERE `public`='1' ORDER BY `id` DESC LIMIT 16");
+    }
 
-if($user["level"]==10 || $user["level"]==0) {
-    $carousel_first = $conn->query("SELECT * FROM `anime` ORDER BY rand() LIMIT 1");
-    $carousel = $conn->query("SELECT * FROM `anime` ORDER BY rand() LIMIT 9");
-    $recent_episodes = $conn->query("SELECT * FROM `episode` ORDER BY `id` DESC LIMIT 16");
-    $recent_animes = $conn->query("SELECT * FROM `anime` ORDER BY `id` DESC LIMIT 16");
+    $carousel_first = mysqli_fetch_assoc($carousel_first);
 } else {
-    $carousel_first = $conn->query("SELECT * FROM `anime` WHERE `public`='1' ORDER BY rand() LIMIT 1");
-    $carousel = $conn->query("SELECT * FROM `anime` WHERE `public`='1' ORDER BY rand() LIMIT 9");
-    $recent_episodes = $conn->query("SELECT * FROM `episode` WHERE `deleted`='0' ORDER BY `id` DESC LIMIT 16");
-    $recent_animes = $conn->query("SELECT * FROM `anime` WHERE `public`='1' ORDER BY `id` DESC LIMIT 16");
+    
 }
 
-$carousel_first = mysqli_fetch_assoc($carousel_first);
 
 ?>
 
@@ -40,6 +44,7 @@ $carousel_first = mysqli_fetch_assoc($carousel_first);
             <!-- Wrapper for slides -->
             <div class="carousel-inner" role="listbox">
                 <div class="item active">
+                    <?php if($config["scraper"]==false) { ?>
                     <a href="<?= $config["url"] ?>anime/<?= $carousel_first["id"] ?>">
                         <img src="<?= $config["url"] ?>assets/banner/<?= $carousel_first["id"] ?>.jpg" alt="...">
                         <div class="carousel-caption">
@@ -60,7 +65,39 @@ $carousel_first = mysqli_fetch_assoc($carousel_first);
                             </p>
                         </div>
                     </a>
+                    <?php } else {
+    
+                    $carousel_first = "https://api.jikan.moe/v4/random/anime";
+
+                    $curl = curl_init($carousel_first);
+                    curl_setopt($curl, CURLOPT_URL, $carousel_first);
+                    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+
+                    //for debug only!
+                    curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
+                    curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+
+                    $carousel_first = curl_exec($curl);
+                    curl_close($curl);
+    
+                    $carousel_first = json_decode($carousel_first, true);
+                    ?>
+                    <a href="<?= $config["url"] ?>anime/<?= $carousel_first["data"]["mal_id"] ?>">
+                        <img src="<?= $carousel_first["data"]["images"]["jpg"]["image_url"] ?>" alt="...">
+                        <div class="carousel-caption">
+                            <h3 class="image-shadow"><?= $carousel_first["data"]["title"] ?></h3>
+                            <p class="image-shadow">
+                                <?php if(!empty($carousel_first["data"]["synopsis"])) { ?>
+                                <?= shorten($carousel_first["data"]["synopsis"], 300) ?>
+                                <br>
+                                <?php } ?>
+                                <?= $carousel_first["data"]["status"] ?> | <?= $carousel_first["data"]["aired"]["prop"]["from"]["year"] ?>
+                            </p>
+                        </div>
+                    </a>
+                    <?php } ?>
                 </div>
+                <?php if($config["scraper"]==false) { ?>
                 <?php
     if($carousel->num_rows > 0) {
         while($anime = $carousel->fetch_assoc()) { ?>
@@ -88,7 +125,43 @@ $carousel_first = mysqli_fetch_assoc($carousel_first);
                 </div>
                 <?php }
     }
+} else {
+    
+    for($i = 1; $i <= 9; $i++) {
+        
+                $item = "https://api.jikan.moe/v4/random/anime";
+
+                    $curl = curl_init($item.$i);
+                    curl_setopt($curl, CURLOPT_URL, $item);
+                    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+
+                    //for debug only!
+                    curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
+                    curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+
+                    $item = curl_exec($curl);
+                    curl_close($curl);
+    
+                    $item = json_decode($item, true);
+                    ?>
+                <div class="item">
+                    <a href="<?= $config["url"] ?>anime/<?= $item["data"]["mal_id"] ?>">
+                        <img src="<?= $item["data"]["images"]["jpg"]["image_url"] ?>" alt="...">
+                        <div class="carousel-caption">
+                            <h3 class="image-shadow"><?= $item["data"]["title"] ?></h3>
+                            <p class="image-shadow">
+                                <?php if(!empty($item["data"]["synopsis"])) { ?>
+                                <?= shorten($item["data"]["synopsis"], 300) ?>
+                                <br>
+                                <?php } ?>
+                                <?= $item["data"]["status"] ?> | <?= $item["data"]["aired"]["prop"]["from"]["year"] ?>
+                            </p>
+                        </div>
+                    </a>
+                </div>
+    <?php } 
     ?>
+                <?php } ?>
             </div>
 
             <!-- Controls -->

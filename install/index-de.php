@@ -76,6 +76,7 @@ if(isset($_POST["setup_site"])) {
     fwrite($file, "\$config[\"cookie\"] = \"$site_cookie\"; // Cookie prefix, you SHOULD change this! Should end with underscore_\n");
     fwrite($file, "\$config[\"domain\"] = \"$site_domain\"; // For cookies, the domain only, no https and folder\n");
     fwrite($file, "\$config[\"lang\"] = \"$site_lang\"; // Languages are located in /langs/\n\n");
+    fwrite($file, "\$config[\"scraper\"] = \"$site_lang\"; // WIP\n\n");
     fwrite($file, "/* MySQL configuration */\n\n");
     fwrite($file, "\$slave[\"host\"] = \"$mysql_host\"; // MySQL Host\n");
     fwrite($file, "\$slave[\"user\"] = \"$mysql_user\"; // Username for MySQL\n");
