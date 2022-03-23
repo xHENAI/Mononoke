@@ -49,7 +49,7 @@ if(empty($anime["id"]) || empty($episode["id"]) || ($anime["public"]==0 && ($use
     </div>
     <?= convert_player($episode["host"], $episode["url"]) ?>
     <div class="text-center panel-heading">
-        <a href="#" onclick="skipIntro()" class="label label-primary"><?= glyph("forward",$lang["watch"]["skip"]) ?> <?= $lang["watch"]["skip"] ?></a>
+        <!--<a href="#" onclick="skipIntro()" class="label label-primary"><?= glyph("forward",$lang["watch"]["skip"]) ?> <?= $lang["watch"]["skip"] ?></a>-->
         <a href="#" onclick="toggleDimLights()" class="label label-info"><?= glyph("sunglasses",$lang["watch"]["lights"]) ?> <?= $lang["watch"]["lights"] ?></a>
         <a href="<?= $episode["url"] ?>" target="_blank" class="label label-info"><?= glyph("new-window",$lang["watch"]["open"]) ?> <?= $lang["watch"]["open"] ?></a>
         <?php if(!empty($prev_episode["episode"])) { ?>
