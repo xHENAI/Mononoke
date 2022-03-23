@@ -65,6 +65,28 @@ if(empty($anime["id"]) || empty($episode["id"]) || ($anime["public"]==0 && ($use
     </div>
 </div>
 
+<script>
+    
+    function toggleDimLights() {
+        console.log(document.getElementById("backdrop").style.backgroundColor);
+        if(document.getElementById("backdrop").style.backgroundColor === "rgba(0, 0, 0, 0)") {
+            dimLight();
+        } else {
+            undimLight();
+        }
+    }
+
+    function dimLight() {
+        document.getElementById("backdrop").style.backgroundColor = "rgba(0, 0, 0, 1)";
+        
+    }
+    
+    function undimLight() {
+        document.getElementById("backdrop").style.backgroundColor = "rgba(0, 0, 0, 0)";
+    }
+    
+</script>
+
 <div>
     <ul class="nav nav-tabs" role="tablist">
         <li role="presentation" <?php if($episode["type"]=="sub") { ?>class="active" <?php } ?>><a href="#sub" aria-controls="sub" role="tab" data-toggle="tab"><?= glyph("subtitles",$lang["add_episode"]["type_sub"]) ?> <?= $lang["add_episode"]["type_sub"] ?></a></li>
