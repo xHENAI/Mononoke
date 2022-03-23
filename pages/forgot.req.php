@@ -9,6 +9,12 @@ $error_msg = "";
 if(isset($_POST["reset_password"])) {
     $email = mysqli_real_escape_string($conn, $_POST["email"]);
     $emailcheck = $conn->query("SELECT * FROM `user` WHERE `email`='$email'");
+    foreach ($banned_usernames as $banned) {
+        if (strpos($email, $banned) == FALSE) {
+            $error = true;
+            $error_msg = "eMail contains bad characters!";
+        }
+    }
     if(mysqli_num_rows($emailcheck)==1) {
         $further = mysqli_fetch_assoc($emailcheck);
         $error = false;

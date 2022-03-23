@@ -59,7 +59,7 @@ if(!empty($anime["id"])) {
         <div class="col-sm-9">
             <select required class="selectpicker form-control" name="host" id="animehost" title="Select Streamhoster...">
                 <option disabled selected><?= $lang["add_episode"]["host_select"] ?></option>
-                <option <?php if(isset($_POST["host"]) && $_POST["host"]=="gogoplay") { ?>selected<?php } ?> value="gogoanime">GogoPlay.io</option>
+                <option <?php if(isset($_POST["host"]) && $_POST["host"]=="gogoplay") { ?>selected<?php } ?> value="gogoplay">GogoPlay.io</option>
                 <option <?php if(isset($_POST["host"]) && $_POST["host"]=="youtube") { ?>selected<?php } ?> value="youtube">YouTube.com</option>
                 <option <?php if(isset($_POST["host"]) && $_POST["host"]=="mp4upload") { ?>selected<?php } ?> value="mp4upload">mp4upload.com</option>
                 <option <?php if(isset($_POST["host"]) && $_POST["host"]=="streamtape") { ?>selected<?php } ?> value="streamtape">StreamTape.com</option>

@@ -29,7 +29,7 @@ if(!empty($vuser["id"])) {
     </div>
     <table class="table table-condensed">
         <tr>
-            <td width="150px" rowspan="5"><img src='<?= $vuser["image"] ?>' width='100%' title='Logo of <?= $vuser["username"] ?>' alt='Logo of <?= $vuser["Username"] ?>' /></td>
+            <td width="150px" rowspan="5"><img src='<?= $vuser["image"] ?>' max-width="150" max-height="300" width='100%' title='Logo of <?= $vuser["username"] ?>' alt='Logo of <?= $vuser["Username"] ?>' /></td>
             <th width="105px"><?= $lang["profile"]["level"] ?></th>
             <td><?= convert_level($vuser["level"]) ?></td>
         </tr>

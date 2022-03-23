@@ -49,7 +49,7 @@ if(empty($anime["id"]) || empty($episode["id"]) || ($anime["public"]==0 && ($use
     </div>
     <?= convert_player($episode["host"], $episode["url"]) ?>
     <div class="text-center panel-heading">
-        <a href="#" onclick="skipIntro()" class="label label-primary"><?= glyph("forward",$lang["watch"]["skip"]) ?> <?= $lang["watch"]["skip"] ?></a>
+        <!--<a href="#" onclick="skipIntro()" class="label label-primary"><?= glyph("forward",$lang["watch"]["skip"]) ?> <?= $lang["watch"]["skip"] ?></a>-->
         <a href="#" onclick="toggleDimLights()" class="label label-info"><?= glyph("sunglasses",$lang["watch"]["lights"]) ?> <?= $lang["watch"]["lights"] ?></a>
         <a href="<?= $episode["url"] ?>" target="_blank" class="label label-info"><?= glyph("new-window",$lang["watch"]["open"]) ?> <?= $lang["watch"]["open"] ?></a>
         <?php if(!empty($prev_episode["episode"])) { ?>
@@ -64,6 +64,28 @@ if(empty($anime["id"]) || empty($episode["id"]) || ($anime["public"]==0 && ($use
         <?php } ?>
     </div>
 </div>
+
+<script>
+    
+    function toggleDimLights() {
+        console.log(document.getElementById("backdrop").style.backgroundColor);
+        if(document.getElementById("backdrop").style.backgroundColor === "rgba(0, 0, 0, 0)") {
+            dimLight();
+        } else {
+            undimLight();
+        }
+    }
+
+    function dimLight() {
+        document.getElementById("backdrop").style.backgroundColor = "rgba(0, 0, 0, 1)";
+        
+    }
+    
+    function undimLight() {
+        document.getElementById("backdrop").style.backgroundColor = "rgba(0, 0, 0, 0)";
+    }
+    
+</script>
 
 <div>
     <ul class="nav nav-tabs" role="tablist">

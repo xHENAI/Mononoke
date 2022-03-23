@@ -22,42 +22,51 @@ if(!empty($thread["id"])) {
         $replys = $conn->query("SELECT * FROM `forum_posts` WHERE `forum`='".$forum["id"]."' AND `thread`='".$thread["id"]."' AND `deleted`='0' ORDER BY `id` ASC");
     }
     
-    if(isset($_POST["lock_thread"])) {
-        $conn->query("UPDATE `forum_threads` SET `closed`='1' WHERE `id`='".$thread["id"]."'");
-        redirect("../viewthread/".$thread["id"]);
-    }
-    if(isset($_POST["unlock_thread"])) {
-        $conn->query("UPDATE `forum_threads` SET `closed`='0' WHERE `id`='".$thread["id"]."'");
-        redirect("../viewthread/".$thread["id"]);
-    }
-    if(isset($_POST["stick_thread"])) {
-        $conn->query("UPDATE `forum_threads` SET `sticky`='1' WHERE `id`='".$thread["id"]."'");
-        redirect("../viewthread/".$thread["id"]);
-    }
-    if(isset($_POST["unstick_thread"])) {
-        $conn->query("UPDATE `forum_threads` SET `sticky`='0' WHERE `id`='".$thread["id"]."'");
-        redirect("../viewthread/".$thread["id"]);
-    }
-    if(isset($_POST["delete_thread"])) {
-        $conn->query("UPDATE `forum_threads` SET `deleted`='1' WHERE `id`='".$thread["id"]."'");
-        redirect("../viewthread/".$thread["id"]);
-    }
-    if(isset($_POST["undelete_thread"])) {
-        $conn->query("UPDATE `forum_threads` SET `deleted`='0' WHERE `id`='".$thread["id"]."'");
-        redirect("../viewthread/".$thread["id"]);
+    if($user["level"]==10 || $user["level"]==0) {
+        if(isset($_POST["lock_thread"])) {
+            $conn->query("UPDATE `forum_threads` SET `closed`='1' WHERE `id`='".$thread["id"]."'");
+            redirect("../viewthread/".$thread["id"]);
+        }
+        if(isset($_POST["unlock_thread"])) {
+            $conn->query("UPDATE `forum_threads` SET `closed`='0' WHERE `id`='".$thread["id"]."'");
+            redirect("../viewthread/".$thread["id"]);
+        }
+        if(isset($_POST["stick_thread"])) {
+            $conn->query("UPDATE `forum_threads` SET `sticky`='1' WHERE `id`='".$thread["id"]."'");
+            redirect("../viewthread/".$thread["id"]);
+        }
+        if(isset($_POST["unstick_thread"])) {
+            $conn->query("UPDATE `forum_threads` SET `sticky`='0' WHERE `id`='".$thread["id"]."'");
+            redirect("../viewthread/".$thread["id"]);
+        }
+        if(isset($_POST["delete_thread"])) {
+            $conn->query("UPDATE `forum_threads` SET `deleted`='1' WHERE `id`='".$thread["id"]."'");
+            redirect("../viewthread/".$thread["id"]);
+        }
+        if(isset($_POST["undelete_thread"])) {
+            $conn->query("UPDATE `forum_threads` SET `deleted`='0' WHERE `id`='".$thread["id"]."'");
+            redirect("../viewthread/".$thread["id"]);
+        }
+        if(isset($_POST["delete_reply"])) {
+            $reply = mysqli_real_escape_string($conn, $_POST["reply"]);
+            $conn->query("UPDATE `forum_posts` SET `deleted`='1' WHERE `id`='$reply'");
+            redirect("");
+        }
+
+        if(isset($_POST["undelete_reply"])) {
+            $reply = mysqli_real_escape_string($conn, $_POST["reply"]);
+            $conn->query("UPDATE `forum_posts` SET `deleted`='0' WHERE `id`='$reply'");
+            redirect("");
+        }
     }
     
-    if(isset($_POST["edit_thread"])) {
-        $title = mysqli_real_escape_string($conn, $_POST["title"]);
-        $content = strip_tags(mysqli_real_escape_string($conn, $_POST["content"]));
-        $conn->query("UPDATE `forum_threads` SET `title`='$title',`content`='$content' WHERE `id`='".$thread["id"]."'");
-        redirect("");
-    }
-    
-    if(isset($_POST["add_post"])) {
-        $content = strip_tags(mysqli_real_escape_string($conn, $_POST["content"]));
-        $conn->query("INSERT INTO `forum_posts`(`user`, `forum`, `thread`, `content`, `deleted`) VALUES('".$user["id"]."', '".$forum["id"]."', '".$thread["id"]."', '$content', '0')");
-        redirect("");
+    if($author == $user["name"] || $user["level"]==10 || $user["level"]==0) {
+        if(isset($_POST["edit_thread"])) {
+            $title = mysqli_real_escape_string($conn, $_POST["title"]);
+            $content = strip_tags(mysqli_real_escape_string($conn, $_POST["content"]));
+            $conn->query("UPDATE `forum_threads` SET `title`='$title',`content`='$content' WHERE `id`='".$thread["id"]."'");
+            redirect("");
+        }
     }
     
     if(isset($_POST["edit_reply"])) {
@@ -67,15 +76,9 @@ if(!empty($thread["id"])) {
         redirect("");
     }
     
-    if(isset($_POST["delete_reply"])) {
-        $reply = mysqli_real_escape_string($conn, $_POST["reply"]);
-        $conn->query("UPDATE `forum_posts` SET `deleted`='1' WHERE `id`='$reply'");
-        redirect("");
-    }
-    
-    if(isset($_POST["undelete_reply"])) {
-        $reply = mysqli_real_escape_string($conn, $_POST["reply"]);
-        $conn->query("UPDATE `forum_posts` SET `deleted`='0' WHERE `id`='$reply'");
+    if(isset($_POST["add_post"])) {
+        $content = strip_tags(mysqli_real_escape_string($conn, $_POST["content"]));
+        $conn->query("INSERT INTO `forum_posts`(`user`, `forum`, `thread`, `content`, `deleted`) VALUES('".$user["id"]."', '".$forum["id"]."', '".$thread["id"]."', '$content', '0')");
         redirect("");
     }
     
@@ -106,7 +109,7 @@ if(!empty($thread["id"])) {
     <div class="well well-sm">
         <div class="row">
             <div class="col-sm-2 text-center">
-                <img src="<?= $author["image"] ?>" width="100%" alt="<?= $author["username"] ?>'s Profile Picture" title="<?= $author["username"] ?>'s Profile Picture">
+                <img src="<?= $author["image"] ?>" width="100%"  max-width="150" max-height="300" alt="<?= $author["username"] ?>'s Profile Picture" title="<?= $author["username"] ?>'s Profile Picture">
                 <a href="<?= $config["url"] ?>user/<?= $author["id"] ?>"><?= $author["username"] ?></a><br>
                 <?= glyph("education","Level")." ".convert_level($author["level"]) ?><br>
                 Total Threads: <?= $totalthreads["total"] ?><br>
@@ -182,7 +185,7 @@ if(!empty($thread["id"])) {
     <div class="well well-sm" id="rply-<?= $reply["id"] ?>">
         <div class="row">
             <div class="col-sm-2 text-center">
-                <img src="<?= $author["image"] ?>" width="100%" alt="<?= $author["username"] ?>'s Profile Picture" title="<?= $author["username"] ?>'s Profile Picture">
+                <img src="<?= $author["image"] ?>" max-width="150" max-height="300" width="100%" alt="<?= $author["username"] ?>'s Profile Picture" title="<?= $author["username"] ?>'s Profile Picture">
                 <a href="<?= $config["url"] ?>user/<?= $author["id"] ?>"><?= $author["username"] ?></a><br>
                 <?= glyph("education","Level")." ".convert_level($author["level"]) ?><br>
                 Total Threads: <?= $rtotalthreads["total"] ?><br>

@@ -42,6 +42,10 @@ function redirect($destination = "") {
     echo "<script type=\"text/javascript\"> document.location = \"".$destination."\"; </script>";
 }
 
+function escape($str) {
+    return htmlspecialchars($str);
+}
+
 function convert_level($level) {
     if($level==0) {
         $level = "Administrator";
@@ -153,19 +157,19 @@ function convert_player($host, $url) {
     
     if($host=="gogoplay") {
         $output .= '<div class="embed-responsive embed-responsive-16by9">';
-        $output .= '<iframe class="embed-responsive-item" src="'.$url.'" allowfullscreen allowtransparency allow="autoplay" scrolling="no" frameborder="0"></iframe>';
+        $output .= '<iframe class="embed-responsive-item" id="vidPlayer" src="'.$url.'" allowfullscreen allowtransparency allow="autoplay" scrolling="no" frameborder="0"></iframe>';
         $output .= '</div>';
     } elseif($host=="youtube") {
         $output .= '<div class="embed-responsive embed-responsive-16by9">';
-        $output .= '<iframe class="embed-responsive-item" src="'.$url.'" allowfullscreen allowtransparency allow="autoplay" scrolling="no" frameborder="0"></iframe>';
+        $output .= '<iframe class="embed-responsive-item" id="vidPlayer" src="'.$url.'" allowfullscreen allowtransparency allow="autoplay" scrolling="no" frameborder="0"></iframe>';
         $output .= '</div>';
     } elseif($host=="mp4upload") {
         $output .= '<div class="embed-responsive embed-responsive-16by9">';
-        $output .= '<iframe class="embed-responsive-item" src="'.$url.'" allowfullscreen allowtransparency allow="autoplay" scrolling="no" frameborder="0"></iframe>';
+        $output .= '<iframe class="embed-responsive-item" id="vidPlayer" src="'.$url.'" allowfullscreen allowtransparency allow="autoplay" scrolling="no" frameborder="0"></iframe>';
         $output .= '</div>';
     } elseif($host=="streamtape") {
         $output .= '<div class="embed-responsive embed-responsive-16by9">';
-        $output .= '<iframe class="embed-responsive-item" src="'.$url.'" allowfullscreen allowtransparency allow="autoplay" scrolling="no" frameborder="0"></iframe>';
+        $output .= '<iframe class="embed-responsive-item" id="vidPlayer" src="'.$url.'" allowfullscreen allowtransparency allow="autoplay" scrolling="no" frameborder="0"></iframe>';
         $output .= '</div>';
     } else {
         $output .= '<p>This Streamhoster hasn\'t been implemented yet!</p>';

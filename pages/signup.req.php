@@ -14,13 +14,31 @@ if($config["registration"]==true) {
             $email = mysqli_real_escape_string($conn, $_POST["email"]);
             $namecheck = $conn->query("SELECT * FROM `user` WHERE `username`='$username'");
             $mailcheck = $conn->query("SELECT * FROM `user` WHERE `email`='$email'");
+            foreach ($whitelist_chars as $white) {
+                if (strpos($username, $white) !== FALSE) {
+                    $error = true;
+                    $error_msg = "Username contains bad characters!";
+                }
+            }
+            foreach ($whitelist_chars as $white) {
+                if (strpos($password1, $white) !== FALSE) {
+                    $error = true;
+                    $error_msg = "Password contains bad characters!";
+                }
+            }
+            foreach ($whitelist_chars as $white) {
+                if (strpos($email, $white) !== FALSE) {
+                    $error = true;
+                    $error_msg = "eMail contains bad characters!";
+                }
+            }
             if(mysqli_num_rows($namecheck)==1) {
                 $error = true;
                 $error_msg = "Username already taken!";
             }
             if(mysqli_num_rows($mailcheck)==1) {
                 $error = true;
-                $error_msg = "eMail already in use!";
+                $error_msg = "eMail already taken!";
             }
             if($password1!==$password2) {
                 $error = true;
@@ -50,12 +68,12 @@ if($config["registration"]==true) {
         <hr>
         <div class="form-group">
             <label for="reg_username" class="sr-only"><?= $lang["signup"]["username"] ?></label>
-            <input data-toggle="popover" minlength="3" data-content="Alphanumeric characters only." type="text" name="username" id="reg_username" class="form-control" placeholder="<?= $lang["signup"]["username"] ?>" required>
+            <input data-toggle="popover" minlength="3" maxlength="13" data-content="Alphanumeric characters only." type="text" name="username" id="reg_username" class="form-control" placeholder="<?= $lang["signup"]["username"] ?>" required>
         </div>
 
         <div class="form-group">
             <label for="reg_pass1" class="sr-only"><?= $lang["signup"]["password"] ?></label>
-            <input data-toggle="popover" minlenth="8" data-content="Minimum length: 8 characters." type="password" name="password_1" id="reg_pass1" class="form-control" placeholder="<?= $lang["signup"]["password"] ?>" required>
+            <input data-toggle="popover" minlenth="8" maxlength="13" data-content="Minimum length: 8 characters." type="password" name="password_1" id="reg_pass1" class="form-control" placeholder="<?= $lang["signup"]["password"] ?>" required>
         </div>
 
         <div class="form-group">

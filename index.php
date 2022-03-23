@@ -6,13 +6,6 @@ session_start();
 
 require("requires.php");
 
-if(empty($_GET["page"])) {
-    $page = "home";
-    header("location: ".$config["url"]."home");
-}
-
-$page = $_GET["page"];
-
 if($config["private"]==true && ($page!=="signin" && $page!=="signup" && $page!=="confirm" && $page!=="forgot" && $page!=="reset") && $loggedin==false) {
     // Checking if site is private. if yes and page is none of those you need to login etc. forces you to login
     header("location: ".$config["url"]."signin");
@@ -117,47 +110,49 @@ ___________    .__                           ____  __.__         .__            
 
 <body class="<?= $class ?>">
 
-    <div class="<?= $class2 ?>"></div>
+    <div id="backdrop" style="display:hidden; position: absolute;width: 100%;height: 100%;background-color: rgba(0,0,0,0);z-index:0;">
 
-    <?php include("parts/menu.part.php"); ?>
+        <div class="<?= $class2 ?>"></div>
 
-    <div class="container contentx" id="">
+        <?php include("parts/menu.part.php"); ?>
 
-        <?php if($user["read_announce"]==0) { // Shows notice that this software is still trash :^) ?>
-        <div class="alert alert-danger text-center" role="alert">
-            <?php if($loggedin==true) { // Only display close button if user is logged in ?>
-            <form name="read_announce" method="post" action=""><button type="submit" name="read_announce" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button></form>
+        <div class="container contentx" id="">
+
+            <?php if($user["read_announce"]==0) { // Shows notice that this software is still trash :^) ?>
+            <div class="alert alert-danger text-center" role="alert">
+                <?php if($loggedin==true) { // Only display close button if user is logged in ?>
+                <form name="read_announce" method="post" action=""><button type="submit" name="read_announce" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button></form>
+                <?php } ?>
+                <?= $lang["notice"] ?>
+            </div>
             <?php } ?>
-            <?= $lang["notice"] ?>
-        </div>
-        <?php } ?>
 
 
-        <?php if($user["level"]==30) { // Show if user is still level 30 and not 20 (see readme.txt#devnotes) ?>
-        <div class="alert alert-info text-center" role="alert"><?= $lang["unconfirmed"] ?></div>
-        <?php } ?>
+            <?php if($user["level"]==30) { // Show if user is still level 30 and not 20 (see readme.txt#devnotes) ?>
+            <div class="alert alert-info text-center" role="alert"><?= $lang["unconfirmed"] ?></div>
+            <?php } ?>
 
-        <div class="row">
+            <div class="row">
 
-            <?php if(in_array($page, $noNav)) { ?>
+                <?php if(in_array($page, $noNav)) { ?>
 
-            <div class="col-md-12">
+                <div class="col-md-12">
 
-                <?php include("pages/$page.req.php"); ?>
+                    <?php include("pages/$page.req.php"); ?>
 
-            </div>
+                </div>
 
-            <?php } else { ?>
+                <?php } else { ?>
 
-            <div class="col-md-9">
+                <div class="col-md-9">
 
-                <?php include("pages/$page.req.php"); ?>
+                    <?php include("pages/$page.req.php"); ?>
 
-            </div>
+                </div>
 
-            <div class="col-md-3">
+                <div class="col-md-3">
 
-                <?php
+                    <?php
                         if(in_array($page, $controlNav)) {
                             include("navs/control.bar.php");
                         }
@@ -173,17 +168,19 @@ ___________    .__                           ____  __.__         .__            
                         include("navs/main.bar.php");
                 ?>
 
-            </div>
+                </div>
 
-            <?php } ?>
+                <?php } ?>
+
+            </div>
 
         </div>
 
+        <div class="text-muted text-center contentx"><a href="#" class="label label-default"><?= $lang["top"] ?></a></div>
+
+        <?php include("parts/footer.part.php"); ?>
+
     </div>
-
-    <div class="text-muted text-center contentx"><a href="#" class="label label-default"><?= $lang["top"] ?></a></div>
-
-    <?php include("parts/footer.part.php"); ?>
 
 </body>
 
