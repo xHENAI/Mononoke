@@ -14,20 +14,20 @@ if($config["registration"]==true) {
             $email = mysqli_real_escape_string($conn, $_POST["email"]);
             $namecheck = $conn->query("SELECT * FROM `user` WHERE `username`='$username'");
             $mailcheck = $conn->query("SELECT * FROM `user` WHERE `email`='$email'");
-            foreach ($banned_usernames as $banned) {
-                if (strpos($username, $banned) == FALSE) {
+            foreach ($whitelist_chars as $white) {
+                if (strpos($username, $white) !== FALSE) {
                     $error = true;
                     $error_msg = "Username contains bad characters!";
                 }
             }
-            foreach ($banned_usernames as $banned) {
-                if (strpos($password1, $banned) == FALSE) {
+            foreach ($whitelist_chars as $white) {
+                if (strpos($password1, $white) !== FALSE) {
                     $error = true;
                     $error_msg = "Password contains bad characters!";
                 }
             }
-            foreach ($banned_usernames as $banned) {
-                if (strpos($email, $banned) == FALSE) {
+            foreach ($whitelist_chars as $white) {
+                if (strpos($email, $white) !== FALSE) {
                     $error = true;
                     $error_msg = "eMail contains bad characters!";
                 }
