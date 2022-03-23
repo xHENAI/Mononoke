@@ -14,7 +14,7 @@ $config["private"] = false; // true = you need to be logged in, false = everyone
 $config["cookie"] = "mono_"; // Cookie prefix, you SHOULD change this! Should end with underscore_
 $config["domain"] = "localhost"; // For cookies, the domain only, no https and folder
 $config["lang"] = "en-us"; // Languages are located in /langs/
-$config["scraper"] = true;
+$config["scraper"] = false;
 
 /* MySQL configuration */
 

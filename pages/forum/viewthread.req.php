@@ -60,23 +60,25 @@ if(!empty($thread["id"])) {
         }
     }
     
-    if(isset($_POST["edit_thread"])) {
-        $title = mysqli_real_escape_string($conn, $_POST["title"]);
-        $content = strip_tags(mysqli_real_escape_string($conn, $_POST["content"]));
-        $conn->query("UPDATE `forum_threads` SET `title`='$title',`content`='$content' WHERE `id`='".$thread["id"]."'");
-        redirect("");
-    }
-    
-    if(isset($_POST["add_post"])) {
-        $content = strip_tags(mysqli_real_escape_string($conn, $_POST["content"]));
-        $conn->query("INSERT INTO `forum_posts`(`user`, `forum`, `thread`, `content`, `deleted`) VALUES('".$user["id"]."', '".$forum["id"]."', '".$thread["id"]."', '$content', '0')");
-        redirect("");
+    if($author == $user["name"] || $user["level"]==10 || $user["level"]==0) {
+        if(isset($_POST["edit_thread"])) {
+            $title = mysqli_real_escape_string($conn, $_POST["title"]);
+            $content = strip_tags(mysqli_real_escape_string($conn, $_POST["content"]));
+            $conn->query("UPDATE `forum_threads` SET `title`='$title',`content`='$content' WHERE `id`='".$thread["id"]."'");
+            redirect("");
+        }
     }
     
     if(isset($_POST["edit_reply"])) {
         $content = strip_tags(mysqli_real_escape_string($conn, $_POST["content"]));
         $reply = mysqli_real_escape_string($conn, $_POST["reply"]);
         $conn->query("UPDATE `forum_posts` SET `content`='$content' WHERE `id`='$reply'");
+        redirect("");
+    }
+    
+    if(isset($_POST["add_post"])) {
+        $content = strip_tags(mysqli_real_escape_string($conn, $_POST["content"]));
+        $conn->query("INSERT INTO `forum_posts`(`user`, `forum`, `thread`, `content`, `deleted`) VALUES('".$user["id"]."', '".$forum["id"]."', '".$thread["id"]."', '$content', '0')");
         redirect("");
     }
     
@@ -107,7 +109,7 @@ if(!empty($thread["id"])) {
     <div class="well well-sm">
         <div class="row">
             <div class="col-sm-2 text-center">
-                <img src="<?= $author["image"] ?>" width="100%" alt="<?= $author["username"] ?>'s Profile Picture" title="<?= $author["username"] ?>'s Profile Picture">
+                <img src="<?= $author["image"] ?>" width="100%"  max-width="150" max-height="300" alt="<?= $author["username"] ?>'s Profile Picture" title="<?= $author["username"] ?>'s Profile Picture">
                 <a href="<?= $config["url"] ?>user/<?= $author["id"] ?>"><?= $author["username"] ?></a><br>
                 <?= glyph("education","Level")." ".convert_level($author["level"]) ?><br>
                 Total Threads: <?= $totalthreads["total"] ?><br>
@@ -183,7 +185,7 @@ if(!empty($thread["id"])) {
     <div class="well well-sm" id="rply-<?= $reply["id"] ?>">
         <div class="row">
             <div class="col-sm-2 text-center">
-                <img src="<?= $author["image"] ?>" width="100%" alt="<?= $author["username"] ?>'s Profile Picture" title="<?= $author["username"] ?>'s Profile Picture">
+                <img src="<?= $author["image"] ?>" max-width="150" max-height="300" width="100%" alt="<?= $author["username"] ?>'s Profile Picture" title="<?= $author["username"] ?>'s Profile Picture">
                 <a href="<?= $config["url"] ?>user/<?= $author["id"] ?>"><?= $author["username"] ?></a><br>
                 <?= glyph("education","Level")." ".convert_level($author["level"]) ?><br>
                 Total Threads: <?= $rtotalthreads["total"] ?><br>

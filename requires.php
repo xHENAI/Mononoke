@@ -12,10 +12,18 @@ if(!file_exists("installed") || !file_exists("config.php")) {
     header("location: install");
 }
 
+if(empty($_GET["page"])) {
+    $page = "home";
+    header("location: ".$config["url"]."home");
+}
+
+$page = $_GET["page"];
+
 require("config.php");
 require("core/conn.req.php");
 require("langs/".$user["lang"].".lang.php");
 require("core/funky.req.php");
 require("core/arrays.req.php");
+require("core/player.req.php");
 
 ?>
