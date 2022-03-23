@@ -110,7 +110,7 @@ ___________    .__                           ____  __.__         .__            
 
 <body class="<?= $class ?>">
 
-    <div id="backdrop" style="display:hidden; position: absolute;width: 100%;height: 100%;background-color: rgba(0,0,0,0);z-index: 200000000000;">
+    <div id="backdrop" style="display:hidden; position: absolute;width: 100%;height: 100%;background-color: rgba(0,0,0,0);z-index:0;">
 
         <div class="<?= $class2 ?>"></div>
 

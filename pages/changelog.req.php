@@ -11,6 +11,9 @@
 <ul>
     <li>Fixed: Major security issued (Thanks to <b>Auvrandil</b>)</li>
     <li>Fixed: Forum permissions, improved security</li>
+    <li>Added: Dim/Undim Lights (somewhat working xd)</li>
+    <li>Removed: Skip Intro Button (due to not working)</li>
+    <li>Error: Footer not showing correctly, need to fix but don't know how lulz</li>
 </ul>
 <h5>Changelog of v0.0.8</h5>
 <ul>
