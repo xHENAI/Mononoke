@@ -14,7 +14,7 @@ $config = [
 $settings = [
     "lang"      => "en",            // Default Language
     "theme"     => "darkmode",      // Default Theme, darkmode or lightmode
-    "disqus"    => "mononoke",      // Disqus Subdomain e.g: yourdomain.disqus.com then yourdomain
+    "disqus"    => "youdisqu",      // Disqus Subdomain e.g: yourdomain.disqus.com then yourdomain
     "dis_movie" => 5,               // How many new movies to display in sidebar?
     "dis_serie" => 5,               // How many new series to display in sidebar?
 ];
