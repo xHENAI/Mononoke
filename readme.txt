@@ -1,4 +1,4 @@
- ███▄ ▄███▓ ▒█████   ███▄  v0.1.0-beta   ███▄    █  ▒█████   ██ ▄█▀▓█████ 
+ ███▄ ▄███▓ ▒█████   ███▄  v0.1.1-beta   ███▄    █  ▒█████   ██ ▄█▀▓█████ 
 ▓██▒▀█▀ ██▒▒██▒  ██▒ ██ ▀█   █ ▒██▒  ██▒ ██ ▀█   █ ▒██▒  ██▒ ██▄█▒ ▓█   ▀ 
 ▓██    ▓██░▒██░  ██▒▓██  ▀█ ██▒▒██░  ██▒▓██  ▀█ ██▒▒██░  ██▒▓███▄░ ▒███   
 ▒██    ▒██ ▒██   ██░▓██▒  ▐▌██▒▒██   ██░▓██▒  ▐▌██▒▒██   ██░▓██ █▄ ▒▓█  ▄ 
@@ -21,10 +21,10 @@ you can find a detailed explanation of what is what in the file:
 #========================================================================#
 
 .+= MAiN CREDiTS? =+.
-Main Coding: saintly2k (Selim B)
+Main Coding: saintly2k (Selim)
     -> github: @saintly2k - twitter: @saintly2k - email: saintly@h33t.moe
-Main Coding: Führer Kleineick
-    -> github: @fuhrer-kleineick - email: kleineick@h33t.moe
+Main Coding: Kaligula
+    -> github: @kaligula-eu
 Best Husbando: Auvrandil (telling me that its security is lacking)
     -> ???
     
