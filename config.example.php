@@ -28,4 +28,8 @@ $slave = [
     "tale"      => "streamanime",   // Database to use
 ];
 
+/* DON'T EDIT BELOW THIS LINE */
+
+$version = "v0.1.1-beta";
+
 ?>
