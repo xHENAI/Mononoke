@@ -1,5 +1,8 @@
 <?php
 
+require("config.example.php");
+require("user.php");
+
 if(isset($_GET["install"])) {
     
     // Install altest archive
@@ -47,8 +50,8 @@ if(isset($_GET["install"])) {
     }
     
     // Create Admin Account
-    $password = password_hash("admin123", PASSWORD_BCRYPT);
-    $conn->query("INSERT INTO `user`(`username`,`password`,`image`,`level`,`banned`) VALUES('admin','$password','https://cdn.henai.eu/assets/images/avatar.png','30','0')");
+    $password = password_hash($admin_password, PASSWORD_BCRYPT);
+    $conn->query("INSERT INTO `user`(`username`,`password`,`image`,`level`,`banned`) VALUES('$admin_username','$password','https://cdn.henai.eu/assets/images/avatar.png','30','0')");
     
     // Cleanup
     unlink("streamanime.sql");
