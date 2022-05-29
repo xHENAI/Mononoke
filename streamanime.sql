@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 26. Mai 2022 um 20:35
+-- Erstellungszeit: 29. Mai 2022 um 17:56
 -- Server-Version: 10.4.22-MariaDB
 -- PHP-Version: 7.4.27
 
@@ -27,6 +27,7 @@ SET time_zone = "+00:00";
 -- Tabellenstruktur für Tabelle `anime`
 --
 
+DROP TABLE IF EXISTS `anime`;
 CREATE TABLE `anime` (
   `id` int(11) NOT NULL,
   `slug` text NOT NULL,
@@ -38,7 +39,7 @@ CREATE TABLE `anime` (
   `other_names` text DEFAULT NULL,
   `status` int(11) NOT NULL,
   `studio_id` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`studio_id`)),
-  `released` int(11) NOT NULL,
+  `released` int(11) DEFAULT NULL,
   `duration` text NOT NULL,
   `season_id` int(11) DEFAULT NULL,
   `country_id` int(11) DEFAULT NULL,
@@ -58,6 +59,7 @@ CREATE TABLE `anime` (
 -- Tabellenstruktur für Tabelle `bookmark`
 --
 
+DROP TABLE IF EXISTS `bookmark`;
 CREATE TABLE `bookmark` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
@@ -71,6 +73,7 @@ CREATE TABLE `bookmark` (
 -- Tabellenstruktur für Tabelle `country`
 --
 
+DROP TABLE IF EXISTS `country`;
 CREATE TABLE `country` (
   `id` int(11) NOT NULL,
   `slug` text NOT NULL,
@@ -83,6 +86,7 @@ CREATE TABLE `country` (
 -- Tabellenstruktur für Tabelle `director`
 --
 
+DROP TABLE IF EXISTS `director`;
 CREATE TABLE `director` (
   `id` int(11) NOT NULL,
   `slug` text NOT NULL,
@@ -95,11 +99,14 @@ CREATE TABLE `director` (
 -- Tabellenstruktur für Tabelle `episode`
 --
 
+DROP TABLE IF EXISTS `episode`;
 CREATE TABLE `episode` (
   `id` int(11) NOT NULL,
   `anime_id` int(11) NOT NULL,
-  `sub` int(11) NOT NULL,
-  `title` text NOT NULL
+  `episode` int(11) NOT NULL,
+  `type` varchar(3) NOT NULL DEFAULT 'sub',
+  `title` text DEFAULT NULL,
+  `added` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -108,6 +115,7 @@ CREATE TABLE `episode` (
 -- Tabellenstruktur für Tabelle `genre`
 --
 
+DROP TABLE IF EXISTS `genre`;
 CREATE TABLE `genre` (
   `id` int(11) NOT NULL,
   `slug` text NOT NULL,
@@ -207,6 +215,7 @@ INSERT INTO `genre` (`id`, `slug`, `name`) VALUES
 -- Tabellenstruktur für Tabelle `season`
 --
 
+DROP TABLE IF EXISTS `season`;
 CREATE TABLE `season` (
   `id` int(11) NOT NULL,
   `slug` text NOT NULL,
@@ -219,6 +228,7 @@ CREATE TABLE `season` (
 -- Tabellenstruktur für Tabelle `session`
 --
 
+DROP TABLE IF EXISTS `session`;
 CREATE TABLE `session` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
@@ -229,9 +239,26 @@ CREATE TABLE `session` (
 -- --------------------------------------------------------
 
 --
+-- Tabellenstruktur für Tabelle `streams`
+--
+
+DROP TABLE IF EXISTS `streams`;
+CREATE TABLE `streams` (
+  `id` int(11) NOT NULL,
+  `episode_id` int(11) NOT NULL,
+  `type` varchar(3) NOT NULL DEFAULT 'sub',
+  `host` varchar(100) NOT NULL,
+  `url` text NOT NULL,
+  `added` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Tabellenstruktur für Tabelle `studio`
 --
 
+DROP TABLE IF EXISTS `studio`;
 CREATE TABLE `studio` (
   `id` int(11) NOT NULL,
   `slug` text NOT NULL,
@@ -244,6 +271,7 @@ CREATE TABLE `studio` (
 -- Tabellenstruktur für Tabelle `tracked`
 --
 
+DROP TABLE IF EXISTS `tracked`;
 CREATE TABLE `tracked` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
@@ -259,6 +287,7 @@ CREATE TABLE `tracked` (
 -- Tabellenstruktur für Tabelle `type`
 --
 
+DROP TABLE IF EXISTS `type`;
 CREATE TABLE `type` (
   `id` int(11) NOT NULL,
   `slug` text NOT NULL,
@@ -285,17 +314,32 @@ INSERT INTO `type` (`id`, `slug`, `name`) VALUES
 -- Tabellenstruktur für Tabelle `user`
 --
 
+DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `id` int(11) NOT NULL,
   `username` varchar(12) NOT NULL,
   `password` text NOT NULL,
   `image` text DEFAULT NULL,
-  `level` int(11) NOT NULL,
+  `level` int(11) NOT NULL DEFAULT 40,
   `twitter` varchar(50) DEFAULT NULL,
   `discord` varchar(50) DEFAULT NULL,
   `website` varchar(100) DEFAULT NULL,
+  `perpage` int(11) NOT NULL DEFAULT 25,
   `banned` int(11) NOT NULL DEFAULT 0,
   `joined` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `views`
+--
+
+DROP TABLE IF EXISTS `views`;
+CREATE TABLE `views` (
+  `id` int(11) NOT NULL,
+  `anime_id` int(11) NOT NULL,
+  `viewed` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -351,6 +395,12 @@ ALTER TABLE `session`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indizes für die Tabelle `streams`
+--
+ALTER TABLE `streams`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indizes für die Tabelle `studio`
 --
 ALTER TABLE `studio`
@@ -366,6 +416,12 @@ ALTER TABLE `type`
 -- Indizes für die Tabelle `user`
 --
 ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indizes für die Tabelle `views`
+--
+ALTER TABLE `views`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -406,7 +462,7 @@ ALTER TABLE `episode`
 -- AUTO_INCREMENT für Tabelle `genre`
 --
 ALTER TABLE `genre`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8656;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8657;
 
 --
 -- AUTO_INCREMENT für Tabelle `season`
@@ -418,6 +474,12 @@ ALTER TABLE `season`
 -- AUTO_INCREMENT für Tabelle `session`
 --
 ALTER TABLE `session`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT für Tabelle `streams`
+--
+ALTER TABLE `streams`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
@@ -436,6 +498,12 @@ ALTER TABLE `type`
 -- AUTO_INCREMENT für Tabelle `user`
 --
 ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT für Tabelle `views`
+--
+ALTER TABLE `views`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
