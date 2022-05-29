@@ -27,6 +27,7 @@ if(isset($_GET["install"])) {
     
     // Rename edited config
     rename("config.example.php", "./core/config.php");
+    rename("wp6600355.jpg", "./assets/images/lain.jpg");
     
     // Esthablish MySQL Connection
     require("./core/config.php");
@@ -63,5 +64,11 @@ if(isset($_GET["install"])) {
 }
 
 ?>
-
-<p><a href="?install">I have edited <code>config.example.php</code> to my likings. Proceed?</a></p>
+<style>
+    body {
+        padding: 0;
+        margin: 0;
+        overflow: hidden;
+    }
+</style>
+<a href="?install" style=""><img src="wp6600355.jpg" style="width:100%; height:100%;"></a>
