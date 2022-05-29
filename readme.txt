@@ -14,9 +14,11 @@
 
 .+= HOW TO iNSTALL? =+.
 Simply download the installer from GitHub, unzip it and put it in the web-
-root. Then edit 'config.example.php' to your likings. In the link below,
-you can find a detailed explanation of what is what in the file:
+root. Then edit 'config.example.php' to your likings then fill in the
+details for the admin in 'user.php'. In the link below, you can find a
+detailed explanation of what is what in the file:
 ------> https://github.com/xHENAI/Mononoke/wiki/What-is-what...%3F <------
+After you did that, go to 'install.php' and simply click anywhere. Yeah.
 After you installed Mononoke, you will be redirected to a login page. The
 login data are by default admin:admin123 (username:password). Make sure to
 edit them later on if the feature is available.
