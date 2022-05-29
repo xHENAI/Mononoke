@@ -59,6 +59,7 @@ if(isset($_GET["install"])) {
     unlink("Mononoke-$latest.zip");
     unlink("readme.txt");
     unlink("LICENSE");
+    unlink("user.php");
     header("location: ./mnt/login");
     
 }
