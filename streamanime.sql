@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 29. Mai 2022 um 17:56
+-- Erstellungszeit: 30. Mai 2022 um 12:50
 -- Server-Version: 10.4.22-MariaDB
 -- PHP-Version: 7.4.27
 
@@ -212,6 +212,24 @@ INSERT INTO `genre` (`id`, `slug`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Tabellenstruktur für Tabelle `reports`
+--
+
+DROP TABLE IF EXISTS `reports`;
+CREATE TABLE `reports` (
+  `id` int(11) NOT NULL,
+  `status` varchar(6) NOT NULL DEFAULT 'open',
+  `type` varchar(10) NOT NULL,
+  `url` text DEFAULT NULL,
+  `reason` varchar(20) NOT NULL,
+  `message` text DEFAULT NULL,
+  `user` int(11) NOT NULL,
+  `added` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Tabellenstruktur für Tabelle `season`
 --
 
@@ -325,6 +343,7 @@ CREATE TABLE `user` (
   `discord` varchar(50) DEFAULT NULL,
   `website` varchar(100) DEFAULT NULL,
   `perpage` int(11) NOT NULL DEFAULT 25,
+  `public` tinyint(1) NOT NULL DEFAULT 1,
   `banned` int(11) NOT NULL DEFAULT 0,
   `joined` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -380,6 +399,12 @@ ALTER TABLE `episode`
 -- Indizes für die Tabelle `genre`
 --
 ALTER TABLE `genre`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indizes für die Tabelle `reports`
+--
+ALTER TABLE `reports`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -463,6 +488,12 @@ ALTER TABLE `episode`
 --
 ALTER TABLE `genre`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8657;
+
+--
+-- AUTO_INCREMENT für Tabelle `reports`
+--
+ALTER TABLE `reports`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT für Tabelle `season`
