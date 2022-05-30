@@ -1,15 +1,16 @@
 <?php
 
 $config = [
-    "title"     => "Mononoke",                          // Title of your site
-    "slogan"    => "Watch Anime for Free in HD",        // Slogan for your site
-    "logolight" => "images/logo-light.png",             // Logo for lightmode
-    "logodark"  => "images/logo-dark.png",              // Logo for darkmode
-    "url"       => "https://yourdomain.com/subfolder/",           // General home URL of your site
-    "asset_url" => "https://yourdomain.com/subfolder/assets/",    // Assets url of your site
-    "api_url"   => "https://yourdomain.com/subfolder/mnt/",       // Where the /mnt/ folder is reachable on your site
-    "domain"    => "yourdomain.com",                         // For Cookies, no https or / or www, only domain with . (like your-domain.com or sub.yourdomain.com)
-    "cookie"    => "changeme_",                             // What is the cookie prefix? [yourprefix_]session
+    "title"     => "Mononoke",                                  // Title of your site
+    "slogan"    => "Watch Anime for Free in HD",                // Slogan for your site
+    "logolight" => "images/logo-light.png",                     // Logo for lightmode
+    "logodark"  => "images/logo-dark.png",                      // Logo for darkmode
+    "url"       => "https://yourdomain.com/subfolder/",         // General home URL of your site
+    "asset_url" => "https://yourdomain.com/subfolder/assets/",  // Assets url of your site
+    "api_url"   => "https://yourdomain.com/subfolder/mnt/",     // Where the /mnt/ folder is reachable on your site
+    "domain"    => "yourdomain.com",                            // For Cookies, no https or / or www, only domain with . (like your-domain.com or sub.yourdomain.com)
+    "email"     => "contact@h33t.moe",                          // For Password-resets if user is logged in
+    "cookie"    => "changeme_",                                 // What is the cookie prefix? [yourprefix_]session
 ];
 
 $settings = [
