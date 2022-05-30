@@ -1,4 +1,4 @@
- ███▄ ▄███▓ ▒█████   ███▄  v0.1.2-beta   ███▄    █  ▒█████   ██ ▄█▀▓█████ 
+ ███▄ ▄███▓ ▒█████   ███▄  v0.1.3-beta   ███▄    █  ▒█████   ██ ▄█▀▓█████ 
 ▓██▒▀█▀ ██▒▒██▒  ██▒ ██ ▀█   █ ▒██▒  ██▒ ██ ▀█   █ ▒██▒  ██▒ ██▄█▒ ▓█   ▀ 
 ▓██    ▓██░▒██░  ██▒▓██  ▀█ ██▒▒██░  ██▒▓██  ▀█ ██▒▒██░  ██▒▓███▄░ ▒███   
 ▒██    ▒██ ▒██   ██░▓██▒  ▐▌██▒▒██   ██░▓██▒  ▐▌██▒▒██   ██░▓██ █▄ ▒▓█  ▄ 
@@ -18,7 +18,8 @@ root. Then edit 'config.example.php' to your likings then fill in the
 details for the admin in 'user.php'. In the link below, you can find a
 detailed explanation of what is what in the file:
 ------> https://github.com/xHENAI/Mononoke/wiki/What-is-what...%3F <------
-After you did that, go to 'install.php' and simply click anywhere. Yeah.
+After you did that, open the site in your Browser and simply click
+anywhere. Yeah. Let it Lain!
 After you installed Mononoke, you will be redirected to a login page. The
 login data are by default admin:admin123 (username:password). Make sure to
 edit them later on if the feature is available.
