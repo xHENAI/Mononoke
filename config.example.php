@@ -22,6 +22,12 @@ $settings = [
     "dis_serie" => 5,               // How many new series to display in sidebar?
 ];
 
+$captcha = [
+    "enabled"   => false,            // Enable hCaptcha? Recommended: true, default: false
+    "sitekey"   => "your-site-key",
+    "secret"    => "0x-your-secret"
+];
+
 $slave = [
     "host"      => "localhost",     // MySQL Host
     "user"      => "root",          // MySQL Username

@@ -1,4 +1,4 @@
- ███▄ ▄███▓ ▒█████   ███▄  v0.1.3-beta   ███▄    █  ▒█████   ██ ▄█▀▓█████ 
+ ███▄ ▄███▓ ▒█████   ███▄  v0.1.5-beta   ███▄    █  ▒█████   ██ ▄█▀▓█████ 
 ▓██▒▀█▀ ██▒▒██▒  ██▒ ██ ▀█   █ ▒██▒  ██▒ ██ ▀█   █ ▒██▒  ██▒ ██▄█▒ ▓█   ▀ 
 ▓██    ▓██░▒██░  ██▒▓██  ▀█ ██▒▒██░  ██▒▓██  ▀█ ██▒▒██░  ██▒▓███▄░ ▒███   
 ▒██    ▒██ ▒██   ██░▓██▒  ▐▌██▒▒██   ██░▓██▒  ▐▌██▒▒██   ██░▓██ █▄ ▒▓█  ▄ 
@@ -20,9 +20,8 @@ detailed explanation of what is what in the file:
 ------> https://github.com/xHENAI/Mononoke/wiki/What-is-what...%3F <------
 After you did that, open the site in your Browser and simply click
 anywhere. Yeah. Let it Lain!
-After you installed Mononoke, you will be redirected to a login page. The
-login data are by default admin:admin123 (username:password). Make sure to
-edit them later on if the feature is available.
+After you installed Mononoke, you will be redirected to a login page. Just
+login with the credentials you entered in 'user.php'. You are done!
 
 #========================================================================#
 
