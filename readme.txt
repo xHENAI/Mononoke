@@ -13,6 +13,11 @@
 ##########################################################################
 
 .+= HOW TO iNSTALL? =+.
+If you are on the fast-lane or encounter errors, here's a video-guide
+showing you how it's properly done:
+https://henai.eu/file/a98fdd9b-ebac-4870-8241-152be70777b2
+Or view the whole Playlist on YouTube:
+https://www.youtube.com/playlist?list=PLDQvUzXjsrhMdzl99w6DoaijIGP9Xz-zg
 Simply download the installer from GitHub, unzip it and put it in the web-
 root. Then edit 'config.example.php' to your likings then fill in the
 details for the admin in 'user.php'. In the link below, you can find a
