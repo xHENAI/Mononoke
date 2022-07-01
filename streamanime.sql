@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 30. Mai 2022 um 12:50
+-- Erstellungszeit: 01. Jul 2022 um 19:25
 -- Server-Version: 10.4.22-MariaDB
 -- PHP-Version: 7.4.27
 
@@ -44,7 +44,6 @@ CREATE TABLE `anime` (
   `season_id` int(11) DEFAULT NULL,
   `country_id` int(11) DEFAULT NULL,
   `type_id` int(11) NOT NULL DEFAULT 1,
-  `sub` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`sub`)),
   `uncensored` int(11) DEFAULT 0,
   `director_id` int(11) DEFAULT NULL,
   `created_by` int(11) NOT NULL,
@@ -64,6 +63,7 @@ CREATE TABLE `bookmark` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `anime_id` int(11) NOT NULL,
+  `status` int(11) NOT NULL DEFAULT 2,
   `created` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -128,18 +128,18 @@ CREATE TABLE `genre` (
 
 INSERT INTO `genre` (`id`, `slug`, `name`) VALUES
 (1, 'action/', 'Action'),
-(2, 'adventure/', 'Adventure'),
-(3, 'adult-cast/', 'Adult Cast'),
-(4, 'anti-hero/', 'Anti-Hero'),
-(5, 'anthropomorphic/', 'Anthropomorphic'),
+(2, 'adult-cast/', 'Adult Cast'),
+(3, 'adventure/', 'Adventure'),
+(4, 'anthropomorphic/', 'Anthropomorphic'),
+(5, 'anti-hero/', 'Anti-Hero'),
 (6, 'avant-garde/', 'Avant Garde'),
 (7, 'award-winning/', 'Award Winning'),
 (8, 'boys-love/', 'Boys Love'),
-(9, 'college/', 'College'),
-(10, 'comedy/', 'Comedy'),
-(11, 'cgdct/', 'CGDCT'),
-(12, 'childcare/', 'Childcare'),
-(13, 'combat-sports/', 'Combat Sports'),
+(9, 'cgdct/', 'CGDCT'),
+(10, 'childcare/', 'Childcare'),
+(11, 'college/', 'College'),
+(12, 'combat-sports/', 'Combat Sports'),
+(13, 'comedy/', 'Comedy'),
 (14, 'crossdressing/', 'Crossdressing'),
 (15, 'delinquents/', 'Delinquents'),
 (16, 'detective/', 'Detective'),
@@ -150,12 +150,12 @@ INSERT INTO `genre` (`id`, `slug`, `name`) VALUES
 (21, 'fantasy/', 'Fantasy'),
 (22, 'gag-humor/', 'Gag Humor'),
 (23, 'girls-love/', 'Girls Love'),
-(24, 'gourmet/', 'Gourmet'),
-(25, 'gore/', 'Gore'),
+(24, 'gore/', 'Gore'),
+(25, 'gourmet/', 'Gourmet'),
 (26, 'harem/', 'Harem'),
 (27, 'hentai/', 'Hentai'),
-(28, 'historical/', 'Historical'),
-(29, 'high-stakes-game/', 'High Stakes Game '),
+(28, 'high-stakes-game/', 'High Stakes Game '),
+(29, 'historical/', 'Historical'),
 (30, 'horror/', 'Horror'),
 (31, 'idols/', 'Idols'),
 (32, 'isekai/', 'Isekai'),
@@ -165,14 +165,14 @@ INSERT INTO `genre` (`id`, `slug`, `name`) VALUES
 (36, 'love-polygon/', 'Love Polygon'),
 (37, 'magic/', 'Magic'),
 (38, 'magical-sex-shift/', 'Magical Sex Shift'),
-(39, 'martial-arts/', 'Martial Arts'),
-(40, 'mahou-shoujo/', 'Mahou Shoujo'),
+(39, 'mahou-shoujo/', 'Mahou Shoujo'),
+(40, 'martial-arts/', 'Martial Arts'),
 (41, 'mecha/', 'Mecha'),
 (42, 'medical/', 'Medical'),
 (43, 'military/', 'Military'),
 (44, 'music/', 'Music'),
-(45, 'mythology/', 'Mythology'),
-(46, 'mystery/', 'Mystery'),
+(45, 'mystery/', 'Mystery'),
+(46, 'mythology/', 'Mythology'),
 (47, 'organized-crime/', 'Organized Crime'),
 (48, 'otaku-culture/', 'Otaku Culture'),
 (49, 'parody/', 'Parody'),
@@ -187,27 +187,27 @@ INSERT INTO `genre` (`id`, `slug`, `name`) VALUES
 (58, 'reverse-harem/', 'Reverse Harem'),
 (59, 'romance/', 'Romance'),
 (60, 'romantic-subtext/', 'Romantic Subtext'),
-(70, 'samurai/', 'Samurai'),
-(71, 'school/', 'School'),
-(72, 'sci-fi/', 'Sci-Fi'),
-(73, 'seinen/', 'Seinen'),
-(74, 'showbiz/', 'Showbiz'),
-(75, 'shoujo/', 'Shoujo'),
-(76, 'shounen/', 'Shounen'),
-(77, 'slice-of-life/', 'Slice of Life'),
-(78, 'space/', 'Space'),
-(79, 'sports/', 'Sports'),
-(80, 'super-power/', 'Super Power'),
-(81, 'supernatural/', 'Supernatural'),
-(82, 'survival/', 'Survival'),
-(83, 'suspense/', 'Suspense'),
-(84, 'strategy-game/', 'Strategy Game'),
-(85, 'team-sports/', 'Team Sports'),
-(86, 'time-travel/', 'Time Travel'),
-(87, 'vampire/', 'Vampire'),
-(88, 'video-games/', 'Video Games'),
-(89, 'visual-arts/', 'Visual Arts'),
-(90, 'workplace/', 'Workplace');
+(61, 'samurai/', 'Samurai'),
+(62, 'school/', 'School'),
+(63, 'sci-fi/', 'Sci-Fi'),
+(64, 'seinen/', 'Seinen'),
+(65, 'shoujo/', 'Shoujo'),
+(66, 'shounen/', 'Shounen'),
+(67, 'showbiz/', 'Showbiz'),
+(68, 'slice-of-life/', 'Slice of Life'),
+(69, 'space/', 'Space'),
+(70, 'sports/', 'Sports'),
+(71, 'strategy-game/', 'Strategy Game'),
+(72, 'super-power/', 'Super Power'),
+(73, 'supernatural/', 'Supernatural'),
+(74, 'survival/', 'Survival'),
+(75, 'suspense/', 'Suspense'),
+(76, 'team-sports/', 'Team Sports'),
+(77, 'time-travel/', 'Time Travel'),
+(78, 'vampire/', 'Vampire'),
+(79, 'video-games/', 'Video Games'),
+(80, 'visual-arts/', 'Visual Arts'),
+(81, 'workplace/', 'Workplace');
 
 -- --------------------------------------------------------
 
@@ -295,7 +295,7 @@ CREATE TABLE `tracked` (
   `user_id` int(11) NOT NULL,
   `anime_id` int(11) NOT NULL,
   `episode_number` int(11) NOT NULL,
-  `type` int(11) NOT NULL,
+  `type` varchar(3) NOT NULL,
   `created` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -432,6 +432,13 @@ ALTER TABLE `studio`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indizes für die Tabelle `tracked`
+--
+ALTER TABLE `tracked`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id` (`id`);
+
+--
 -- Indizes für die Tabelle `type`
 --
 ALTER TABLE `type`
@@ -517,6 +524,12 @@ ALTER TABLE `streams`
 -- AUTO_INCREMENT für Tabelle `studio`
 --
 ALTER TABLE `studio`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT für Tabelle `tracked`
+--
+ALTER TABLE `tracked`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
