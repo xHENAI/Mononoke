@@ -1,118 +1,301 @@
-<!DOCTYPE html>
-
+<!doctype html>
 <html lang="en">
 
 <head>
+    <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Mononoke - Next level Open-source Anime CMS for everyone</title>
+    <meta name="description" content="Knight is a beautiful Bootstrap 4 template for product landing pages." />
 
-    <title>Mononoke - Next Generation AnimeCMS & Forum that just works</title>
+    <!--Inter UI font-->
+    <link href="https://rsms.me/inter/inter-ui.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css" type="text/css">
+    <!--vendors styles-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+
+    <!-- Bootstrap CSS / Color Scheme -->
+    <link rel="stylesheet" href="css/purple.css" id="theme-color">
 </head>
 
-<body>
+<body style="overflow-x: hidden">
 
-    <div class="container">
-
-        <div class="title">
-            <h1>Mononoke</h1>
-            <h3>Next Generation AnimeCMS & Forum that just works <span class="right"><a href="https://github.com/xHENAI/Mononoke" target="_blank">View me on GitHub</a></span></h3>
+    <!--navigation-->
+    <section class="smart-scroll">
+        <div class="container-fluid">
+            <nav class="navbar navbar-expand-md navbar-dark">
+                <a class="navbar-brand heading-black" href="index.html">
+                    Mononoke
+                </a>
+                <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span data-feather="grid"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link page-scroll" href="#features">Features</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link page-scroll" href="#setup">Setup</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link page-scroll" href="#faq">FAQ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link page-scroll d-flex flex-row align-items-center text-primary" href="https://github.com/xHENAI/Mononoke" target="_blank">
+                                <em data-feather="layout" width="18" height="18" class="mr-2"></em>
+                                GitHub
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
         </div>
+    </section>
 
-        <div class="content-bg">
-
-            <div class="content">
-                <div class="border">
-                    <h3><u>About</u></h3>
-                    <p>Mononoke is an Anime-Content-Management-System fully developed in PHP with the help of Bootstrap. It has a lot of features and focusses more on small little sites but can power big ones as well.</p>
-                    <p>It is Open-source and free, available to everyone.</p>
-                    <p>Also, please take note that the developers of this software are <b>not responsible</b> for what you do with it! If you use it for illegal stuff, the team is not to be held responsible!</p>
-                    <p>The successor of <a href="https://github.com/H33Tx/aniZero" target="_blank">H33Tx/aniZero</a> which was discontinued in Januray 2022.</p>
-                </div>
-                <div class="border">
-                    <h3><u>Features</u></h3>
-                    <p>All its features are listed below, but please keep in mind that it is still in development!</p>
-                    <ul>
-                        <li>A fully integrated Account-System
-                            <ul>
-                                <li>Signing in & out</li>
-                                <li>Confirming your eMail</li>
-                                <li>Editing your Account-Preferences</li>
-                                <li>Different User-Levels (Administrator, Moderator, User)</li>
-                                <li>Viewing your own and other User-Profiles</li>
-                            </ul>
-                        </li>
-                        <li>A Forum-System that just works
-                            <ul>
-                                <li>Adding new Forums</li>
-                                <li>Editing existing Forums</li>
-                                <li>Setting Forums to Private or Public, Open or Closed</li>
-                                <li>Creating new Threads and posting Replies</li>
-                            </ul>
-                        </li>
-                        <li>An Anime-System which you control
-                            <ul>
-                                <li>Adding Animes and editing them</li>
-                                <li>Viewing an Anime and all its relations and Episodes</li>
-                            </ul>
-                        </li>
-                        <li>Episodes which you can track
-                            <ul>
-                                <li>Add and edit Episodes, supporting multiple Streamhosters</li>
-                                <li>Track Episodes, mark as watched and add them to your Bookmarks</li>
-                            </ul>
-                        </li>
-                        <li>Commenting with Style
-                            <ul>
-                                <li>Comment on Animes and Episodes</li>
-                                <li>Manage Comments, edit or delete them</li>
-                                <li>BBCode Supported!</li>
-                            </ul>
-                        </li>
-                        <li>Creating a Schedule for releasing
-                            <ul>
-                                <li>Adding new entires</li>
-                                <li>Editing existing entries</li>
-                                <li>Viewing entries on the Schedule-page</li>
-                                <li>Seeing how much time is left until Release</li>
-                            </ul>
-                        </li>
-                        <li>And more features...
-                            <ul>
-                                <li>A Watchlist you can add Airing Animes to</li>
-                                <li>A Bookmark page you can share with others and track your Animes</li>
-                                <li>And more features to come...</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-                <div class="border">
-                    <h3><u>Screenshots</u></h3>
-                    <p>Soon to come when finished...</p>
-                </div>
-                <div class="border">
-                    <h3><u>Contributors</u></h3>
-                    <ul>
-                        <li><a href="https://github.com/saintly2k" target="_blank">$aintly2k</a></li>
-                        <li><a href="https://github.com/fuhrer-kleineick" target="_blank">Führer Kleineick</a></li>
-                        <li><a href="https://github.com/guilhermesiani" target="_blank">Guilherme Siani</a></li>
-                    </ul>
-                </div>
-                <div class="border">
-                    <h3><u>Support</u></h3>
-                    <p>You can support the development by <a href="https://paypal.me/WOLFRAMEdev" target="_blank">donating via PayPal</a> or making contributions on your own on GitHub.</p>
+    <!--hero header-->
+    <section class="py-7 py-md-0 bg-hero" id="home">
+        <div class="container">
+            <div class="row vh-md-100">
+                <div class="col-md-8 col-sm-10 col-12 mx-auto my-auto text-center">
+                    <h1 class="heading-black text-capitalize">Create your own Anime-site</h1>
+                    <p class="lead py-3">Mononoke helps you just with that. Install it, add some Animes and episodes, and you're good to go.</p>
+                    <a href="#setup" class="btn btn-primary d-inline-flex flex-row align-items-center page-scroll">
+                        Get started now
+                        <em class="ml-2" data-feather="arrow-right"></em>
+                    </a>
                 </div>
             </div>
-
         </div>
+    </section>
 
-        <div class="footer">
-            <p style="text-align: center">Copyright &copy; 2021-2022 <a href="https://h33t.moe" target="_blank">H33T.moe</a> & <a href="https://henai.eu" target="_blank">HENAI.eu</a></p>
+    <!-- features section -->
+    <section class="pt-6 pb-7" id="features">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mx-auto text-center">
+                    <h2 class="heading-black">Mononoke has everything you'd ever want</h2>
+                    <p class="text-muted lead">Let it be comments, accounts, or whatever. Mononoke got your back. And if not, just create an issue stating what you want on the GitHub.</p>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-md-10 mx-auto">
+                    <div class="row feature-boxes">
+                        <div class="col-md-6 box">
+                            <div class="icon-box box-primary">
+                                <div class="icon-box-inner">
+                                    <span data-feather="edit-3" width="35" height="35"></span>
+                                </div>
+                            </div>
+                            <h5>MyAnimeList integration</h5>
+                            <p class="text-muted">One-click Animes with just their MAL IDs. Nothing more, just a matter of seconds.</p>
+                        </div>
+                        <div class="col-md-6 box">
+                            <div class="icon-box box-success">
+                                <div class="icon-box-inner">
+                                    <span data-feather="monitor" width="35" height="35"></span>
+                                </div>
+                            </div>
+                            <h5>Responsive design</h5>
+                            <p class="text-muted">Let it be your Mobile phone, Tablet or Desktop, Mononoke is displayed everywhere perfectly.</p>
+                        </div>
+                        <div class="col-md-6 box">
+                            <div class="icon-box box-danger">
+                                <div class="icon-box-inner">
+                                    <span data-feather="layout" width="35" height="35"></span>
+                                </div>
+                            </div>
+                            <h5>Beautiful layout</h5>
+                            <p class="text-muted">Mononoke is built with a great style. Everything you need is there on the first look, no need to search long for a feature, you'll find it when you need it.</p>
+                        </div>
+                        <div class="col-md-6 box">
+                            <div class="icon-box box-info">
+                                <div class="icon-box-inner">
+                                    <span data-feather="globe" width="35" height="35"></span>
+                                </div>
+                            </div>
+                            <h5>Available globally</h5>
+                            <p class="text-muted">Mononoke is Open-source, means everyone can use it, and contribute.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
 
+    <!--pricing section-->
+    <section class="py-7 bg-dark section-angle top-right bottom-right" id="setup">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mx-auto text-center">
+                    <h2 class="text-white heading-black">Setting up Mononoke has never been easier</h2>
+                    <p class="text-light lead">With our short Video-guides, you can install and understand Mononoke in under 10 minutes!</p>
+                </div>
+            </div>
+            <!--pricing tables-->
+            <div class="row pt-5 pricing-table">
+                <div class="col-12 mx-auto">
+                    <div class="card-deck pricing-table">
+                        <div class="card">
+                            <div class="card-body">
+                                <h3 class="card-title pt-3">Installing & Updating</h3>
+                                <div class="ratio ratio-16x9">
+<!--                                    <iframe src="https://henai.eu/stream/" title="Installing & Updating Mononoke" allowfullscreen></iframe>-->
+                                    Soon
+                                </div>
+                                <a href="https://youtube.com/" target="_blank" class="btn btn-primary">
+                                    Watch Video at YouTube
+                                </a>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <h3 class="card-title pt-3">Understanding Mononoke</h3>
+                                <div class="ratio ratio-16x9">
+<!--                                    <iframe src="https://henai.eu/stream/" title="Installing & Updating Mononoke" allowfullscreen></iframe>-->
+                                    Soon
+                                </div>
+                                <a href="https://youtube.com/" target="_blank" class="btn btn-primary">
+                                    Watch Video at YouTube
+                                </a>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <h3 class="card-title pt-3">Anime-Management</h3>
+                                <div class="ratio ratio-16x9">
+<!--                                    <iframe src="https://henai.eu/stream/" title="Installing & Updating Mononoke" allowfullscreen></iframe>-->
+                                    Soon
+                                </div>
+                                <a href="https://youtube.com/" target="_blank" class="btn btn-primary">
+                                    Watch Video at YouTube
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-6">
+                <div class="col-md-12 mr-auto">
+                    <h3>Everything is covered.</h3>
+                    <p class="lead">
+                        If you still have any questions, join the Discord or create an Issue on the GitHub. Links at the footer.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--faq section-->
+    <section class="py-7" id="faq">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mx-auto text-center">
+                    <h2>Frequently asked questions</h2>
+                    <p class="text-muted lead">Answers to most common questions.</p>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-md-10 mx-auto">
+                    <div class="row">
+                        <div class="col-md-6 mb-5">
+                            <h6>My pagination doesn't work?</h6>
+                            <p class="text-muted">Make sure you use PHP version 7.3 or 7.4. If you are using cPanel, there should be a feature called "MultiPHP Manager" or so, select your site and set the version to "alt-php-73". This will work 99% of the time.</p>
+                        </div>
+                        <div class="col-md-6 mb-5">
+                            <h6>More coming soon...</h6>
+                            <p class="text-muted">Ask questions and we answer them.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-6 mx-auto text-center">
+                    <h5 class="mb-4">Have questions?</h5>
+                    <a href="https://discord.gg/uahG2fKVvg" target="_blank" class="btn btn-primary">Join the Discord</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--footer-->
+    <footer class="py-7 bg-dark section-angle top-left bottom-left">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 mr-auto">
+                    <h5>About Mononoke</h5>
+                    <p class="text-muted">Mononoke is an Anime-Content-Management-System fully developed in PHP. It has a lot of features and can power big communities. It is Open-source and free, available to everyone. Also, please take note that the developers of this software are not responsible for what you do with it! If you use it for illegal stuff, the team is not to be held responsible!</p>
+                    <ul class="list-inline social social-sm">
+                        <li class="list-inline-item">
+                            <a href="https://github.com/xHENAI/Mononoke" target="_blank"><i class="fa fa-github"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="https://twitter.com/saintly2k" target="_blank"><i class="fa fa-twitter"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="https://ko-fi.com/saintly" target="_blank"><i class="fa fa-paypal"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-4">
+                    <h5>Partner</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="https://h33t.moe/" target="_blank">Team H33T.moe</a></li>
+                        <li><a href="https://henai.eu/" target="_blank">ForgerFiles - Filesharing to the next Level!</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-2">
+                    <h5>Help</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="https://discord.gg/uahG2fKVvg">#mononoke at Discord</a></li>
+                        <li><a href="https://youtube.com/playlist/">YouTube Tutorials</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-12 text-muted text-center small-xl">
+                    &copy; 2021-2022 Team H33T et HENAI.eu - All Rights Reserved
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!--scroll to top-->
+    <div class="scroll-top">
+        <i class="fa fa-angle-up" aria-hidden="true"></i>
     </div>
 
+    <!-- theme switcher (FOR DEMO ONLY - REMOVE FROM PRODUCTION)-->
+    <div class="switcher-wrap">
+        <div class="switcher-trigger">
+            <span class="fa fa-gear"></span>
+        </div>
+        <div class="color-switcher">
+            <h6>Color Switcher</h6>
+            <ul class="mt-3 clearfix">
+                <li class="bg-teal" data-color="default" title="Teal"></li>
+                <li class="bg-purple active" data-color="purple" title="Purple"></li>
+                <li class="bg-blue" data-color="blue" title="Blue"></li>
+                <li class="bg-red" data-color="red" title="Red"></li>
+                <li class="bg-green" data-color="green" title="Green"></li>
+                <li class="bg-indigo" data-color="indigo" title="Indigo"></li>
+                <li class="bg-orange" data-color="orange" title="Orange"></li>
+                <li class="bg-cyan" data-color="cyan" title="Cyan"></li>
+                <li class="bg-yellow" data-color="yellow" title="Yellow"></li>
+                <li class="bg-pink" data-color="pink" title="Pink"></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.7.3/feather.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script src="js/scripts.js"></script>
 </body>
 
 </html>
