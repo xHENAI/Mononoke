@@ -64,7 +64,7 @@ I obviously stole the CSS. It belongs to the WordPress theme
    ░        ░ ░           ░       ░  ░            ░ ░     ░           ░  
  ░                                                                       
 
-You have my eternal thanks <3
+You have my eternal gratitude <3
 
 .+= Active Members =+.
     -=: Tier 3 :=-
