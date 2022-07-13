@@ -69,7 +69,7 @@ You have my eternal thanks <3
 .+= Active Members =+.
     -=: Tier 3 :=-
     --= Tier 2 =--
-        - Griffin
+        - Griffen
     -== Tier 1 ==-
     
 .+= One-stop donators =+.
