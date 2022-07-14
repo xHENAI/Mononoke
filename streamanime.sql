@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 01. Jul 2022 um 19:25
+-- Erstellungszeit: 14. Jul 2022 um 03:04
 -- Server-Version: 10.4.22-MariaDB
 -- PHP-Version: 7.4.27
 
@@ -27,7 +27,6 @@ SET time_zone = "+00:00";
 -- Tabellenstruktur für Tabelle `anime`
 --
 
-DROP TABLE IF EXISTS `anime`;
 CREATE TABLE `anime` (
   `id` int(11) NOT NULL,
   `slug` text NOT NULL,
@@ -58,7 +57,6 @@ CREATE TABLE `anime` (
 -- Tabellenstruktur für Tabelle `bookmark`
 --
 
-DROP TABLE IF EXISTS `bookmark`;
 CREATE TABLE `bookmark` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
@@ -73,7 +71,6 @@ CREATE TABLE `bookmark` (
 -- Tabellenstruktur für Tabelle `country`
 --
 
-DROP TABLE IF EXISTS `country`;
 CREATE TABLE `country` (
   `id` int(11) NOT NULL,
   `slug` text NOT NULL,
@@ -86,7 +83,6 @@ CREATE TABLE `country` (
 -- Tabellenstruktur für Tabelle `director`
 --
 
-DROP TABLE IF EXISTS `director`;
 CREATE TABLE `director` (
   `id` int(11) NOT NULL,
   `slug` text NOT NULL,
@@ -99,7 +95,6 @@ CREATE TABLE `director` (
 -- Tabellenstruktur für Tabelle `episode`
 --
 
-DROP TABLE IF EXISTS `episode`;
 CREATE TABLE `episode` (
   `id` int(11) NOT NULL,
   `anime_id` int(11) NOT NULL,
@@ -115,7 +110,6 @@ CREATE TABLE `episode` (
 -- Tabellenstruktur für Tabelle `genre`
 --
 
-DROP TABLE IF EXISTS `genre`;
 CREATE TABLE `genre` (
   `id` int(11) NOT NULL,
   `slug` text NOT NULL,
@@ -215,7 +209,6 @@ INSERT INTO `genre` (`id`, `slug`, `name`) VALUES
 -- Tabellenstruktur für Tabelle `reports`
 --
 
-DROP TABLE IF EXISTS `reports`;
 CREATE TABLE `reports` (
   `id` int(11) NOT NULL,
   `status` varchar(6) NOT NULL DEFAULT 'open',
@@ -233,7 +226,6 @@ CREATE TABLE `reports` (
 -- Tabellenstruktur für Tabelle `season`
 --
 
-DROP TABLE IF EXISTS `season`;
 CREATE TABLE `season` (
   `id` int(11) NOT NULL,
   `slug` text NOT NULL,
@@ -246,7 +238,6 @@ CREATE TABLE `season` (
 -- Tabellenstruktur für Tabelle `session`
 --
 
-DROP TABLE IF EXISTS `session`;
 CREATE TABLE `session` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
@@ -260,7 +251,6 @@ CREATE TABLE `session` (
 -- Tabellenstruktur für Tabelle `streams`
 --
 
-DROP TABLE IF EXISTS `streams`;
 CREATE TABLE `streams` (
   `id` int(11) NOT NULL,
   `episode_id` int(11) NOT NULL,
@@ -276,7 +266,6 @@ CREATE TABLE `streams` (
 -- Tabellenstruktur für Tabelle `studio`
 --
 
-DROP TABLE IF EXISTS `studio`;
 CREATE TABLE `studio` (
   `id` int(11) NOT NULL,
   `slug` text NOT NULL,
@@ -289,7 +278,6 @@ CREATE TABLE `studio` (
 -- Tabellenstruktur für Tabelle `tracked`
 --
 
-DROP TABLE IF EXISTS `tracked`;
 CREATE TABLE `tracked` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
@@ -305,7 +293,6 @@ CREATE TABLE `tracked` (
 -- Tabellenstruktur für Tabelle `type`
 --
 
-DROP TABLE IF EXISTS `type`;
 CREATE TABLE `type` (
   `id` int(11) NOT NULL,
   `slug` text NOT NULL,
@@ -332,7 +319,6 @@ INSERT INTO `type` (`id`, `slug`, `name`) VALUES
 -- Tabellenstruktur für Tabelle `user`
 --
 
-DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `id` int(11) NOT NULL,
   `username` varchar(12) NOT NULL,
@@ -354,7 +340,6 @@ CREATE TABLE `user` (
 -- Tabellenstruktur für Tabelle `views`
 --
 
-DROP TABLE IF EXISTS `views`;
 CREATE TABLE `views` (
   `id` int(11) NOT NULL,
   `anime_id` int(11) NOT NULL,

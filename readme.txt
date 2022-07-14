@@ -1,4 +1,4 @@
- ███▄ ▄███▓ ▒█████   ███▄  v0.1.5-beta   ███▄    █  ▒█████   ██ ▄█▀▓█████ 
+ ███▄ ▄███▓ ▒█████   ███▄  v0.1.6-beta   ███▄    █  ▒█████   ██ ▄█▀▓█████ 
 ▓██▒▀█▀ ██▒▒██▒  ██▒ ██ ▀█   █ ▒██▒  ██▒ ██ ▀█   █ ▒██▒  ██▒ ██▄█▒ ▓█   ▀ 
 ▓██    ▓██░▒██░  ██▒▓██  ▀█ ██▒▒██░  ██▒▓██  ▀█ ██▒▒██░  ██▒▓███▄░ ▒███   
 ▒██    ▒██ ▒██   ██░▓██▒  ▐▌██▒▒██   ██░▓██▒  ▐▌██▒▒██   ██░▓██ █▄ ▒▓█  ▄ 
@@ -30,7 +30,9 @@ login with the credentials you entered in 'user.php'. You are done!
 
 #========================================================================#
 
+~~~~~~~~ Currently Offline - Currently Offline - Currently Offline ~~~~~~~
 !ViEW A LiVE DEMO @ THE WEB: https://mono.h33t.moe/ WiTH ALL THE FEATURES!
+~~~~~~~~ Currently Offline - Currently Offline - Currently Offline ~~~~~~~
 
 #========================================================================#
 
