@@ -6,7 +6,7 @@ This is an overview of what versions of Mononoke are actively receiving security
 
 | Version | Supported          |
 | ------- | ------------------ |
-| 0.1.5   | :white_check_mark: |
+| 0.1.7   | :white_check_mark: |
 | 0.1.x   | :x:                |
 | 0.0.x   | :x:                |
 

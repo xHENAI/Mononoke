@@ -1,4 +1,4 @@
- ███▄ ▄███▓ ▒█████   ███▄  v0.1.6-beta   ███▄    █  ▒█████   ██ ▄█▀▓█████ 
+ ███▄ ▄███▓ ▒█████   ███▄  v0.1.7-beta   ███▄    █  ▒█████   ██ ▄█▀▓█████ 
 ▓██▒▀█▀ ██▒▒██▒  ██▒ ██ ▀█   █ ▒██▒  ██▒ ██ ▀█   █ ▒██▒  ██▒ ██▄█▒ ▓█   ▀ 
 ▓██    ▓██░▒██░  ██▒▓██  ▀█ ██▒▒██░  ██▒▓██  ▀█ ██▒▒██░  ██▒▓███▄░ ▒███   
 ▒██    ▒██ ▒██   ██░▓██▒  ▐▌██▒▒██   ██░▓██▒  ▐▌██▒▒██   ██░▓██ █▄ ▒▓█  ▄ 
@@ -27,12 +27,18 @@ After you did that, open the site in your Browser and simply click
 anywhere. Yeah. Let it Lain!
 After you installed Mononoke, you will be redirected to a login page. Just
 login with the credentials you entered in 'user.php'. You are done!
+If you are curios about what features I'm currently working on, you can
+view the Trello board where I will keep track of all the stuff I will be
+working on. Here's a link:
+--------------------> https://trello.com/b/pMLv3K49 <---------------------
+If you have any more questions or such, make sure to join my support
+Discord where I will be trying to help you. I already helped some others,
+so don't be shy and ask! Here's a link:
+--------------------> https://discord.gg/uahG2fKVvg <---------------------
 
 #========================================================================#
 
-~~~~~~~~ Currently Offline - Currently Offline - Currently Offline ~~~~~~~
 !ViEW A LiVE DEMO @ THE WEB: https://mono.h33t.moe/ WiTH ALL THE FEATURES!
-~~~~~~~~ Currently Offline - Currently Offline - Currently Offline ~~~~~~~
 
 #========================================================================#
 
@@ -41,7 +47,7 @@ Main Coding: saintly2k (Selim)
     -> github: @saintly2k - twitter: @saintly2k - email: saintly@h33t.moe
 Main Coding: Kaligula
     -> github: @kaligula-eu
-Best Husbando: Auvrandil (telling me that its security is lacking)
+Best Husbando: Auvrandil (having a great time on Discord)
     -> ???
     
 .+= MiNOR CREDiTS? =+.
