@@ -5,76 +5,77 @@ require("user.php");
 
 $error = false;
 
-if(extension_loaded("hash")==false) {
+if (extension_loaded("hash") == false) {
     $error = true;
     $e_hash = false;
 } else {
     $e_hash = true;
 }
-if(extension_loaded("date")==false) {
+if (extension_loaded("date") == false) {
     $error = true;
     $e_date = false;
 } else {
     $e_date = true;
 }
-if(extension_loaded("json")==false) {
+if (extension_loaded("json") == false) {
     $error = true;
     $e_json = false;
 } else {
     $e_json = true;
 }
-if(extension_loaded("session")==false) {
+if (extension_loaded("session") == false) {
     $error = true;
     $e_session = false;
 } else {
     $e_session = true;
 }
-if(extension_loaded("zip")==false) {
+if (extension_loaded("zip") == false) {
     $error = true;
     $e_zip = false;
 } else {
     $e_zip = true;
 }
-if(extension_loaded("dom")==false) {
+if (extension_loaded("dom") == false) {
     $error = true;
     $e_dom = false;
 } else {
     $e_dom = true;
 }
-if(extension_loaded("curl")==false) {
+if (extension_loaded("curl") == false) {
     $error = true;
     $e_curl = false;
 } else {
     $e_curl = true;
 }
-if(extension_loaded("gd")==false) {
+if (extension_loaded("gd") == false) {
     $error = true;
     $e_gd = false;
 } else {
     $e_gd = true;
 }
-if(extension_loaded("mbstring")==false) {
+if (extension_loaded("mbstring") == false) {
     $error = true;
     $e_mbstring = false;
 } else {
     $e_mbstring = true;
 }
-if(extension_loaded("mysqli")==false) {
+if (extension_loaded("mysqli") == false) {
     $error = true;
     $e_mysqli = false;
 } else {
     $e_mysqli = true;
 }
 
-function ex($yo) {
-    if($yo==true) {
+function ex($yo)
+{
+    if ($yo == true) {
         echo 'style="color:green;"';
     } else {
         echo 'style="color:red;"';
     }
 }
 
-if(isset($_GET["install"]) && $error = false) {    
+if (isset($_GET["install"]) && $error == false) {
     // Install altest archive
     $latest = file_get_contents("https://cdn.henai.eu/Mononoke/version.txt");
     $url = "https://cdn.henai.eu/Mononoke/versions/$latest/Mononoke-$latest.zip";
@@ -86,11 +87,11 @@ if(isset($_GET["install"]) && $error = false) {
         echo "File downloading failed...\n";
         $error = true;
     }
-    
-    if($error==false) {
+
+    if ($error == false) {
         // Unzip it
         $zip = new ZipArchive;
-        if ($zip->open("Mononoke-$latest.zip")===TRUE) {
+        if ($zip->open("Mononoke-$latest.zip") === TRUE) {
             $zip->extractTo('./');
             $zip->close();
             echo "Unzipped Process Successful!\n";
@@ -105,8 +106,8 @@ if(isset($_GET["install"]) && $error = false) {
         // Esthablish MySQL Connection
         require("./core/config.php");
         $conn = new mysqli($slave["host"], $slave["user"], $slave["pass"], $slave["tale"]);
-        if ($conn -> connect_errno) {
-            echo "Failed to rock MySQL: " . $conn -> connect_error;
+        if ($conn->connect_errno) {
+            echo "Failed to rock MySQL: " . $conn->connect_error;
             exit();
         }
 
@@ -115,7 +116,7 @@ if(isset($_GET["install"]) && $error = false) {
         $templine = '';
         $lines = file($filename);
         foreach ($lines as $line) {
-            if (substr($line, 0, 2) == '--' || $line == '')continue;
+            if (substr($line, 0, 2) == '--' || $line == '') continue;
             $templine .= $line;
             if (substr(trim($line), -1, 1) == ';') {
                 $conn->query($templine);
@@ -154,11 +155,10 @@ if(isset($_GET["install"]) && $error = false) {
     ul {
         list-style: none;
     }
-    
+
     h1 {
         text-align: center;
     }
-
 </style>
 
 <div style="width: 400px; margin-left: auto; margin-right: auto">
@@ -175,11 +175,11 @@ if(isset($_GET["install"]) && $error = false) {
         <li <?= ex($e_mbstring) ?>><code>mbstring</code> extension</li>
         <li <?= ex($e_mysqli) ?>><code>mysqli</code> extension</li>
     </ul>
-    <?php if($error==true) { ?>
-    <h1 style="color: red;">There are errors! Cannot install.</h1>
+    <?php if ($error == true) { ?>
+        <h1 style="color: red;">There are errors! Cannot install.</h1>
     <?php } else { ?>
-    <a href="?install">
-        <h1 style="color:white">Install</h1>
-    </a>
+        <a href="?install">
+            <h1 style="color:white">Install</h1>
+        </a>
     <?php } ?>
 </div>
