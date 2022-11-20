@@ -1,4 +1,10 @@
- ███▄ ▄███▓ ▒█████   ███▄  v0.1.7-beta   ███▄    █  ▒█████   ██ ▄█▀▓█████ 
+  !IMPORTANT!IMPORTANT!IMPORTANT!IMPORTANT!IMPORTANT!IMPORTANT!IMPORTANT!
+MULTIPLE SECURITY ISSUES HAVE BEEN FOUND. THEY WILL BE FIXED IN A FUTURE
+VERSION, UNTIL THEN, SET ALL ADMIN ACCOUNTS TO NORMAL USERS EXCEPT FEW YOU
+REALLY TRUST!
+  !IMPORTANT!IMPORTANT!IMPORTANT!IMPORTANT!IMPORTANT!IMPORTANT!IMPORTANT!
+  
+███▄ ▄███▓ ▒█████   ███▄  v0.1.7-beta   ███▄    █  ▒█████   ██ ▄█▀▓█████ 
 ▓██▒▀█▀ ██▒▒██▒  ██▒ ██ ▀█   █ ▒██▒  ██▒ ██ ▀█   █ ▒██▒  ██▒ ██▄█▒ ▓█   ▀ 
 ▓██    ▓██░▒██░  ██▒▓██  ▀█ ██▒▒██░  ██▒▓██  ▀█ ██▒▒██░  ██▒▓███▄░ ▒███   
 ▒██    ▒██ ▒██   ██░▓██▒  ▐▌██▒▒██   ██░▓██▒  ▐▌██▒▒██   ██░▓██ █▄ ▒▓█  ▄ 
