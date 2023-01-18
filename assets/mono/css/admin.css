@@ -1,0 +1,200 @@
+.themesia-panel {
+    background: #FFF;
+    border: 1px solid #ccd0d4;
+    box-shadow: 0 1px 1px rgba(0,0,0,.04);
+    position: relative;
+    overflow: hidden;
+}
+
+.themesia-panel .tsheader {
+    display: block;
+    background: #23282d;
+    padding: 25px 20px;
+}
+
+.themesia-panel .tsheader .versionchecker {
+    margin-bottom: 0;
+    margin-top: 10px;
+    color: #856404;
+    background-color: #fff3cd;
+    border-color: #ffeeba;
+    border-left: 5px solid #f8bc04;
+}
+
+.themesia-panel .tsheader h1 {margin: 0;padding: 0;color: #FFF;}
+
+.themesia-panel .tsheader h1 small {
+    margin-left: 5px;
+    font-size: 14px;
+}
+
+.themesia-panel .tsbody {position: relative;}
+
+.themesia-panel .tsbody .tsmenu {
+    position: absolute;
+    top: 0;
+    width: 195px;
+    height: 100%;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    background: #23282d;
+    z-index: 1;
+}
+
+.themesia-panel .tsbody .tsmenu ul {
+    margin: 0;
+    overflow: hidden;
+}
+
+.themesia-panel .tsbody .tsmenu ul li {
+    margin: 0;
+    position: relative;
+}
+
+.themesia-panel .tsbody .tsmenu ul li a {
+    color: #999;
+    text-decoration: none;
+    padding: 14px 25px;
+    display: block;
+    font-size: 15px;
+}
+
+.themesia-panel .tsbody .tsmenu ul li.active {
+    background: #0073aa;
+}
+
+.themesia-panel .tsbody .tsmenu ul li.active a {
+    color: #FFF;
+    font-weight: 500;
+}
+
+.themesia-panel .tsbody .tsmenu ul li a:hover {
+    background-color: #191e23;
+    color: #00b9eb;
+}
+
+.themesia-panel .tsbody .tsmenu ul li.active a:after {
+    right: 0;
+    border: solid 8px transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-right-color: #ffffff;
+    top: 50%;
+    margin-top: -8px;
+}
+
+.themesia-panel .tscontent {position: relative;}
+
+.themesia-panel .tscontent .tsinner {
+    margin-left: 196px;
+    position: relative;
+    min-height: 400px;
+}
+
+.themesia-panel .tscontent .tsinner .tab-pane {
+    display: none;
+}
+
+.themesia-panel .tscontent .tsinner .tab-pane.active {
+    display: block;
+}
+
+.themesia-panel .tscontent .tsinner .tsfield {
+    position: relative;
+    padding: 30px;
+    border-bottom: 1px solid #eee;
+}
+
+.themesia-panel .tscontent .tsinner .tsfield:before {
+    content: " ";
+    display: table;
+}
+
+.themesia-panel .tscontent .tsinner .tsfield .tstitle {
+    position: relative;
+    width: 20%;
+    float: left;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.themesia-panel .tscontent .tsinner .tsfield .tstitle span {
+    display: block;
+    margin-top: 7px;
+    font-size: 13.5px;
+    font-weight: normal;
+    font-style: italic;
+    color: #747474;
+    letter-spacing: 0.5px;
+}
+
+.themesia-panel .tscontent .tsinner .tsfield .tsfieldset {
+    float: right;
+    width: calc(80% - 20px);
+}
+
+.themesia-panel .tscontent .tsinner .tsfield .tsfieldset img {
+    max-width: 195px;
+}
+
+.tsfooter {
+    z-index: 2;
+    padding: 25px;
+    position: relative;
+    text-align: right;
+    background: #23282d;
+}
+
+.tsfooter .cpr {
+    float: left;
+    color: #FFF;
+    font-size: 14px;
+    margin-top: 7px;
+}
+@media only screen and (max-width:920px) {
+    .themesia-panel .tsbody .tsmenu ul li a {
+        font-size: 0;
+        line-height: normal;
+        padding: 20px 25px;
+    }
+
+    .themesia-panel .tsbody .tsmenu ul li a .fa,.themesia-panel .tsbody .tsmenu ul li a .far,.themesia-panel .tsbody .tsmenu ul li a .fas {
+        font-size: 15px;
+    }
+
+    .themesia-panel .tsbody .tsmenu {
+        width: 65px;
+    }
+    .themesia-panel .tscontent .tsinner {
+        margin-left: 70px;
+    }
+    .themesia-panel .tscontent .tsinner .tsfield .tstitle {
+        float: none;
+        width: auto;
+        margin-bottom: 10px;
+    }
+
+    .themesia-panel .tscontent .tsinner .tsfield .tsfieldset {
+        float: none;
+        width: auto;
+    }
+}
+@media only screen and (max-width:650px) {
+    .themesia-panel .tscontent .tsinner .tsfield {
+        padding: 15px;
+    }
+    .themesia-panel .tscontent .tsinner .tsfield .tsfieldset input[type=text] {
+        width: 100%;
+        margin-bottom: 7px;
+    }
+    .tsfooter .cpr {
+        display: none;
+    }
+    .tsfooter {
+        text-align: center;
+    }
+}
